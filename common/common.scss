@@ -60,18 +60,22 @@ footer{
   text-align: right;
   color: #ffffff;
   }
-  .footer-nav-container{
+  .footer-nav-container-left{
     display: flex;
     div{
       margin-right: 30px;
+    }
+  }
+  .footer-nav-container-right{
+    display: flex;
+    margin-left: auto;
+    div{
+      margin-left: 30px;
     }
   }
   .footer-container{
     display: flex;
     align-items: center;
     height: 100%;
-    div:last-child{
-      border:solid red 1px;
-    }
   }
 }
