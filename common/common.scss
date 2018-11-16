@@ -70,7 +70,7 @@ footer{
     display: flex;
     align-items: center;
     height: 100%;
-    :last-child{
+    div:last-child{
       border:solid red 1px;
     }
   }
