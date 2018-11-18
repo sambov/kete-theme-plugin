@@ -4,7 +4,6 @@ html {
   font-weight: 300;
   font-size: 1rem;
   @media only screen and (max-width: 767px) {
-
   }
 }
 
@@ -65,9 +64,6 @@ footer {
     letter-spacing: normal;
     text-align: right;
     color: #ffffff;
-    @media only screen and (max-width: 767px) {
-      margin-bottom: 6px;
-    }
   }
   .footer-nav-container-left {
     display: flex;
@@ -78,6 +74,11 @@ footer {
     }
     div {
       margin-right: 30px;
+    }
+  }
+  .footer-nav-container-left > div {
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 6px;
     }
   }
   .footer-nav-container-right {
@@ -95,7 +96,7 @@ footer {
         margin-left: 0;
       }
     }
-    .footer-social-media{
+    .footer-social-media {
       display: flex;
       @media only screen and (max-width: 767px) {
         margin: 15px 0;
