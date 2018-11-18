@@ -79,14 +79,18 @@ footer {
   }
   .footer-nav-container-right {
     display: flex;
-    margin-left: auto;
+    //margin-left: auto;
+    align-self: flex-end;
     flex-direction: row;
     @media only screen and (max-width: 767px) {
       flex-direction: column;
-      margin-right: auto;
+      align-self: flex-start;
     }
     div {
       margin-left: 30px;
+      @media only screen and (max-width: 767px) {
+        margin-left: 0;
+      }
     }
   }
   .footer-container {
@@ -96,7 +100,7 @@ footer {
     flex-direction: row;
     @media only screen and (max-width: 767px) {
       flex-direction: column;
-      justify-content: flex-start;
+      align-items: flex-start;
     }
   }
 }
