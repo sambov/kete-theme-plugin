@@ -65,6 +65,9 @@ footer {
     letter-spacing: normal;
     text-align: right;
     color: #ffffff;
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 6px;
+    }
   }
   .footer-nav-container-left {
     display: flex;
@@ -91,6 +94,9 @@ footer {
       @media only screen and (max-width: 767px) {
         margin-left: 0;
       }
+    }
+    .footer-social-media{
+      display: flex;
     }
   }
   .footer-container {
