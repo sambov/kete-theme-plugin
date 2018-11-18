@@ -1,6 +1,6 @@
 //use Roboto font
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto-light", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   @media only screen and (max-width: 767px) {
@@ -12,7 +12,7 @@ body input,
 body button,
 body select,
 body textarea {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto-light", Helvetica, Arial, sans-serif;
 }
 
 @mixin boxShadow {
