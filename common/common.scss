@@ -2,6 +2,10 @@
 html {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  font-size: 1rem;
+  @media only screen and (max-width: 767px) {
+    
+  }
 }
 
 body input,
@@ -46,34 +50,46 @@ body textarea {
   height: auto;
 }
 
-footer{
+footer {
   height: 90px;
   background-color: #324164;
-  a{
-  //font-family: Roboto;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  text-align: right;
-  color: #ffffff;
+  @media only screen and (max-width: 767px) {
+    height: auto;
   }
-  .footer-nav-container-left{
+  a {
+    //font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: right;
+    color: #ffffff;
+  }
+  .footer-nav-container-left {
     display: flex;
-    div{
+    flex-direction: row;
+    @media only screen and (max-width: 767px) {
+      flex-direction: column;
+    }
+    div {
       margin-right: 30px;
     }
   }
-  .footer-nav-container-right{
+  .footer-nav-container-right {
     display: flex;
     margin-left: auto;
-    div{
+    flex-direction: row;
+    @media only screen and (max-width: 767px) {
+      flex-direction: column;
+      margin-right: auto;
+    }
+    div {
       margin-left: 30px;
     }
   }
-  .footer-container{
+  .footer-container {
     display: flex;
     align-items: center;
     height: 100%;
