@@ -53,8 +53,13 @@ body textarea {
 #keteHeader {
   .header-container{
     display: flex;
+    height: 90px;
+    align-items: center;
     .navbar {
       margin-left: auto;
+      a{
+        margin-left: 30px;
+      }
     }
   }
 }
