@@ -49,6 +49,17 @@ body textarea {
   height: auto;
 }
 
+//Header
+#keteHeader {
+  .header-container{
+    display: flex;
+    .navbar {
+      margin-left: auto;
+    }
+  }
+}
+
+//Footer
 #keteFooter {
   height: 90px;
   background-color: #324164;
