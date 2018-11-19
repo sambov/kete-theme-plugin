@@ -3,6 +3,7 @@ html {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 1rem;
+  color: #324164;
   @media only screen and (max-width: 767px) {
   }
 }
@@ -12,6 +13,10 @@ body button,
 body select,
 body textarea {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+a{
+ color: #324164
 }
 
 @mixin boxShadow {
