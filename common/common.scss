@@ -115,7 +115,7 @@ a{
   .footer-nav-container-right {
     display: flex;
     //margin-left: auto;
-    align-self: flex-end;
+    justify-self: flex-end;
     flex-direction: row;
     @media only screen and (max-width: 767px) {
       flex-direction: column;
