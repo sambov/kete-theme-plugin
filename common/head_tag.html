@@ -2,6 +2,17 @@
 
   <script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', 'Hello');
+        return helper.h(
+            "li.headerLink." + seg[3] + "." + seg[5],
+            helper.h(
+              "a",
+              {
+                href: seg[2],
+                title: seg[1],
+                target: seg[4]
+              },
+              seg[0]
+            )
+          );
     });
   </script>
