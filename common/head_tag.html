@@ -6,10 +6,10 @@
 <script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li', [
-            helper.h('a.icon', {
+            helper.h('a', {
                 href:'https://foo.bar.com/',
                 title: 'Foobar'
-            }, helper.h('p.test', 'Learn')),
+            }, helper.h('p.nav-item', 'Learn')),
         ]);
     });
 </script>
@@ -17,20 +17,20 @@
 <script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li', [
-            helper.h('a.icon', {
+            helper.h('a', {
                 href:'https://foo.bar.com/',
                 title: 'Foobar'
-            }, helper.h('p.test', 'Learn')),
+            }, helper.h('p.nav-item', 'Forum')),
         ]);
     });
 </script>
 <script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li', [
-            helper.h('a.icon', {
+            helper.h('a', {
                 href:'https://foo.bar.com/',
                 title: 'Foobar'
-            }, helper.h('p.test', 'Learn')),
+            }, helper.h('p.nav-item', 'Plan')),
         ]);
     });
 </script>
