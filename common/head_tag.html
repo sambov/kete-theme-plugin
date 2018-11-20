@@ -2,11 +2,6 @@
 
   <script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', [
-            helper.h('a', {
-                href:'https://foo.bar.com/',
-                title: 'Foobar'
-            }, helper.h('test')),
-        ]);
+        return helper.h('p', 'Hello');
     });
   </script>
