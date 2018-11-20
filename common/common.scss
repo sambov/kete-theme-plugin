@@ -117,6 +117,7 @@ a{
     //margin-left: auto;
     justify-self: flex-end;
     flex-direction: row;
+    align-items: center;
     @media only screen and (max-width: 767px) {
       flex-direction: column;
       align-self: flex-start;
@@ -129,6 +130,7 @@ a{
     }
     .footer-social-media {
       display: flex;
+      margin-left: 0;
       @media only screen and (max-width: 767px) {
         margin: 15px 0;
       }
