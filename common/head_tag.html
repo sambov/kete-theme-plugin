@@ -1,10 +1,16 @@
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500"
+  rel="stylesheet"
+/>
 
-  <script type="text/discourse-plugin" version="0.8">
+<script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
-        return helper.h(name: "link-to-movies-category",
-        displayName: "movies",
-        href: "/c/movies",
-        title: "link title");
+        return helper.h('li', [
+            helper.h('a.icon', {
+                href:'https://foo.bar.com/',
+                title: 'Foobar',
+                content: 'Doom'
+            }),
+        ]);
     });
-  </script>
+</script>
