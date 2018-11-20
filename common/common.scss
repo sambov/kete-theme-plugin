@@ -114,8 +114,8 @@ a{
   }
   .footer-nav-container-right {
     display: flex;
-    //margin-left: auto;
-    justify-self: flex-end;
+    margin-left: auto;
+    //justify-self: flex-end;
     flex-direction: row;
     align-items: center;
     @media only screen and (max-width: 767px) {
