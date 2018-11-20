@@ -7,8 +7,7 @@
     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li', [
             helper.h('a', {
-                href:'https://foo.bar.com/',
-                title: 'Foobar'
+                href:'https://kete.nzte.govt.nz/learn',
             }, helper.h('p.nav-item', 'Learn')),
         ]);
     });
@@ -18,19 +17,23 @@
     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li', [
             helper.h('a', {
-                href:'https://foo.bar.com/',
-                title: 'Foobar'
+                href:'/#',
             }, helper.h('p.nav-item', 'Forum')),
         ]);
     });
 </script>
+
 <script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li', [
             helper.h('a', {
-                href:'https://foo.bar.com/',
-                title: 'Foobar'
+                href:'https://kete.nzte.govt.nz/company',
             }, helper.h('p.nav-item', 'Plan')),
         ]);
     });
 </script>
+
+
+<script type="text/x-handlebars" data-template-name="/connectors/below-footer/foobar">
+    <div style="height: 200px; width: 200px;background: red"></div>
+  </script>
