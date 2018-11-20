@@ -2,17 +2,19 @@
 
   <script type="text/discourse-plugin" version="0.8">
     api.decorateWidget('header-icons:before', helper => {
-        return helper.h(
-            "li.headerLink." + seg[3] + "." + seg[5],
-            helper.h(
-              "a",
-              {
-                href: seg[2],
-                title: seg[1],
-                target: seg[4]
-              },
-              seg[0]
-            )
+        return helper.h({{mount-widget widget="my-first-widget"}}
           );
+    });
+  </script>
+
+  <script type="text/discourse-plugin" version="0.8">
+    const h = require("virtual-dom").h;
+  
+    api.createWidget("my-first-widget", {
+      tagName: "div.my-widget",
+  
+      html() {
+        return h('h1', "Hello World!");
+      }
     });
   </script>
