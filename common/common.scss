@@ -64,20 +64,20 @@ a{
   height: auto;
 }
 
-//Header
-// #keteHeader {
-//   .header-container{
-//     display: flex;
-//     height: 90px;
-//     align-items: center;
-//     .navbar {
-//       margin-left: auto;
-//       a{
-//         margin-left: 30px;
-//       }
-//     }
-//   }
-// }
+Header
+#keteHeader {
+  .header-container{
+    display: flex;
+    height: 90px;
+    align-items: center;
+    .navbar {
+      margin-left: auto;
+      a{
+        margin-left: 30px;
+      }
+    }
+  }
+}
 
 #site-logo{
   display: none;
