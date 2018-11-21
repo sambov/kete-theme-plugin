@@ -94,7 +94,7 @@ a{
   display: flex;
   align-content: center;
 }
-.d-header:first-child{
+.d-header > div:first-child{
   width: 100%;
 }
 
