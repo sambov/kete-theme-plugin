@@ -6,5 +6,17 @@
     "logo" : "assets/nzgovt.png"
   },
   "color_schemes": {
+    "nzte": {
+      "primary": "324164",
+      "secondary": "2a7ab0",
+      "tertiary": "58c7dd",
+      "quaternary": "dc143c",
+      "header_background": "ffffff",
+      "header_primary": "ffffff",
+      "highlight": "B58900",
+      "danger": "dc143c",
+      "success": "94c82c",
+      "love": "DC322F"
+    }
   }
 }
