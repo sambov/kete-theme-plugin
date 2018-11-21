@@ -9,37 +9,19 @@
             helper.h('a', {
                 href:'https://kete.nzte.govt.nz/learn',
             }, helper.h('p.nav-item', 'Learn')),
-        ]);
-    });
-</script>
 
-<script type="text/discourse-plugin" version="0.8">
-    api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', [
             helper.h('a', {
                 href:'/#',
             }, helper.h('p.nav-item', 'Forum')),
-        ]);
-    });
-</script>
-
-<script type="text/discourse-plugin" version="0.8">
-    api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', [
-            helper.h('a', {
+helper.h('a', {
                 href:'https://kete.nzte.govt.nz/company',
             }, helper.h('p.nav-item', 'Plan')),
+
         ]);
     });
 </script>
 
 
-
-<script type="text/discourse-plugin" version="0.8">
-    api.decorateWidget('home-logo:after', helper => {
-        return <div style="height: 200px; width: 200px;background: red"></div>
-    });
-</script>
 
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
