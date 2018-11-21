@@ -196,21 +196,22 @@ a{
   }
 }
 
+//profile dropdown
+
 .profile-dropdown {
   margin-left: 30px;
 }
 
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+.profile-avatar{
+  border-radius: 100%;
+  margin-right: 15px;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+.dropbtn {
+  color: #324164;
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
 .dropdown {
