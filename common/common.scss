@@ -66,6 +66,7 @@ a{
 
 //Header
 #keteHeader {
+  margin-bottom: 0;
   .header-container{
     display: flex;
     height: 90px;
@@ -205,6 +206,10 @@ a{
 .profile-avatar{
   border-radius: 100%;
   margin-right: 15px;
+}
+
+.profile-arrow{
+  padding-bottom: 3px;
 }
 
 .dropbtn {
