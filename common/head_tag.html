@@ -47,12 +47,13 @@
 
 <script type="text/discourse-plugin" version="0.4">
     api.decorateWidget('home-logo:before', helper => {
-        return helper.h('li', [
-            helper.h('a#home-button.icon', {
-                href:'https://www.google.com/',
-                title: 'Google'
-            }, helper.h('i.fa.fa-arrow-circle-up.home-button-icon.d-icon')),
-        ]);
+        return helper.h('a', {
+            href:'/'
+        }, [
+            helper.h('img.main-logo', {
+                src:'https://ketedev.nzte.govt.nz/nztelogo.png'
+            })    
+        ])
     });
     </script>
 
