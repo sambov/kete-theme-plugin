@@ -33,18 +33,6 @@
     });
 </script>
 
-
-
-<script type="text/discourse-plugin" version="0.8">
-    api.decorateWidget('home-logo:after', helper => {
-        return helper.h('li', [
-            helper.h('a', {
-                href:'https://kete.nzte.govt.nz/company',
-            }, helper.h('p.nav-item', 'Plan')),
-        ]);
-    });
-</script>
-
 <script type="text/discourse-plugin" version="0.4">
     api.decorateWidget('home-logo:before', helper => {
         return helper.h('a', {
@@ -55,7 +43,7 @@
             })    
         ])
     });
-    </script>
+</script>
 
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
