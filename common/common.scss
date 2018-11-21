@@ -65,19 +65,19 @@ a{
 }
 
 //Header
-#keteHeader {
-  .header-container{
-    display: flex;
-    height: 90px;
-    align-items: center;
-    .navbar {
-      margin-left: auto;
-      a{
-        margin-left: 30px;
-      }
-    }
-  }
-}
+// #keteHeader {
+//   .header-container{
+//     display: flex;
+//     height: 90px;
+//     align-items: center;
+//     .navbar {
+//       margin-left: auto;
+//       a{
+//         margin-left: 30px;
+//       }
+//     }
+//   }
+// }
 
 .nav-item{
   margin-left: 15px;
@@ -92,7 +92,7 @@ a{
 .d-header{
   height: 90px;
   display: flex;
-  align-content: center;
+  align-items: center;
 }
 .d-header > div:first-child{
   width: 100%;
