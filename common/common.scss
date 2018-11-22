@@ -170,10 +170,13 @@ a {
 
 .mobile-nav-profile {
   background: #f2f4f7;
-  border: solid 1px #324164;
+  border-top: solid 1px #324164;
+  border-bottom: solid 1px #324164;
+  margin-left: 0;
+  padding: 15px 20px;
 }
 .mobile-nav-section {
-  border: solid 1px #324164;
+  border-bottom: solid 3px #324164;
 }
 
 //Discourse header
