@@ -209,7 +209,9 @@ a {
   display: none;
 }
 .nav-dropdown-item {
-  border:solid .5px red;
+  display: block;
+  padding: 15px 20px;
+  box-shadow: 0 1px 0 0 #d8d8d8;
 }
 
 //Footer
