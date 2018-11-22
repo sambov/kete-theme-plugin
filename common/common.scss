@@ -71,10 +71,19 @@ a {
     display: flex;
     min-height: 90px;
     align-items: center;
+    @media only screen and (max-width: 767px) {
+      min-height: 65px;
+    }
     .header-logo{
       margin-left: 0;
       @media only screen and (max-width: 767px) {
         margin-left: auto;
+      }
+      img{
+        width: 168px;
+        @media only screen and (max-width: 767px) {
+          width: 100px;
+        }
       }
     }
     .nav-container {
@@ -91,6 +100,68 @@ a {
       }
     }
   }
+}
+
+//profile dropdown
+
+.profile-dropdown {
+  margin-left: 30px;
+}
+
+.profile-avatar {
+  border-radius: 100%;
+  margin-right: 15px;
+}
+
+.profile-arrow {
+  padding-bottom: 3px;
+}
+
+.dropbtn {
+  color: #324164;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  float: right;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  z-index: 1;
+  margin-top: 23px;
+  border: solid #324164 2px;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  right: 150px;
+  @media only screen and (max-width: 1100px) {
+    right: 0;
+  }
+}
+
+.dropdown-content a {
+  padding: 15px;
+  text-decoration: none;
+  display: block;
+  background: white;
+  border-bottom: solid 1px #d8d8d8;
+  width: 264px;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
 }
 
 //Discourse header
@@ -238,67 +309,7 @@ a {
   }
 }
 
-//profile dropdown
 
-.profile-dropdown {
-  margin-left: 30px;
-}
-
-.profile-avatar {
-  border-radius: 100%;
-  margin-right: 15px;
-}
-
-.profile-arrow {
-  padding-bottom: 3px;
-}
-
-.dropbtn {
-  color: #324164;
-  padding: 0;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown {
-  float: right;
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  z-index: 1;
-  margin-top: 23px;
-  border: solid #324164 2px;
-  border-top: 0;
-  border-radius: 0 0 5px 5px;
-  right: 150px;
-  @media only screen and (max-width: 1100px) {
-    right: 0;
-  }
-}
-
-.dropdown-content a {
-  padding: 15px;
-  text-decoration: none;
-  display: block;
-  background: white;
-  border-bottom: solid 1px #d8d8d8;
-  width: 264px;
-}
-
-.dropdown a:hover {
-  background-color: #ddd;
-}
-
-.show {
-  display: block;
-}
 
 
 
