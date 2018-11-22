@@ -2,26 +2,45 @@
     <div class="wrap header-container">
 
             
-                    <span class="navbar-toggle" id="js-navbar-toggle">
-                            <span>doom</span>
-                        </span>
-                    <ul class="main-nav" id="js-menu">
-                      <li>
-                        <a href="#" class="nav-links">Home</a>
-                      </li>
-                      <li>
-                        <a href="#" class="nav-links">Products</a>
-                      </li>
-                      <li>
-                        <a href="#" class="nav-links">About Us</a>
-                      </li>
-                      <li>
-                        <a href="#" class="nav-links">Contact Us</a>
-                      </li>
-                      <li>
-                        <a href="#" class="nav-links">Blog</a>
-                      </li>
-                    </ul>
+            <a href="#main-menu"
+            class="menu-toggle"
+            role="button"
+            id="main-menu-toggle"
+            aria-expanded="false"
+            aria-controls="main-menu"
+            aria-label="Open main menu">
+           <span class="sr-only">Open main menu</span>
+           <span class="fa fa-bars" aria-hidden="true"></span>
+         </a>
+         
+         <h1 class="logo">hamburgers</h1>
+         
+         <nav id="main-menu"
+              class="main-menu"
+              role="navigation"
+              aria-expanded="false"
+              aria-label="Main menu">
+           <a href="#main-menu-toggle"
+              class="menu-close"
+              role="button"
+              id="main-menu-close"
+              aria-expanded="false"
+              aria-controls="main-menu"
+              aria-label="Close main menu">
+             <span class="sr-only">Close main menu</span>
+             <span class="fa fa-close" aria-hidden="true"></span>
+           </a>
+           <ul>
+             <li><a href="#">Products</a></li>
+             <li><a href="#">About</a></li>
+             <li><a href="#">Contact</a></li>
+           </ul>
+         </nav>
+         <a href="#main-menu-toggle"
+            class="backdrop"
+            tabindex="-1"
+            aria-hidden="true"
+            hidden></a>
                  
         
 
