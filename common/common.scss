@@ -335,13 +335,13 @@ a {
 .topnav a.icon {
   background: black;
   display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
+  // position: absolute;
+  // right: 0;
+  // top: 0;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: transparent;
   color: black;
 }
 
