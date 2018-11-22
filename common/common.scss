@@ -199,6 +199,10 @@ a {
       }
     }
     .footer-logo {
+      @media only screen and (max-width: 1410px) {
+        width: 100px;
+        margin-left: 0;
+      }
       @media only screen and (max-width: 767px) {
         margin-right: auto;
       }
