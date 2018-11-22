@@ -179,6 +179,10 @@ a {
   border-bottom: solid 3px #324164;
 }
 
+.mobile-nav-section > div:last-child {
+  border: solid 3px red;
+}
+
 //Discourse header
 #site-logo {
   display: none;
