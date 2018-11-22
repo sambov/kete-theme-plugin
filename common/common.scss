@@ -15,8 +15,8 @@ body textarea {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
-a{
- color: #324164
+a {
+  color: #324164;
 }
 
 @mixin boxShadow {
@@ -33,7 +33,7 @@ a{
   @include boxShadow;
 }
 
-.wrap{
+.wrap {
   max-width: 1400px;
   margin-left: 150px;
   margin-right: 150px;
@@ -67,13 +67,13 @@ a{
 //Header
 #keteHeader {
   margin-bottom: 0;
-  .header-container{
+  .header-container {
     display: flex;
     height: 90px;
     align-items: center;
     .navbar {
       margin-left: auto;
-      .nav-link{
+      .nav-link {
         margin-left: 30px;
       }
     }
@@ -81,43 +81,45 @@ a{
 }
 
 //Discourse header
-#site-logo{
+#site-logo {
   display: none;
 }
 
-.nav-item{
+.nav-item {
   margin-left: 15px;
   margin-right: 15px;
   color: #324164;
 }
-.nav-item:hover{
+.nav-item:hover {
   color: #324164;
 }
-.is-active{
-    border-bottom: 3px solid #58c7dd!important;
-    background-color: initial!important;
-    padding-bottom: 7px!important;
-    font-weight: 700;
-  }
+.is-active {
+  border-bottom: 3px solid #58c7dd !important;
+  background-color: initial !important;
+  padding-bottom: 7px !important;
+  font-weight: 700;
+}
 
-.main-logo{
+.main-logo {
   width: 168px;
   height: auto;
 }
 
-.d-header{
+.d-header {
   height: 90px;
   display: flex;
   align-items: center;
 }
-.d-header-icons>li {
+.d-header-icons > li {
   padding-top: 3px;
 }
-.d-header > div:first-child{
+.d-header > div:first-child {
   width: 100%;
 }
 
-.d-header{display: none}
+.d-header {
+  display: none;
+}
 
 //Footer
 #keteFooter {
@@ -146,7 +148,7 @@ a{
     }
     @media only screen and (max-width: 767px) {
       flex-direction: column;
-      margin-bottom: 0
+      margin-bottom: 0;
     }
     div {
       margin-right: 30px;
@@ -163,21 +165,18 @@ a{
     //justify-self: flex-end;
     flex-direction: row;
     align-items: center;
-    @media only screen and (max-width: 1100px) {
+    @media only screen and (max-width: 1410px) {
       flex-wrap: wrap;
-      margin-left:0;
+      margin-left: 0;
     }
     @media only screen and (max-width: 767px) {
       flex-direction: column;
       align-self: flex-start;
-      margin-left: 0;;
+      margin-left: 0;
     }
     div {
-      //margin-left: 15px;
-      
-        margin-left: 7.5;
-        margin-right: 7.5;
-      
+      margin-left: 7.5px;
+      margin-right: 7.5px;
       @media only screen and (max-width: 767px) {
         margin-left: 0;
         margin-right: 15px;
@@ -185,10 +184,11 @@ a{
     }
     .footer-social-media {
       display: flex;
-      margin-left: 0;
-      div{
-        margin-left: 7.5;
-        margin-right: 7.5;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      div {
+        margin-left: 7.5px;
+        margin-right: 7.5px;
       }
       @media only screen and (max-width: 767px) {
         margin: 15px 0;
@@ -208,7 +208,6 @@ a{
     flex-direction: row;
     flex-wrap: wrap;
     @media only screen and (max-width: 1100px) {
-
     }
     @media only screen and (max-width: 767px) {
       flex-direction: column;
@@ -224,12 +223,12 @@ a{
   margin-left: 30px;
 }
 
-.profile-avatar{
+.profile-avatar {
   border-radius: 100%;
   margin-right: 15px;
 }
 
-.profile-arrow{
+.profile-arrow {
   padding-bottom: 3px;
 }
 
@@ -272,6 +271,10 @@ a{
   width: 264px;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
-.show {display: block;}
+.show {
+  display: block;
+}
