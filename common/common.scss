@@ -71,8 +71,19 @@ a {
     display: flex;
     height: 90px;
     align-items: center;
-    .nav-container{
+    .header-logo{
+      margin-left: 0;
+      @media only screen and (max-width: 767px) {
+        margin-left: auto;
+      }
+    }
+    .nav-container {
       margin-left: auto;
+      display: flex;
+      align-items: center;
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
     }
     .navbar {
       .nav-link {
@@ -177,8 +188,8 @@ a {
       align-self: flex-start;
       margin-left: 0;
     }
-    .footer-subscribe{
-      margin-left: 0!important;
+    .footer-subscribe {
+      margin-left: 0 !important;
     }
     div {
       margin-left: 7.5px;
