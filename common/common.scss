@@ -332,16 +332,16 @@ a:visited {
       }
       @media only screen and (max-width: 767px) {
         margin: 15px 0;
-        margin-right: auto;
+        margin-right: auto!important;
       }
     }
     .footer-logo {
       @media only screen and (max-width: 1410px) {
-        width: 100%;
+        // width: 100;
         margin-left: 0;
       }
       @media only screen and (max-width: 767px) {
-        margin-right: auto;
+        margin-right: auto!important;
       }
     }
   }
