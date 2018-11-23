@@ -262,8 +262,6 @@ a:visited {
 #keteFooter {
   height: 90px;
   background-color: #324164;
-  padding-top: 30px;
-  padding-bottom: 30px;
   @media only screen and (max-width: 767px) {
     height: auto;
   }
@@ -311,6 +309,7 @@ a:visited {
       flex-direction: column;
       align-self: flex-start;
       margin-left: 0;
+      padding-top: 30px;
     }
     .footer-subscribe {
       margin-left: 0 !important;
@@ -319,8 +318,8 @@ a:visited {
       margin-left: 7.5px;
       margin-right: 7.5px;
       @media only screen and (max-width: 767px) {
-        margin-left: 0;
-        margin-right: 15px;
+        margin-left: 0!important;
+        margin-right: 15px!important;
       }
     }
     .footer-social-media {
