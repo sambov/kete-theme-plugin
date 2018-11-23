@@ -76,10 +76,10 @@ a:visited {
   margin-bottom: 0;
   .header-container {
     display: flex;
-    min-height: 90px;
+    height: 90px;
     align-items: center;
     @media only screen and (max-width: 767px) {
-      min-height: 65px;
+      height: 65px;
     }
     .header-logo {
       margin-left: 0;
