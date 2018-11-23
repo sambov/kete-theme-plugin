@@ -8,6 +8,13 @@ html {
   }
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body input,
 body button,
 body select,
