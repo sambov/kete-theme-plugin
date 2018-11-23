@@ -143,6 +143,12 @@ a:visited {
   .mobile-nav-section > a:last-child {
     box-shadow: none !important;
   }
+  .nav-dropdown-item {
+    display: block;
+    padding: 15px 0px;
+    margin: 0 15px;
+    box-shadow: 0 1px 0 0 #d8d8d8;
+  }
 }
 #mobileNav > a:last-child {
   box-shadow: none !important;
@@ -250,12 +256,7 @@ a:visited {
 .d-header {
   display: none;
 }
-.nav-dropdown-item {
-  display: block;
-  padding: 15px 0px;
-  margin: 0 15px;
-  box-shadow: 0 1px 0 0 #d8d8d8;
-}
+
 
 //Footer
 #keteFooter {
