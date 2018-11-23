@@ -3,93 +3,75 @@
   rel="stylesheet"
 />
 
-<!-- <script type="text/discourse-plugin" version="0.8">
-    api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', [
-            helper.h('a', {
-                href:'https://kete.nzte.govt.nz/learn',
-            }, helper.h('p.nav-item', 'Learn')),
-        ]);
-    });
+<!--
+  <script type="text/discourse-plugin" version="0.8">
+      api.decorateWidget('header-icons:before', helper => {
+          return helper.h('li', [
+              helper.h('a', {
+                  href:'https://kete.nzte.govt.nz/learn',
+              }, helper.h('p.nav-item', 'Learn')),
+          ]);
+      });
+  </script>
+
+  <script type="text/discourse-plugin" version="0.8">
+      api.decorateWidget('header-icons:before', helper => {
+          return helper.h('li', [
+              helper.h('a', {
+                  href:'/#',
+              }, helper.h('p.nav-item.is-active', 'Forum')),
+          ]);
+      });
+  </script>
+
+  <script type="text/discourse-plugin" version="0.8">
+      api.decorateWidget('header-icons:before', helper => {
+          return helper.h('li', [
+              helper.h('a', {
+                  href:'https://kete.nzte.govt.nz/company',
+              }, helper.h('p.nav-item', 'Plan')),
+          ]);
+      });
+  </script>
+
+  <script type="text/discourse-plugin" version="0.4">
+      api.decorateWidget('home-logo:before', helper => {
+          return helper.h('a', {
+              href:'https://kete.nzte.govt.nz/'
+          }, [
+              helper.h('img.main-logo', {
+                  src:'https://ketedev.nzte.govt.nz/nztelogo.png'
+              })
+          ])
+      });
+  </script>
+-->
+
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/below-site-header/foobar"
+>
+  <div style="width: 100%; height: 300px; background-image: linear-gradient(to right, #324164, #0f1f46); color: white; display: flex; padding-bottom: 30px; align-items: flex-end;">
+      <div class="wrap">
+          <h1>Kete Community</h1>
+          <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
+      </div>
+  </div>
 </script>
-
-<script type="text/discourse-plugin" version="0.8">
-    api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', [
-            helper.h('a', {
-                href:'/#',
-            }, helper.h('p.nav-item.is-active', 'Forum')),
-        ]);
-    });
-</script>
-
-<script type="text/discourse-plugin" version="0.8">
-    api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', [
-            helper.h('a', {
-                href:'https://kete.nzte.govt.nz/company',
-            }, helper.h('p.nav-item', 'Plan')),
-        ]);
-    });
-</script>
-
-<script type="text/discourse-plugin" version="0.4">
-    api.decorateWidget('home-logo:before', helper => {
-        return helper.h('a', {
-            href:'https://kete.nzte.govt.nz/'
-        }, [
-            helper.h('img.main-logo', {
-                src:'https://ketedev.nzte.govt.nz/nztelogo.png'
-            })    
-        ])
-    });
-</script> -->
-
-
-<script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
-    <div style="width: 100%; height: 300px; background-image: linear-gradient(to right, #324164, #0f1f46); color: white; display: flex; padding-bottom: 30px; align-items: flex-end;">
-        <div class="wrap">
-            <h1>Kete Community</h1>
-            <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
-        </div>
-    </div>
-</script>
-
 
 <script>
-    /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+</script>
+
+<script>
+  function navFunction() {
+    var x = document.getElementById("mobileNav");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
-    
-    // Close the dropdown if the user clicks outside of it
-    /*window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        console.log('dropdowns', dropdowns)
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          console.log('openDropdown.classList', openDropdown.classList)
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          } else {
-            openDropdown.classList.add("show");
-          }
-        }
-      }
-    }*/
-    </script>
-
-
-<script>
-        function navFunction() {
-          var x = document.getElementById("mobileNav");
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
-          }
-        }
-        </script>
-    
+  }
+</script>
