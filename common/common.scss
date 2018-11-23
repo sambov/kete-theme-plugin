@@ -11,7 +11,9 @@ html {
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -119,7 +121,11 @@ a:visited {
 }
 
 #mobileNav {
+  display: none;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  @media only screen and (max-width: 767px) {
+    display: block;
+  }
   .mobile-nav-profile {
     background: #f2f4f7;
     border-top: solid 1px #324164;
