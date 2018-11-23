@@ -318,7 +318,10 @@ a:visited {
     .footer-subscribe {
       margin-left: 0 !important;
       min-width: 192px;
-      margin-right: auto!important;
+      
+      @media only screen and (max-width: 767px) {
+        margin-right: auto!important;
+      }
     }
     div {
       margin-left: 7.5px;
