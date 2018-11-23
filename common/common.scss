@@ -85,8 +85,10 @@ a:visited {
     display: flex;
     height: 90px;
     align-items: center;
+    padding-top: 0;
     @media only screen and (max-width: 767px) {
       height: 65px;
+      padding-top: 20px;
     }
     .header-logo {
       margin-left: 0;
