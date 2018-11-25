@@ -24,6 +24,22 @@ body textarea {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
+h1, h2, h3, h4{
+  font-family: Gotham;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.07;
+  letter-spacing: normal;
+  color: #324164;
+}
+h1 {
+  font-size: 3.4375rem;
+}
+h2 {
+  font-size: 1.875rem;
+}
+
 a {
   color: #324164;
 }
