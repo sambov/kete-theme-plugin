@@ -3,7 +3,7 @@ html {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 1rem;
-  color: #324164;
+  color: #252525;
   @media only screen and (max-width: 767px) {
   }
 }
@@ -34,7 +34,7 @@ h4 {
   font-stretch: normal;
   line-height: 1.07;
   letter-spacing: normal;
-  color: #324164;
+  color: #252525;
 }
 h1 {
   font-size: 3.4375rem;
@@ -43,11 +43,21 @@ h2 {
   font-size: 1.875rem;
 }
 
+p {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #252525;
+}
+
 a {
-  color: #324164;
+  color: #252525;
 }
 a:visited {
-  color: #324164;
+  color: #252525;
 }
 
 @mixin boxShadow {
@@ -287,6 +297,10 @@ a:visited {
   align-items: flex-end;
   h1 {
     color: #ffffff;
+  }
+  p{
+    font-size: 1.125rem;
+    color: #ffffff
   }
 }
 
