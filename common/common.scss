@@ -306,6 +306,12 @@ a:visited {
 }
 
 //forum nav
+.list-controls {
+  section {
+    display: flex;
+    align-items: center;
+  }
+}
 .select-kit-header {
   width: 170px;
   height: 54px!important;
