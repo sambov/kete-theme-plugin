@@ -310,15 +310,7 @@ a:visited {
   li {
     margin-left: 30px;
     color: #324164;
-    a.active {
-      border-bottom: 3px solid #58c7dd !important;
-      background-color: initial !important;
-      padding-bottom: 7px !important;
-      font-weight: 700;
-      border: solid green 2px!important
-    }
   }
-  
 }
 .list-controls {
   section {
@@ -336,12 +328,12 @@ a:visited {
   }
 }
 li.active > a {
-    border-bottom: 3px solid #58c7dd !important;
-    background-color: initial !important;
-    padding-bottom: 7px !important;
-    font-weight: 700;
-    border: solid red 2px!important;
-  }
+  border-bottom: 3px solid #58c7dd !important;
+  background-color: initial !important;
+  padding-bottom: 7px !important;
+  font-weight: 700;
+}
+
 //Footer
 #keteFooter {
   height: 90px;
