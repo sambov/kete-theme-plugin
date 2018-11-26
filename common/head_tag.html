@@ -99,7 +99,7 @@
 </script> -->
 
 <script type="text/x-handlebars" data-template-name="components/d-navigation">
-<h1>doom2</h1>
+<h1>doom on you!</h1>
 {{bread-crumbs categories=categories category=category noSubcategories=noSubcategories}}
 
 {{#if showCategoryAdmin}}
@@ -128,5 +128,31 @@
     icon="wrench"
     label="category.edit_long"}}
 {{/if}}
-
 </script>
+
+<script type="text/x-handlebars" data-template-name="components/d-navigation">
+    <p>doom on you!</p>
+    {{
+        category-drop
+        category=firstCategory
+        categories=parentCategoriesSorted
+        countSubcategories=true
+      }}
+      
+      {{#if childCategories}}
+        {{category-drop
+          category=secondCategory
+          parentCategory=firstCategory
+          categories=childCategories
+          subCategory=true
+          noSubcategories=noSubcategories}}
+      {{/if}}
+      
+      {{#if siteSettings.tagging_enabled}}
+        {{tag-drop firstCategory=firstCategory secondCategory=secondCategory tagId=tagId}}
+      {{/if}}
+      
+      {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
+      
+      <div class='clear'></div>
+    </script>
