@@ -306,6 +306,18 @@ a:visited {
 }
 
 //forum nav
+.navigation-bar {
+  li {
+    margin-left: 30px;
+  color: #324164;
+    .active {
+      border-bottom: 3px solid #58c7dd !important;
+      background-color: initial !important;
+      padding-bottom: 7px !important;
+      font-weight: 700;
+    }
+  }
+}
 .list-controls {
   section {
     display: flex;
