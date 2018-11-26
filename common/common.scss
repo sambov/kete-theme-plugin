@@ -311,6 +311,12 @@ a:visited {
     margin-left: 30px;
     color: #324164;
   }
+  li.active > a {
+    border-bottom: 3px solid #58c7dd !important;
+    background-color: initial !important;
+    padding-bottom: 7px !important;
+    font-weight: 700;
+  }
 }
 .list-controls {
   section {
@@ -327,12 +333,7 @@ a:visited {
     font-size: 1rem;
   }
 }
-li.active > a {
-  border-bottom: 3px solid #58c7dd !important;
-  background-color: initial !important;
-  padding-bottom: 7px !important;
-  font-weight: 700;
-}
+
 
 //Footer
 #keteFooter {
