@@ -157,11 +157,38 @@
     <div class='clear'></div>
 </script>
 
-<script type="text/x-handlebars" data-template-name="topic-list-header.raw">
-    
-  </script>
-
   <script type="text/x-handlebars" data-template-name="components/topic-list">
-    <h1>doom</h1>
+
+{{plugin-outlet
+  name="before-topic-list-body"
+  args=(hash
+    topics=topics
+    selected=selected
+    bulkSelectEnabled=bulkSelectEnabled
+    lastVisitedTopic=lastVisitedTopic
+    discoveryList=discoveryList
+    hideCategory=hideCategory)
+  tagName=""
+  connectorTagName=""}}
+
+<tbody>
+  {{#each filteredTopics as |topic|}}
+    {{topic-list-item topic=topic
+                      bulkSelectEnabled=bulkSelectEnabled
+                      showTopicPostBadges=showTopicPostBadges
+                      hideCategory=hideCategory
+                      showPosters=showPosters
+                      showParticipants=showParticipants
+                      showLikes=showLikes
+                      showOpLikes=showOpLikes
+                      expandGloballyPinned=expandGloballyPinned
+                      expandAllPinned=expandAllPinned
+                      lastVisitedTopic=lastVisitedTopic
+                      selected=selected
+                      tagsForUser=tagsForUser}}
+    {{raw "list/visited-line" lastVisitedTopic=lastVisitedTopic topic=topic}}
+  {{/each}}
+</tbody>
+
 
   </script>
