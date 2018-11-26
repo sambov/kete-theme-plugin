@@ -310,6 +310,9 @@ a:visited {
   li {
     margin-left: 30px;
     color: #324164;
+    a{
+      padding: 0!important;
+    }
   }
   li.active > a {
     border-bottom: 3px solid #58c7dd !important;
