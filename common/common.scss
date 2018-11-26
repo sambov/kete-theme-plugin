@@ -298,7 +298,7 @@ a:visited {
   h1 {
     color: #ffffff;
   }
-  p{
+  p {
     font-size: 1.125rem;
     color: #ffffff;
     max-width: 570px;
@@ -309,13 +309,19 @@ a:visited {
 #navigation-bar {
   li {
     margin-left: 30px;
-  color: #324164;
+    color: #324164;
     a.active {
       border-bottom: 3px solid #58c7dd !important;
       background-color: initial !important;
       padding-bottom: 7px !important;
       font-weight: 700;
     }
+  }
+  .nav-pills > li.active > a {
+    border-bottom: 3px solid #58c7dd !important;
+    background-color: initial !important;
+    padding-bottom: 7px !important;
+    font-weight: 700;
   }
 }
 .list-controls {
@@ -326,9 +332,9 @@ a:visited {
 }
 .select-kit-header {
   width: 170px;
-  height: 54px!important;
+  height: 54px !important;
   border-radius: 3px;
-  background-color: #ffffff!important;
+  background-color: #ffffff !important;
   .selected-name {
     font-size: 1rem;
   }
