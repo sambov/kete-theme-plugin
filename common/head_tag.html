@@ -49,8 +49,7 @@
 
 <script
   type="text/x-handlebars"
-  data-template-name="/connectors/below-site-header/foobar"
->
+  data-template-name="/connectors/below-site-header/foobar">
   <div id="headerBanner">
       <div class="wrap">
           <h1>Kete Community</h1>
@@ -58,6 +57,8 @@
       </div>
   </div>
 </script>
+
+
 
 <script>
   function myFunction() {
@@ -159,13 +160,13 @@
 
 <script
   type="text/x-handlebars"
-  data-template-name="topic-list-header.raw"
-></script>
+  data-template-name="topic-list-header.raw">
+</script>
 
 <script type="text/x-handlebars" data-template-name="discovery/topics">
     {{#if redirectedReason}}
-    <div class="alert alert-info">{{redirectedReason}}</div>
-  {{/if}}
+        <div class="alert alert-info">{{redirectedReason}}</div>
+    {{/if}}
 
   {{#if showDismissAtTop}}
     <div class="row">
@@ -173,7 +174,7 @@
         <button title="{{i18n 'topics.bulk.dismiss_tooltip'}}" id='dismiss-topics-top' class='btn btn-default dismiss-read' {{action "dismissReadPosts"}}>{{i18n 'topics.bulk.dismiss_button'}}</button>
       {{/if}}
       {{#if showResetNew}}
-      <button id='dismiss-new-top' class='btn btn-default dismiss-read' {{action "resetNew"}}>{{d-icon "check"}} {{i18n 'topics.bulk.dismiss_new'}}</button>
+        <button id='dismiss-new-top' class='btn btn-default dismiss-read' {{action "resetNew"}}>{{d-icon "check"}} {{i18n 'topics.bulk.dismiss_new'}}</button>
       {{/if}}
     </div>
   {{/if}}
@@ -290,6 +291,7 @@
         </div>
 
         {{plugin-outlet name="discovery-below"}}
+<<<<<<< HEAD
 </script>
 
 
@@ -304,4 +306,6 @@ createWidget('my-widget', {
     return "hello world";
   }
 });
+=======
+>>>>>>> c203a1335e9bee112058ca1691c45634c1cd3713
 </script>
