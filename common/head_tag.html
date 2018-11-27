@@ -330,3 +330,11 @@ createWidget('my-widget', {
 });
 </script>
 
+
+<script type="text/discourse-plugin" version="0.8.13">
+    api.reopenWidget("home-logo", {
+      logo() {
+        return 'hello'
+      }
+    });
+    </script>
