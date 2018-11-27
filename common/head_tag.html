@@ -258,6 +258,7 @@
 
 <script type="text/x-handlebars" data-template-name="discovery">
   <div class="container">
+        {{mount-widget widget="my-widget"}}
           {{discourse-banner user=currentUser banner=site.banner}}
         </div>
 
@@ -289,4 +290,18 @@
         </div>
 
         {{plugin-outlet name="discovery-below"}}
+</script>
+
+
+<!-- widgets -->
+<script>
+import { createWidget } from 'discourse/widgets/widget';
+
+createWidget('my-widget', {
+  tagName: 'div.hello',
+
+  html() {
+    return "hello world";
+  }
+});
 </script>
