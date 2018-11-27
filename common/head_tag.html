@@ -157,15 +157,16 @@
     <div class='clear'></div>
 </script>
 
-<script type="text/x-handlebars" data-template-name="topic-list-header.raw">
-    
-  </script>
+<script
+  type="text/x-handlebars"
+  data-template-name="topic-list-header.raw"
+></script>
 
-  <script type="text/x-handlebars" data-template-name="discovery/topics">
+<script type="text/x-handlebars" data-template-name="discovery/topics">
     {{#if redirectedReason}}
     <div class="alert alert-info">{{redirectedReason}}</div>
   {{/if}}
-  
+
   {{#if showDismissAtTop}}
     <div class="row">
       {{#if showDismissRead}}
@@ -176,7 +177,7 @@
       {{/if}}
     </div>
   {{/if}}
-  
+
   {{#if model.sharedDrafts}}
     {{topic-list
       class="shared-drafts"
@@ -187,9 +188,9 @@
       topics=model.sharedDrafts
       discoveryList=true}}
   {{/if}}
-  
+
   {{bulk-select-button selected=selected action="refresh" category=category}}
-  
+
   {{#discovery-topics-list model=model refresh="refresh" incomingCount=topicTrackingState.incomingCount}}
     {{#if top}}
       <div class='top-lists'>
@@ -206,7 +207,7 @@
         </div>
       {{/if}}
     {{/if}}
-  
+
     {{#if hasTopics}}
       {{topic-list
         highlightLastVisited=true
@@ -228,7 +229,7 @@
         discoveryList=true}}
     {{/if}}
   {{/discovery-topics-list}}
-  
+
   <footer class='topic-list-bottom'>
     {{conditional-loading-spinner condition=model.loadingMore}}
     {{#if allLoaded}}
@@ -239,7 +240,7 @@
         <button id='dismiss-new' class='btn btn-default dismiss-read' {{action "resetNew"}}>
           {{d-icon "check"}} {{i18n 'topics.bulk.dismiss_new'}}</button>
       {{/if}}
-  
+
       {{#footer-message education=footerEducation message=footerMessage}}
         {{#if latest}}
           {{#if canCreateTopicOnCategory}}<a href {{action "createTopic"}}>{{i18n 'topic.suggest_create_topic'}}</a>.{{/if}}
@@ -250,46 +251,42 @@
           {{#link-to "discovery.categories"}} {{i18n 'topic.browse_all_categories'}}{{/link-to}} {{i18n 'or'}} {{#link-to 'discovery.latest'}}{{i18n 'topic.view_latest_topics'}}{{/link-to}}.
         {{/if}}
       {{/footer-message}}
-  
+
     {{/if}}
   </footer>
-  
 </script>
 
-
 <script type="text/x-handlebars" data-template-name="discovery">
-    <div class="container">
-            {{discourse-banner user=currentUser banner=site.banner}}
-          </div>
-          
-          <div class="list-controls">
-            <div class="container">
-              {{outlet "navigation-bar"}}
-            </div>
-          </div>
-          
-          {{conditional-loading-spinner condition=loading}}
-          
-          <div class="container list-container {{if loading "hidden"}}">
-            <div class="row">
-              <div class="full-width">
-                <div id="header-list-area">
-                  {{outlet "header-list-container"}}
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="full-width">
-                <div id="list-area">
-                  {{plugin-outlet name="discovery-list-container-top"
-                                  args=(hash category=category listLoading=loading)}}
-                  {{outlet "list-container"}}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {{plugin-outlet name="discovery-below"}}
-          
+  <div class="container">
+          {{discourse-banner user=currentUser banner=site.banner}}
+        </div>
 
+        <div class="list-controls">
+          <div class="container">
+            {{outlet "navigation-bar"}}
+          </div>
+        </div>
+
+        {{conditional-loading-spinner condition=loading}}
+
+        <div class="container list-container {{if loading "hidden"}}">
+          <div class="row">
+            <div class="full-width">
+              <div id="header-list-area">
+                {{outlet "header-list-container"}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="full-width">
+              <div id="list-area">
+                {{plugin-outlet name="discovery-list-container-top"
+                                args=(hash category=category listLoading=loading)}}
+                {{outlet "list-container"}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{plugin-outlet name="discovery-below"}}
 </script>
