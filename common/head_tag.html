@@ -293,6 +293,29 @@
         {{plugin-outlet name="discovery-below"}}
 </script>
 
+<script type="text/x-handlebars" data-template-name="current-user">
+    <div class="profile-dropdown" onclick="myFunction()">
+                        <span  class="dropbtn">
+                            <img
+                                    class="profile-avatar"
+                                    src="https://keteuat.nzte.govt.nz/blank-avatar.png"
+                                    height="44"
+                                    width="44"/>
+                            <span class="profile-name">{{Discourse.User.current().name}}</span>
+                            <img
+                                    class="profile-arrow"
+                                    height="24"
+                                    width="24"
+                                    src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
+                        </span>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="nav-dropdown-item" href="#home">My Profile</a>
+            <a class="nav-dropdown-item" href="#about">My Company</a>
+            <a class="nav-dropdown-item" href="#contact">Sign Out</a>
+        </div>
+    </div>
+</script>
+
 
 <!-- widgets -->
 <script>
