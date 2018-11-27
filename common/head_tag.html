@@ -291,21 +291,19 @@
         </div>
 
         {{plugin-outlet name="discovery-below"}}
-<<<<<<< HEAD
 </script>
 
 
 <!-- widgets -->
 <script>
 import { createWidget } from 'discourse/widgets/widget';
+import { h } from 'virtual-dom';
 
 createWidget('my-widget', {
   tagName: 'div.hello',
 
   html() {
-    return "hello world";
+    return h('span.greeting', h('b', "hello world"));
   }
 });
-=======
->>>>>>> c203a1335e9bee112058ca1691c45634c1cd3713
 </script>
