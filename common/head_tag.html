@@ -319,9 +319,9 @@
     </span>
 
     {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
-    
+
       {{raw "list/topic-excerpt" topic=topic}}
-    
+
     {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
   </td>
 
@@ -331,9 +331,7 @@
     {{/unless}}
   {{/unless}}
 
-  {{#if showPosters}}
-    {{raw "list/posters-column" posters=topic.posters}}
-  {{/if}}
+
 
   {{raw "list/posts-count-column" topic=topic}}
 
@@ -365,10 +363,11 @@
 
 
 
-  <td>pic</td>
-  <td>title</td>
-  <td>comments</td>
+  <td class="list-user-image-container">{{#if showPosters}}
+        {{raw "list/posters-column" posters=topic.posters}}
+      {{/if}}</td>
+  <td class="list-info-container">title</td>
+  <td class="list-comments-container">comments</td>
 </script>
 
 <!-- widgets -->
-
