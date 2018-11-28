@@ -308,9 +308,9 @@
       {{~raw-plugin-outlet name="topic-list-before-status"}}
       {{~raw "topic-status" topic=topic}}
       <div>
+            {{raw "list/posters-column" posters=topic.posters}}
       {{~topic-link topic class="raw-link raw-topic-link"}}
       </div>
-      {{raw "list/posters-column" posters=topic.posters}}
       {{~#if topic.featured_link}}
         {{~topic-featured-link topic}}
       {{~/if}}
