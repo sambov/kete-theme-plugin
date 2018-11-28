@@ -303,11 +303,9 @@
   {{/if}}
 
   <td class='main-link clearfix' colspan="{{titleColSpan}}">
-        
     <span class='link-top-line'>
       {{~raw-plugin-outlet name="topic-list-before-status"}}
       {{~raw "topic-status" topic=topic}}
-      {{raw "list/posters-column" posters=topic.posters}}
       <div>
       {{~topic-link topic class="raw-link raw-topic-link"}}
       </div>
@@ -333,9 +331,9 @@
     {{/unless}}
   {{/unless}}
 
-
- 
-  
+  {{#if showPosters}}
+    {{raw "list/posters-column" posters=topic.posters}}
+  {{/if}}
 
   {{raw "list/posts-count-column" topic=topic}}
 
