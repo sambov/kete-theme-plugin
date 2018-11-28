@@ -307,7 +307,7 @@
       {{~raw-plugin-outlet name="topic-list-before-status"}}
       {{~raw "topic-status" topic=topic}}
       <div>
-      {{~topic-link topic class="raw-link raw-topic-link"}}
+      
       </div>
       {{~#if topic.featured_link}}
         {{~topic-featured-link topic}}
@@ -363,11 +363,21 @@
 
 
 
-  <td class="list-user-image-container">{{#if showPosters}}
+  <td class="list-user-image-container">
+      {{#if showPosters}}
         {{raw "list/posters-column" posters=topic.posters}}
-      {{/if}}</td>
-  <td class="list-info-container">title</td>
+      {{/if}}
+  </td>
+
+  <td class="list-info-container">
+      <div>
+            {{~topic-link topic class="raw-link raw-topic-link"}}
+      </div>
+
+  </td>
+
   <td class="list-comments-container">comments</td>
+
 </script>
 
 <!-- widgets -->
