@@ -49,8 +49,7 @@
 
 <script
   type="text/x-handlebars"
-  data-template-name="/connectors/below-site-header/foobar"
->
+  data-template-name="/connectors/below-site-header/foobar">
   <div id="headerBanner">
       <div class="wrap">
           <h1>Kete Community</h1>
@@ -58,6 +57,8 @@
       </div>
   </div>
 </script>
+
+
 
 <script>
   function myFunction() {
@@ -155,6 +156,11 @@
     {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
 
     <div class='clear'></div>
+</script>
+
+<script
+  type="text/x-handlebars"
+  data-template-name="topic-list-header.raw">
 </script>
 
 <script type="text/x-handlebars" data-template-name="discovery/topics">
@@ -287,53 +293,47 @@
         {{plugin-outlet name="discovery-below"}}
 </script>
 
-<!-- Topic list -->
-<!-- remove header -->
-<script
-  type="text/x-handlebars"
-  data-template-name="topic-list-header.raw">
-  <div>hello</div>
-</script>
 
-<script type="text/x-handlebars" data-template-name="topic-list-item.raw">
+<script type="text/x-handlebars" data-template-name="topic-listitem.raw">
     <h1>doom</h1>
-</script>
-
-<!--
-  <script type="text/x-handlebars" data-template-name="current-user">
-      <li class="profile-dropdown" onclick="myFunction()">
-          <span  class="dropbtn">
-              <img
-                      class="profile-avatar"
-                      src="https://keteuat.nzte.govt.nz/blank-avatar.png"
-                      height="44"
-                      width="44"/>
-              <span class="profile-name">{{Discourse.User.current().name}}</span>
-              <img
-                      class="profile-arrow"
-                      height="24"
-                      width="24"
-                      src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
-          </span>
-          <div id="myDropdown" class="dropdown-content">
-              <a class="nav-dropdown-item" href="#home">My Profile</a>
-              <a class="nav-dropdown-item" href="#about">My Company</a>
-              <a class="nav-dropdown-item" href="#contact">Sign Out</a>
-          </div>
-      </li>
   </script>
--->
+
+<!--<script type="text/x-handlebars" data-template-name="current-user">
+    <li class="profile-dropdown" onclick="myFunction()">
+        <span  class="dropbtn">
+            <img
+                    class="profile-avatar"
+                    src="https://keteuat.nzte.govt.nz/blank-avatar.png"
+                    height="44"
+                    width="44"/>
+            <span class="profile-name">{{Discourse.User.current().name}}</span>
+            <img
+                    class="profile-arrow"
+                    height="24"
+                    width="24"
+                    src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
+        </span>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="nav-dropdown-item" href="#home">My Profile</a>
+            <a class="nav-dropdown-item" href="#about">My Company</a>
+            <a class="nav-dropdown-item" href="#contact">Sign Out</a>
+        </div>
+    </li>
+</script>-->
+
+
 
 <!-- widgets -->
 <script>
-  import { createWidget } from "discourse/widgets/widget";
-  import { h } from "virtual-dom";
+import { createWidget } from 'discourse/widgets/widget';
+import { h } from 'virtual-dom';
 
-  createWidget("my-widget", {
-    tagName: "div.hello",
+createWidget('my-widget', {
+  tagName: 'div.hello',
 
-    html() {
-      return h("span.greeting", h("b", "hello world"));
-    }
-  });
+  html() {
+    return h('span.greeting', h('b', "hello world"));
+  }
+});
 </script>
+
