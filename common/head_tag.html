@@ -296,13 +296,18 @@
 
 <!-- list items -->
 <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
-      
-<td class='main-link clearfix' colspan="{{titleColSpan}}">
+      {{#if bulkSelectEnabled}}
+    <td class="bulk-select">
+      <input type="checkbox" class="bulk-select">
+    </td>
+  {{/if}}
+
+  <td class='main-link clearfix' colspan="{{titleColSpan}}">
     <span class='link-top-line'>
       {{~raw-plugin-outlet name="topic-list-before-status"}}
       {{~raw "topic-status" topic=topic}}
       <div>
-      
+      {{~topic-link topic class="raw-link raw-topic-link"}}
       </div>
       {{~#if topic.featured_link}}
         {{~topic-featured-link topic}}
@@ -314,9 +319,9 @@
     </span>
 
     {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
-
+    
       {{raw "list/topic-excerpt" topic=topic}}
-
+    
     {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
   </td>
 
@@ -326,7 +331,9 @@
     {{/unless}}
   {{/unless}}
 
-
+  {{#if showPosters}}
+    {{raw "list/posters-column" posters=topic.posters}}
+  {{/if}}
 
   {{raw "list/posts-count-column" topic=topic}}
 
@@ -357,22 +364,8 @@
   {{raw "list/activity-column" topic=topic class="num" tagName="td"}}
 
 
-
-  <td class="list-user-image-container">
-      {{#if showPosters}}
-        {{raw "list/posters-column" posters=topic.posters}}
-      {{/if}}
-  </td>
-
-  <td class="list-info-container">
-      <div>
-            {{~topic-link topic class="raw-link raw-topic-link"}}
-      </div>
-
-  </td>
-
-  <td class="list-comments-container">comments</td>
-
+  
 </script>
 
 <!-- widgets -->
+
