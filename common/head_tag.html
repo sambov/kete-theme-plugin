@@ -296,13 +296,8 @@
 
 <!-- list items -->
 <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
-      {{#if bulkSelectEnabled}}
-    <td class="bulk-select">
-      <input type="checkbox" class="bulk-select">
-    </td>
-  {{/if}}
-
-  <td class='main-link clearfix' colspan="{{titleColSpan}}">
+      
+<td class='main-link clearfix' colspan="{{titleColSpan}}">
     <span class='link-top-line'>
       {{~raw-plugin-outlet name="topic-list-before-status"}}
       {{~raw "topic-status" topic=topic}}
