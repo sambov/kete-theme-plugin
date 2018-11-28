@@ -325,18 +325,7 @@
 -->
 
 <!-- widgets -->
-<script>
-  import { createWidget } from "discourse/widgets/widget";
-  import { h } from "virtual-dom";
 
-  createWidget("my-widget", {
-    tagName: "div.hello",
-
-    html() {
-      return h("span.greeting", h("b", "hello world"));
-    }
-  });
-</script>
 
 <script type="text/x-handlebars" data-template-name="/connectors/topic-above-post-stream/foobar">
     <div style="height: 200px; width: 200px;background: red"></div>
