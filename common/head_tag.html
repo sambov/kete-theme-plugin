@@ -307,8 +307,8 @@
     <span class='link-top-line'>
       {{~raw-plugin-outlet name="topic-list-before-status"}}
       {{~raw "topic-status" topic=topic}}
+      {{raw "list/posters-column" posters=topic.posters}}
       <div>
-            {{raw "list/posters-column" posters=topic.posters}}
       {{~topic-link topic class="raw-link raw-topic-link"}}
       </div>
       {{~#if topic.featured_link}}
