@@ -49,7 +49,8 @@
 
 <script
   type="text/x-handlebars"
-  data-template-name="/connectors/below-site-header/foobar">
+  data-template-name="/connectors/below-site-header/foobar"
+>
   <div id="headerBanner">
       <div class="wrap">
           <h1>Kete Community</h1>
@@ -57,8 +58,6 @@
       </div>
   </div>
 </script>
-
-
 
 <script>
   function myFunction() {
@@ -160,8 +159,8 @@
 
 <script
   type="text/x-handlebars"
-  data-template-name="topic-list-header.raw">
-</script>
+  data-template-name="topic-list-header.raw"
+></script>
 
 <script type="text/x-handlebars" data-template-name="discovery/topics">
     {{#if redirectedReason}}
@@ -293,47 +292,115 @@
         {{plugin-outlet name="discovery-below"}}
 </script>
 
-
 <script type="text/x-handlebars" data-template-name="topic-listitem.raw">
-    <h1>doom</h1>
+    {{#if bulkSelectEnabled}}
+    <td class="bulk-select">
+      <input type="checkbox" class="bulk-select">
+    </td>
+  {{/if}}
+
+  {{!--
+    The `~` syntax strip spaces between the elements, making it produce
+    `<a class=topic-post-badges>Some text</a><span class=topic-post-badges>`,
+    with no space between them.
+    This causes the topic-post-badge to be considered the same word as "text"
+    at the end of the link, preventing it from line wrapping onto its own line.
+  --}}
+  <td class='main-link clearfix' colspan="{{titleColSpan}}">
+    <span class='link-top-line'>
+      {{~raw-plugin-outlet name="topic-list-before-status"}}
+      {{~raw "topic-status" topic=topic}}
+      {{~topic-link topic class="raw-link raw-topic-link"}}
+      {{~#if topic.featured_link}}
+        {{~topic-featured-link topic}}
+      {{~/if}}
+      {{~raw-plugin-outlet name="topic-list-after-title"}}
+      {{~#if showTopicPostBadges}}
+        {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
+      {{~/if}}
+    </span>
+
+    {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
+    {{#if expandPinned}}
+      {{raw "list/topic-excerpt" topic=topic}}
+    {{/if}}
+    {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
+  </td>
+
+  {{#unless hideCategory}}
+    {{#unless topic.isPinnedUncategorized}}
+      {{raw "list/category-column" category=topic.category}}
+    {{/unless}}
+  {{/unless}}
+
+  {{#if showPosters}}
+    {{raw "list/posters-column" posters=topic.posters}}
+  {{/if}}
+
+  {{raw "list/posts-count-column" topic=topic}}
+
+  {{#if showParticipants}}
+    {{raw "list/posters-column" posters=topic.participants}}
+  {{/if}}
+
+  {{#if showLikes}}
+  <td class="num likes">
+    {{#if hasLikes}}
+      <a href='{{topic.summaryUrl}}'>
+        {{number topic.like_count}} {{d-icon "heart"}}</td>
+      </a>
+    {{/if}}
+  {{/if}}
+
+  {{#if showOpLikes}}
+  <td class="num likes">
+    {{#if hasOpLikes}}
+      <a href='{{topic.summaryUrl}}'>
+        {{number topic.op_like_count}} {{d-icon "heart"}}</td>
+      </a>
+    {{/if}}
+  {{/if}}
+
+  <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td>
+
+  {{raw "list/activity-column" topic=topic class="num" tagName="td"}}
+</script>
+
+<!--
+  <script type="text/x-handlebars" data-template-name="current-user">
+      <li class="profile-dropdown" onclick="myFunction()">
+          <span  class="dropbtn">
+              <img
+                      class="profile-avatar"
+                      src="https://keteuat.nzte.govt.nz/blank-avatar.png"
+                      height="44"
+                      width="44"/>
+              <span class="profile-name">{{Discourse.User.current().name}}</span>
+              <img
+                      class="profile-arrow"
+                      height="24"
+                      width="24"
+                      src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
+          </span>
+          <div id="myDropdown" class="dropdown-content">
+              <a class="nav-dropdown-item" href="#home">My Profile</a>
+              <a class="nav-dropdown-item" href="#about">My Company</a>
+              <a class="nav-dropdown-item" href="#contact">Sign Out</a>
+          </div>
+      </li>
   </script>
-
-<!--<script type="text/x-handlebars" data-template-name="current-user">
-    <li class="profile-dropdown" onclick="myFunction()">
-        <span  class="dropbtn">
-            <img
-                    class="profile-avatar"
-                    src="https://keteuat.nzte.govt.nz/blank-avatar.png"
-                    height="44"
-                    width="44"/>
-            <span class="profile-name">{{Discourse.User.current().name}}</span>
-            <img
-                    class="profile-arrow"
-                    height="24"
-                    width="24"
-                    src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
-        </span>
-        <div id="myDropdown" class="dropdown-content">
-            <a class="nav-dropdown-item" href="#home">My Profile</a>
-            <a class="nav-dropdown-item" href="#about">My Company</a>
-            <a class="nav-dropdown-item" href="#contact">Sign Out</a>
-        </div>
-    </li>
-</script>-->
-
-
+-->
 
 <!-- widgets -->
 <script>
-import { createWidget } from 'discourse/widgets/widget';
-import { h } from 'virtual-dom';
+  import { createWidget } from "discourse/widgets/widget";
+  import { h } from "virtual-dom";
 
-createWidget('my-widget', {
-  tagName: 'div.hello',
+  createWidget("my-widget", {
+    tagName: "div.hello",
 
-  html() {
-    return h('span.greeting', h('b', "hello world"));
-  }
-});
+    html() {
+      return h("span.greeting", h("b", "hello world"));
+    }
+  });
 </script>
-
