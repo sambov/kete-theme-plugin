@@ -303,13 +303,14 @@
   {{/if}}
 
   <td class='main-link clearfix' colspan="{{titleColSpan}}">
-        {{raw "list/posters-column" posters=topic.posters}}
+        
     <span class='link-top-line'>
       {{~raw-plugin-outlet name="topic-list-before-status"}}
       {{~raw "topic-status" topic=topic}}
       <div>
       {{~topic-link topic class="raw-link raw-topic-link"}}
       </div>
+      {{raw "list/posters-column" posters=topic.posters}}
       {{~#if topic.featured_link}}
         {{~topic-featured-link topic}}
       {{~/if}}
