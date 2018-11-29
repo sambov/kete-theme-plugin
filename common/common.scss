@@ -79,7 +79,7 @@ a:visited:not(.link-top-line a) {
 }
 }
 
-.nav-pills, .dropdown-content{
+.nav-pills, .dropdown-content, #mobileNav{
   a {
   color: #252525!important;
 }
@@ -89,6 +89,11 @@ a:hover {
 a:visited {
   color: #252525!important;
 }
+}
+
+.navigation-toggle {
+  width: 100%!important;
+  margin: 0!important;
 }
 
 
