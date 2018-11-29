@@ -519,3 +519,9 @@ a:visited {
 //   background-color: #4CAF50;
 //   color: white;
 // }
+#reply-control.open.edit-title {
+  height: 100vh;
+}
+#reply-control{
+  max-width:unset;
+}
