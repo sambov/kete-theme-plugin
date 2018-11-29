@@ -525,16 +525,15 @@ a:visited {
 #reply-control{
   max-width:unset;
 }
-.cancel{
-  display:none;
-}
-.toggle-preview{
-  display:none;
-}
-.create{
+
+
+.create {
   float:right;
 }
-.grippie{
+.grippie, 
+.d-editor-preview-wrapper,
+.toggle-preview,
+.cancel{
   display:none;
 }
 .create{
@@ -554,5 +553,5 @@ a:visited {
   color: #324164;
 }
 .composer-controls{
-  display: none;
+  display: none !important;
 }
