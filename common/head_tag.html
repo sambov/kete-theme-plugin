@@ -414,7 +414,45 @@
              messageCount=messageCount
              addLinkLookup="addLinkLookup"}}
 {{#if model.viewOpenOrFullscreen}}
+
+<header id="keteHeader">
+    <div class="wrap header-container topnav">
+        <div class="nav-toggle">
+            <a href="javascript:void(0);" onclick="navFunction()" class="icon">
+                <img width="24" height="24" src="https://ketedev.nzte.govt.nz/icon/hamburger.png">
+            </a>
+        </div>
+
+        <div class="header-logo">
+            <a href="/"><img src="https://keteuat.nzte.govt.nz/nztelogo.png"></a>
+        </div>
+
+        <div class="nav-container">
+            <div class="navbar">
+                <a class="nav-item">Learn</a>
+                <span class="nav-item is-active">Forum</span>
+                <a class="nav-item">Plan</a>
+                <!-- <a class="nav-item">Visit</a> -->
+            </div>
+            <div onclick="myFunction()" class="profile-dropdown">
+                    <span class="dropbtn">
+                        <img src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44" class="profile-avatar">
+                        <span class="profile-name">Test99 Kete13</span>
+                        <img height="24" width="24" src="https://ketedev.nzte.govt.nz/icon/expand.png" class="profile-arrow">
+                    </span>
+                <div id="myDropdown" class="dropdown-content show">
+                    <a href="#home" class="nav-dropdown-item">My Profile</a>
+                    <a href="#about" class="nav-dropdown-item">My Company</a>
+                    <a href="#contact" class="nav-dropdown-item">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
 <div class="reply-area {{if canEditTags 'with-tags'}}">
+  
 <div class='composer-fields'>
 {{plugin-outlet name="composer-open" args=(hash model=model)}}
 <div class='reply-to'>
