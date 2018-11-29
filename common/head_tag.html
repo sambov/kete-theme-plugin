@@ -227,6 +227,8 @@
         });
     });
 
+    const category = getOwner(this).lookup('controller:discovery.category').get('model');
+
     (function (){
   this._super(...arguments);
   let appCtrl = Ember.getOwner(this).lookup('controller:application');
@@ -307,7 +309,7 @@
         {{/if}}
         <div id="headerBanner">
             <div class="wrap">
-                <h1>Kete Community {{appCtrl.currentRouteName}}</h1>
+                <h1>Kete Community {{category}}</h1>
                 <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
             </div>
         </div>
