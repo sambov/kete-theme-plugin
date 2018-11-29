@@ -128,8 +128,8 @@ a:visited {
   height: auto;
 }
 
-.link-top-line {
-  color: #252525;
+.link-top-line a{
+  color: #252525!important;
 }
 
 .btn:not(#create-topic):not(.select-kit-header), 
