@@ -541,6 +541,10 @@ a:visited {
 .create{
   border-radius: 20px;
 }
+.ember-text-field ember-view{
+  border-radius: 5px;
+  padding:5px;
+}
 .save-or-cancel{
   float:left;
   display: block !important;
