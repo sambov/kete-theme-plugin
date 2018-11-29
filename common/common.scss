@@ -600,3 +600,69 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
 //   background-color: #4CAF50;
 //   color: white;
 // }
+
+
+//<!-- Start new discussion -->
+#reply-control.open.edit-title {
+  height: calc(100%);
+}
+#reply-control{
+  max-width:unset;
+}
+.create {
+  float:right;
+}
+.reply-area{
+  margin-left: 150px !important;
+  padding-top: 50px !important;
+}
+.grippie,
+.d-editor-preview-wrapper,
+.toggle-preview,
+.cancel{
+  display:none;
+}
+.create{
+  border-radius: 20px;
+}
+.ember-text-field ember-view{
+  border-radius: 5px;
+  padding:5px;
+}
+.save-or-cancel{
+  float:left;
+  display: block !important;
+  width: 60%;
+  flex-basis: unset  !important;
+}
+.d-editor-textarea-wrapper,
+.d-editor{
+  border-radius:5px;
+}
+.composer-popup{
+  display: none !important;
+}
+.discussionTitle{
+  color: #324164;
+}
+.composer-controls{
+  display: none !important;
+}
+.d-editor,
+.title-and-category with-preview{
+  width: 60%;
+}
+#reply-control .user-selector.with-preview, #reply-control .title-and-category.with-preview{
+  width: 60%;
+}
+#reply-title{
+  padding: 10px;
+  border-radius: 5px;
+  outline: #9b9b9b;
+  color: #9b9b9b;
+}
+#reply-title:focus{
+  outline: #324164;
+  color: #324164;
+}
+//<!-- Start new discussion -->
