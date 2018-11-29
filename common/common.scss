@@ -140,7 +140,7 @@ tr {
 }
 
 #reply-control .d-editor-button-bar .btn{
-  height: 30px;
+  height: 30px!important;
   border-bottom: 1px solid #e9e9e9;
 }
 
@@ -171,8 +171,8 @@ tr {
   font-weight: 600!important;
 }
 
-.btn:not(#create-topic):not(.select-kit-header):not(.btn-flat), 
-button:not(#create-topic):not(.select-kit-header):not(.btn-flat){
+.btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.no-text .btn-icon), 
+button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.no-text .btn-icon){
   border-radius: 25px!important;
   background-color: #2a7ab0!important;
   font-size: 16px!important;
