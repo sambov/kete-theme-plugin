@@ -531,12 +531,14 @@ a:visited {
 .toggle-preview{
   display:none;
 }
-.d-editor-button-bar{
-  display:none;
-}
+
 .grippie{
   display:none;
 }
 .create{
   border-radius: 20px;
+}
+.save-or-cancel{
+  float:left;
+  display: unset;
 }
