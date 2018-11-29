@@ -171,8 +171,8 @@ tr {
   font-weight: 600!important;
 }
 
-.btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.d-editor-button-bar button), 
-button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.d-editor-button-bar button){
+.btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.d-editor-button-bar > button), 
+button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.d-editor-button-bar > button){
   border-radius: 25px!important;
   background-color: #2a7ab0!important;
   font-size: 16px!important;
