@@ -171,8 +171,8 @@ tr {
   font-weight: 600!important;
 }
 
-.btn:not(#create-topic):not(.select-kit-header):not(.btn-flat), 
-button:not(#create-topic):not(.select-kit-header):not(.btn-flat){
+.btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon), 
+button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
   border-radius: 25px!important;
   background-color: #2a7ab0!important;
   font-size: 16px!important;
@@ -185,7 +185,17 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat){
   padding: 16px 30px!important;
 }
 
-
+.d-editor-button-bar button{
+  display: inline-block!important;
+  margin: 0!important;
+  padding: 6px 12px!important;
+  font-weight: 500!important;
+  font-size: 1em!important;
+  line-height: 1!important;
+  border: none!important;
+  color: #222!important;
+  font-weight: normal!important;
+}
 
 //Header
 #keteHeader {
@@ -582,14 +592,3 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat){
 //   background-color: #4CAF50;
 //   color: white;
 // }
-.d-editor-button-bar button{
-  display: inline-block!important;
-  margin: 0!important;
-  padding: 6px 12px!important;
-  font-weight: 500!important;
-  font-size: 1em!important;
-  line-height: 1!important;
-  border: none!important;
-  color: #222!important;
-  font-weight: normal!important;
-}
