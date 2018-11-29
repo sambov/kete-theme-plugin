@@ -68,13 +68,13 @@ p {
 #main-outlet {
   padding-top: 60px;
 
-a {
+a:not(.link-top-line a) {
   color: #58c7dd !important;
 }
-a:hover {
+a:hover:not(.link-top-line a) {
   color: #58c7dd !important;
 }
-a:visited {
+a:visited:not(.link-top-line a) {
   color: #58c7dd !important;
 }
 }
