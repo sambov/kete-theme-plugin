@@ -568,6 +568,6 @@ a:visited {
 .title-and-category with-preview{
   width: 60%;
 }
-.title-input ember-view{
-
+#reply-control .user-selector.with-preview, #reply-control .title-and-category.with-preview{
+  width: 60%;
 }
