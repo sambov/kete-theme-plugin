@@ -132,7 +132,8 @@ a:visited {
   color: #252525;
 }
 
-.btn, button:not(#create-topic):not(.select-kit-header){
+.btn:not(#create-topic):not(.select-kit-header), 
+button:not(#create-topic):not(.select-kit-header){
   border-radius: 25px!important;
   background-color: #2a7ab0!important;
   font-size: 16px!important;
