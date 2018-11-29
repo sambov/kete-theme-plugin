@@ -107,6 +107,14 @@ a:visited {
   }
 }
 
+.topic-list {
+  box-shadow: none!important;
+}
+
+tr {
+  border-bottom: 1px solid #d8d8d8!important;
+}
+
 //remove shadow from a few buttons
 .d-editor-button-bar .btn,
 .bulk-select-all,
