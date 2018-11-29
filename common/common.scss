@@ -524,7 +524,6 @@ a:visited {
 }
 #reply-control{
   max-width:unset;
-  border-radius: 5px;
 }
 .cancel{
   display:none;
@@ -543,7 +542,7 @@ a:visited {
 }
 .save-or-cancel{
   float:left;
-  display: unset;
+  display: block !important;
 }
 .d-editor-textarea-wrapper{
   border-radius:5px;
