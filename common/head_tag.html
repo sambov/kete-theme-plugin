@@ -419,24 +419,7 @@
 {{plugin-outlet name="composer-open" args=(hash model=model)}}
 <div class='reply-to'>
  {{#unless model.viewFullscreen}}
-   <div class="reply-details">
-     {{composer-action-title model=model canWhisper=canWhisper tabindex=8}}
 
-     {{#unless site.mobileView}}
-       {{#if whisperOrUnlistTopicText}}
-         <span class='whisper'>({{whisperOrUnlistTopicText}})</span>
-       {{/if}}
-       {{#if model.noBump}}
-         <span class="no-bump">{{d-icon "anchor"}}</span>
-       {{/if}}
-     {{/unless}}
-
-     {{#if canEdit}}
-       {{#link-to-input onClick=(action "displayEditReason") showInput=showEditReason key="composer.show_edit_reason" class="display-edit-reason"}}
-         {{text-field value=editReason tabindex="7" id="edit-reason" maxlength="255" placeholderKey="composer.edit_reason_placeholder"}}
-       {{/link-to-input}}
-     {{/if}}
-   </div>
  {{/unless}}
  {{composer-toggles composeState=model.composeState
            toggleComposer=(action "toggle")
