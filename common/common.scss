@@ -525,10 +525,12 @@ a:visited {
 #reply-control{
   max-width:unset;
 }
-
-
 .create {
   float:right;
+}
+.reply-area{
+  margin-left: 150px;
+    padding-top: 50px;
 }
 .grippie, 
 .d-editor-preview-wrapper,
@@ -542,6 +544,8 @@ a:visited {
 .save-or-cancel{
   float:left;
   display: block !important;
+  width: 70%;
+  flex-basis: unset;
 }
 .d-editor-textarea-wrapper,
 .d-editor{
@@ -556,6 +560,7 @@ a:visited {
 .composer-controls{
   display: none !important;
 }
-.d-editor{
+.d-editor,
+.title-and-category.with-preview{
   width: 70%;
 }
