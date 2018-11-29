@@ -308,6 +308,12 @@
     </div>
 </script>
 
+<script type="text/discourse-plugin" version="0.8">
+    api.decorateWidget('notification-consent-banner:after', helper => {
+      return helper.h('p', 'Hello');
+    });
+  </script>
+
 <!-- list items -->
 <!-- <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
       
