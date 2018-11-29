@@ -144,8 +144,8 @@ tr {
   font-weight: 600!important;
 }
 
-.btn:not(#create-topic):not(.select-kit-header), 
-button:not(#create-topic):not(.select-kit-header){
+.btn:not(#create-topic):not(.select-kit-header):not(.btn-flat), 
+button:not(#create-topic):not(.select-kit-header):not(.btn-flat){
   border-radius: 25px!important;
   background-color: #2a7ab0!important;
   font-size: 16px!important;
