@@ -574,4 +574,10 @@ a:visited {
 #reply-title{
   padding: 10px;
   border-radius: 5px;
+  outline: #9b9b9b;
+  color: #9b9b9b;
+}
+#reply-title:focus{
+  outline: #324164;
+  color: #324164;
 }
