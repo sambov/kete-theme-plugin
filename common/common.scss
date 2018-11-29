@@ -520,7 +520,7 @@ a:visited {
 //   color: white;
 // }
 #reply-control.open.edit-title {
-  height: calc(100% - 110px);
+  height: calc(100% - 91px);
 }
 #reply-control{
   max-width:unset;
@@ -548,8 +548,11 @@ a:visited {
   border-radius:5px;
 }
 .composer-popup{
-  display: none;
+  display: none !important;
 }
 .discussionTitle{
   color: #324164;
+}
+.composer-controls{
+  display: none;
 }
