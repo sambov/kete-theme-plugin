@@ -156,13 +156,14 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="discovery">
-  <div class="container">
-        <div id="headerBanner">
-                <div class="wrap">
-                    <h1>Kete Community</h1>
-                    <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
-                </div>
+    <div id="headerBanner">
+            <div class="wrap">
+                <h1>Kete Community</h1>
+                <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
             </div>
+        </div>
+  <div class="container">
+        
         {{mount-widget widget="my-widget"}}
           {{discourse-banner user=currentUser banner=site.banner}}
         </div>
