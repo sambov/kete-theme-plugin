@@ -3,79 +3,6 @@
   rel="stylesheet"
 />
 
-<!--
-  <script type="text/discourse-plugin" version="0.8">
-      api.decorateWidget('header-icons:before', helper => {
-          return helper.h('li', [
-              helper.h('a', {
-                  href:'https://kete.nzte.govt.nz/learn',
-              }, helper.h('p.nav-item', 'Learn')),
-          ]);
-      });
-  </script>
-
-  <script type="text/discourse-plugin" version="0.8">
-      api.decorateWidget('header-icons:before', helper => {
-          return helper.h('li', [
-              helper.h('a', {
-                  href:'/#',
-              }, helper.h('p.nav-item.is-active', 'Forum')),
-          ]);
-      });
-  </script>
-
-  <script type="text/discourse-plugin" version="0.8">
-      api.decorateWidget('header-icons:before', helper => {
-          return helper.h('li', [
-              helper.h('a', {
-                  href:'https://kete.nzte.govt.nz/company',
-              }, helper.h('p.nav-item', 'Plan')),
-          ]);
-      });
-  </script>
-
-  <script type="text/discourse-plugin" version="0.4">
-      api.decorateWidget('home-logo:before', helper => {
-          return helper.h('a', {
-              href:'https://kete.nzte.govt.nz/'
-          }, [
-              helper.h('img.main-logo', {
-                  src:'https://ketedev.nzte.govt.nz/nztelogo.png'
-              })
-          ])
-      });
-  </script>
--->
-
-<script
-  type="text/x-handlebars"
-  data-template-name="/connectors/below-site-header/foobar"
->
-  <div id="headerBanner">
-      <div class="wrap">
-          <h1>Kete Community</h1>
-          <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
-      </div>
-  </div>
-</script>
-
-<script>
-  function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-</script>
-
-<script>
-  function navFunction() {
-    var x = document.getElementById("mobileNav");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
-</script>
-
 <script
   type="text/x-handlebars"
   data-template-name="/connectors/before-group-container/foobar2"
@@ -86,19 +13,6 @@
       </div>
   </div>
 </script>
-
-<!--
-  <script type="text/discourse-plugin" version="0.4">
-    api.decorateWidget('list-controls:before', helper => {
-      return helper.h('li', [
-      helper.h('a.icon', {
-          href:'https://foo.bar.com/',
-          title: 'Foobar'
-      }, helper.h('i.fa.fa-heart.d-icon')),
-  ]);
-    });
-  </script>
--->
 
 <script type="text/x-handlebars" data-template-name="components/d-navigation">
   {{bread-crumbs categories=categories category=category noSubcategories=noSubcategories}}
@@ -293,6 +207,117 @@
   type="text/x-handlebars"
   data-template-name="topic-list-header.raw"
 ></script>
+
+<script>
+    function isHome() {
+        console.log('window.location.pathname')
+        return window.location.pathname === '/';
+    }
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function navFunction() {
+        const x = document.getElementById("mobileNav");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+
+    (function() {
+        console.log('Setting up ifHome helper function')
+        Handlebars.registerHelper("ifHome", function(conditional, options) {
+            if (window.location.pathname === '' || window.location.pathname === '/') {
+                options.fn(this);
+            } else {
+                options.inverse(this);
+            }
+        });
+    });
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
+    <div>
+        <header id="keteHeader">
+            <div class="wrap header-container topnav">
+                <div class="nav-toggle">
+                    <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+                        <img
+                                width="24"
+                                height="24"
+                                src="https://ketedev.nzte.govt.nz/icon/hamburger.png"
+                        />
+                    </a>
+                </div>
+
+                <div class="header-logo">
+                    <a href="/"><img src="https://keteuat.nzte.govt.nz/nztelogo.png"/></a>
+                </div>
+
+                <div class="nav-container">
+                    {{#if currentUser}}
+                    <div class="navbar">
+                        <a class="nav-item">Learn</a>
+                        <span class="nav-item is-active">Forum</span>
+                        <a class="nav-item">Plan</a>
+                        <!-- <a class="nav-item">Visit</a> -->
+                    </div>
+                    <div class="profile-dropdown" onclick="myFunction()">
+                            <span  class="dropbtn">
+                                <img
+                                        class="profile-avatar"
+                                        src="https://keteuat.nzte.govt.nz/blank-avatar.png"
+                                        height="44"
+                                        width="44"/>
+                                <span class="profile-name">{{currentUser.name}}</span>
+                                <img
+                                        class="profile-arrow"
+                                        height="24"
+                                        width="24"
+                                        src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
+                            </span>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a class="nav-dropdown-item" href="#home">My Profile</a>
+                            <a class="nav-dropdown-item" href="#about">My Company</a>
+                            <a class="nav-dropdown-item" href="#contact">Sign Out</a>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </header>
+        {{#if currentUser}}
+        <div id="mobileNav">
+            <div class="profile-dropdown mobile-nav-profile">
+                    <span class="dropbtn">
+                    <img class="profile-avatar" src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44"/>
+                    <span class="profile-name">{{currentUser.name}}</span>
+                </span>
+            </div>
+            <div class="mobile-nav-section">
+                <a class="nav-dropdown-item" href="#news">My Profile</a>
+                <a class="nav-dropdown-item" href="#contact">Plan</a>
+            </div>
+            <div class="mobile-nav-section">
+                <a class="nav-dropdown-item" href="#about">Learn</a>
+                <a class="nav-dropdown-item" href="#about">Forum</a>
+                <a class="nav-dropdown-item" href="#about">Plan</a>
+                <!-- <a class="nav-dropdown-item" href="#about">Visit</a>-->
+            </div>
+            <a class="nav-dropdown-item" href="#about">Sign Out</a>
+        </div>
+        {{/if}}
+        <div id="headerBanner">
+            <div class="wrap">
+                <h1>Kete Community</h1>
+                <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
+            </div>
+        </div>
+    </div>
+</script>
 
 <!-- list items -->
 <!-- <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
