@@ -227,8 +227,11 @@
         });
     });
 
-    $('#main-outlet').append('<h2>yourtHTML</h2>');
-    document.getElementById('main-outlet').innerHTML = '<div id="idChild"> content html </div>';
+    
+    let parent = document.getElementById('main-outlet')
+    
+    let child = '<div id="idChild"> content html </div>';
+    parent.appendChild(child)
 </script>
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
