@@ -525,15 +525,18 @@ a:visited {
 #reply-control{
   max-width:unset;
 }
-#cancel{
+.cancel{
   display:none;
 }
-#toggle-preview{
+.toggle-preview{
   display:none;
 }
-#d-editor-button-bar{
+.d-editor-button-bar{
   display:none;
 }
-#grippie{
+.grippie{
   display:none;
+}
+.create{
+  border-radius: 20px;
 }
