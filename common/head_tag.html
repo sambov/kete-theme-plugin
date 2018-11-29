@@ -419,7 +419,7 @@
 {{plugin-outlet name="composer-open" args=(hash model=model)}}
 <div class='reply-to'>
  {{#unless model.viewFullscreen}}
-
+    Start a New Discussion
  {{/unless}}
  {{composer-toggles composeState=model.composeState
            toggleComposer=(action "toggle")
@@ -444,25 +444,7 @@
      </div>
    {{/if}}
 
-   <div class="title-and-category {{if showPreview 'with-preview'}}">
 
-     {{composer-title composer=model lastValidatedAt=lastValidatedAt focusTarget=focusTarget}}
-
-     {{#if model.showCategoryChooser}}
-       <div class="category-input">
-         {{category-chooser
-           fullWidthOnMobile=true
-           value=model.categoryId
-           scopedCategoryId=scopedCategoryId
-           tabindex="3"}}
-         {{popup-input-tip validation=categoryValidation}}
-       </div>
-     {{/if}}
-     {{#if canEditTags}}
-       {{mini-tag-chooser tags=model.tags tabindex="4" categoryId=model.categoryId minimum=model.minimumRequiredTags}}
-       {{popup-input-tip validation=tagValidation}}
-     {{/if}}
-   </div>
  {{/if}}
 
  {{plugin-outlet name="composer-fields" args=(hash model=model)}}
