@@ -65,7 +65,8 @@ p {
   color: #252525;
 }
 
-a {
+.nav-pills{
+  a {
   color: #252525;
 }
 a:hover {
@@ -74,6 +75,8 @@ a:hover {
 a:visited {
   color: #252525;
 }
+}
+
 
 @mixin boxShadow {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.12);
