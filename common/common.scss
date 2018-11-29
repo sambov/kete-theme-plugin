@@ -65,6 +65,20 @@ p {
   color: #252525;
 }
 
+#main-outlet {
+  padding-top: 60px;
+
+a {
+  color: #58c7dd !important;
+}
+a:hover {
+  color: #58c7dd !important;
+}
+a:visited {
+  color: #58c7dd !important;
+}
+}
+
 .nav-pills{
   a {
   color: #252525;
@@ -77,15 +91,6 @@ a:visited {
 }
 }
 
-// a {
-//   color: #58c7dd !important;
-// }
-// a:hover {
-//   color: #58c7dd !important;
-// }
-// a:visited {
-//   color: #58c7dd !important;
-// }
 
 
 @mixin boxShadow {
@@ -96,9 +101,7 @@ a:visited {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
 }
 
-#main-outlet {
-  padding-top: 60px;
-}
+
 
 //raise and round buttons
 .btn {
