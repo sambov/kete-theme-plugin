@@ -419,7 +419,7 @@
 {{plugin-outlet name="composer-open" args=(hash model=model)}}
 <div class='reply-to'>
  {{#unless model.viewFullscreen}}
-    <h2>Start a new discussion</h2>
+    <h2 class="discussionTitle">Start a new discussion</h2>
  {{/unless}}
  {{composer-toggles composeState=model.composeState
            toggleComposer=(action "toggle")
@@ -528,9 +528,7 @@
      {{/if}}
    </div>
  {{/if}}
- <div id='draft-status' class="{{if isUploading 'hidden'}}">
-   {{model.draftStatus}}
- </div>
+
 </div>
 
 <div class="composer-bottom-right">
