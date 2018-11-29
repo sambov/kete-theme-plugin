@@ -419,7 +419,7 @@
 {{plugin-outlet name="composer-open" args=(hash model=model)}}
 <div class='reply-to'>
  {{#unless model.viewFullscreen}}
-    Start a New Discussion
+    <h2>Start a new discussion</h2>
  {{/unless}}
  {{composer-toggles composeState=model.composeState
            toggleComposer=(action "toggle")
@@ -580,4 +580,4 @@ toggleToolbar=(action "toggleToolbar")}}
 
 {{/composer-body}}
 
-</script>git 
+</script>

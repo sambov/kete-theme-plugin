@@ -520,10 +520,11 @@ a:visited {
 //   color: white;
 // }
 #reply-control.open.edit-title {
-  height: 100vh;
+  height: calc(100% - 110px);
 }
 #reply-control{
   max-width:unset;
+  border-radius: 5px;
 }
 .cancel{
   display:none;
@@ -531,7 +532,9 @@ a:visited {
 .toggle-preview{
   display:none;
 }
-
+.create{
+  float:right;
+}
 .grippie{
   display:none;
 }
@@ -541,4 +544,7 @@ a:visited {
 .save-or-cancel{
   float:left;
   display: unset;
+}
+.d-editor-textarea-wrapper{
+  border-radius:5px;
 }
