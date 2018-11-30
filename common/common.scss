@@ -410,6 +410,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
   }
 }
 
+.reply-area {
+  padding-top: 0;
+}
+
 //forum nav
 #navigation-bar {
   li {
