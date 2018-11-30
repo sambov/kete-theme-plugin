@@ -622,11 +622,11 @@
     {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
   </td>
   
-  <!-- {{#unless hideCategory}}
+  {{#unless hideCategory}}
     {{#unless topic.isPinnedUncategorized}}
       {{raw "list/category-column" category=topic.category}}
     {{/unless}}
-  {{/unless}} -->
+  {{/unless}}
   
   {{#if showPosters}}
     {{raw "list/posters-column" posters=topic.posters}}
