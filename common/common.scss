@@ -208,6 +208,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
 //Header
 #keteHeader {
   margin-bottom: 0;
+  border-bottom: solid #324164 2px;
   .header-container {
     display: flex;
     height: 90px;
