@@ -545,15 +545,7 @@
     {{plugin-outlet name="below-site-header" args=(hash currentPath=currentPath)}}
     
     <div id="main-outlet" class="wrap">
-      <div class="container">
-          <h1>doom</h1>
-        {{#if showTop}}
-          {{custom-html name="top"}}
-        {{/if}}
-        {{notification-consent-banner}}
-        {{global-notice}}
-        {{create-topics-notice}}
-      </div>
+      
       {{outlet}}
       {{outlet "user-card"}}
     </div>
