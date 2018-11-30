@@ -207,7 +207,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
 
 //Header
 #keteHeader {
-  margin-bottom: 0;
+  margin-bottom: 60px;
   border-bottom: solid #324164 2px;
   .header-container {
     display: flex;
@@ -398,6 +398,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  margin-top: -60px;
   margin-bottom: 60px;
   h1 {
     color: #ffffff;
@@ -565,9 +566,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
   }
 }
 
-#topic-title {
-  padding-top: 60px;
-}
+// #topic-title {
+//   padding-top: 60px;
+// }
 
 // .mobile-container {
 //   max-width: 480px;
