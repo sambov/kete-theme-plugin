@@ -35,12 +35,12 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="components/bread-crumbs">
-  {{
+  <!-- {{
       category-drop
       category=firstCategory
       categories=parentCategoriesSorted
       countSubcategories=true
-    }}
+    }} -->
 
     {{#if childCategories}}
       {{category-drop
@@ -51,9 +51,9 @@
         noSubcategories=noSubcategories}}
     {{/if}}
 
-    {{#if siteSettings.tagging_enabled}}
+    <!-- {{#if siteSettings.tagging_enabled}}
       {{tag-drop firstCategory=firstCategory secondCategory=secondCategory tagId=tagId}}
-    {{/if}}
+    {{/if}} -->
 
     {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
 
