@@ -410,6 +410,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon){
   }
 }
 
+.category {
+  display: none!important;
+}
+
 .reply-area {
   padding-top: 0!important;
 }
