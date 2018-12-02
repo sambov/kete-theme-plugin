@@ -368,6 +368,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   height: 90px;
   display: flex;
   align-items: center;
+  height: 0!important;
 }
 .d-header-icons > li {
   padding-top: 3px;
@@ -385,6 +386,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   }
   ul li {
     right: 330px;
+    top: 42px;
     i {
       font-size: 24px!important;
       margin-top: -7px;
