@@ -389,16 +389,16 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 }
 
 
-#navigation-bar li:first-child{
-  margin-left: 0;
-  border: solid fuchsia 1px
-}
+// #navigation-bar li:first-child{
+//   margin-left: 0;
+//   border: solid fuchsia 1px
+// }
 #navigation-bar li:first-child{
   margin-left: 0;
   border: solid red 1px
 }
 #navigation-bar li:last-child{
-  display: none;
+  //display: none;
   border: solid green 1px
 }
 
