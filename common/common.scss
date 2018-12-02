@@ -377,7 +377,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 }
 
 .d-header {
-  //display: none;
+  box-shadow: none;
   background: transparent;
   position: absolute;
   ul li:not(:first-child) {
@@ -396,7 +396,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .menu-panel.slide-in {
   @media only screen and (max-width: 767px) {
     left: 0px!important;
-    margin-top: 65px;
+    top: 65px;
   }
 }
 
