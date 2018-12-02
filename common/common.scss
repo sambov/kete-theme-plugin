@@ -392,9 +392,11 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #navigation-bar ul li :first-child{
   margin-left: 0;
+  border: solid red 1px
 }
 #navigation-bar ul li :last-child{
   display: none;
+  border: solid green 1px
 }
 
 
