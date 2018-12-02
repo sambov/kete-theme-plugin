@@ -387,23 +387,28 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     right: 330px;
     @media only screen and (max-width: 767px) {
       right: 260px;
-      margin-top: -18px;
-
+      top: 65px;
     }
   }
 }
 
-#navigation-bar li:first-child{
+.menu-panel.slide-in {
+  @media only screen and (max-width: 767px) {
+    left: 0px !important;
+    margin-top: -18px;
+  }
+}
+
+#navigation-bar li:first-child {
   margin-left: 0;
 }
-#navigation-bar li:nth-child(5){
+#navigation-bar li:nth-child(5) {
   display: none;
 }
 
 .docked .d-header {
   position: absolute;
 }
-
 
 //Banner
 #headerBanner {
