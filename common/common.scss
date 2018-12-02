@@ -397,7 +397,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   margin-left: 0;
   border: solid red 1px
 }
-#navigation-bar li:last-child{
+#navigation-bar li:nth-child(5){
   //display: none;
   border: solid green 1px
 }
