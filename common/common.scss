@@ -390,7 +390,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 
 
-#navigation-bar ul li :first-child{
+#navigation-bar ul :first-child{
   margin-left: 0;
   border: solid red 1px
 }
