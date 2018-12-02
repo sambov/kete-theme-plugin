@@ -57,13 +57,21 @@
 
     {{header-buttons}}
 
-    <a id='search-button'
-             class='icon expand'
-             href='#'
-             data-dropdown="search-dropdown"
-             title='{{i18n 'search.title'}}'>
-             {{fa-icon "search" label="search.title"}}
-          </a>
+    <li>
+            {{#if loginRequired}}
+              <a id='search-button' class='icon expand' href='#' aria-hidden="true" {{action "showLogin"}}>
+                {{fa-icon "search"}}
+              </a>
+            {{else}}
+              <a id='search-button'
+                 class='icon expand'
+                 href='#'
+                 data-dropdown="search-dropdown"
+                 title='{{i18n 'search.title'}}'>
+                 {{fa-icon "search" label="search.title"}}
+              </a>
+            {{/if}}
+          </li>
 
     {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
 
