@@ -61,7 +61,7 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="discovery/topics">
-    
+
     {{#if redirectedReason}}
         <div class="alert alert-info">{{redirectedReason}}</div>
     {{/if}}
@@ -163,7 +163,7 @@
             </div>
         </div>
   <div class="container">
-        
+
         {{mount-widget widget="my-widget"}}
           {{discourse-banner user=currentUser banner=site.banner}}
         </div>
@@ -200,401 +200,395 @@
 
 <!-- Topic list -->
 <!-- remove header -->
-<script
-  type="text/x-handlebars"
-  data-template-name="topic-list-header.raw"
->
-{{#if bulkSelectEnabled}}
-  <th class="bulk-select">
-    {{#if canBulkSelect}}
-      {{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
-    {{/if}}
-  </th>
-{{/if}}
-{{raw "topic-list-header-column" order='default' name=listTitle bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
-<!-- {{#unless hideCategory}}
-  {{raw "topic-list-header-column" sortable=sortable order='category' name='category_title'}}
-{{/unless}} -->
-{{#if showPosters}}
-  {{raw "topic-list-header-column" order='posters' name='users'}}
-{{/if}}
-{{raw "topic-list-header-column" sortable=sortable number='true' order='posts' name='replies'}}
-{{#if showParticipants}}
-  {{raw "topic-list-header-column" order='participants' name='users'}}
-{{/if}}
-{{#if showLikes}}
-  {{raw "topic-list-header-column" sortable=sortable number='true' order='likes' name='likes'}}
-{{/if}}
-{{#if showOpLikes}}
-  {{raw "topic-list-header-column" sortable=sortable number='true' order='op_likes' name='likes'}}
-{{/if}}
-{{raw "topic-list-header-column" sortable=sortable number='true' order='views' name='views'}}
-{{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='activity'}}
-
+<script type="text/x-handlebars" data-template-name="topic-list-header.raw">
+  {{#if bulkSelectEnabled}}
+    <th class="bulk-select">
+      {{#if canBulkSelect}}
+        {{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
+      {{/if}}
+    </th>
+  {{/if}}
+  {{raw "topic-list-header-column" order='default' name=listTitle bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
+  <!-- {{#unless hideCategory}}
+    {{raw "topic-list-header-column" sortable=sortable order='category' name='category_title'}}
+  {{/unless}} -->
+  {{#if showPosters}}
+    {{raw "topic-list-header-column" order='posters' name='users'}}
+  {{/if}}
+  {{raw "topic-list-header-column" sortable=sortable number='true' order='posts' name='replies'}}
+  {{#if showParticipants}}
+    {{raw "topic-list-header-column" order='participants' name='users'}}
+  {{/if}}
+  {{#if showLikes}}
+    {{raw "topic-list-header-column" sortable=sortable number='true' order='likes' name='likes'}}
+  {{/if}}
+  {{#if showOpLikes}}
+    {{raw "topic-list-header-column" sortable=sortable number='true' order='op_likes' name='likes'}}
+  {{/if}}
+  {{raw "topic-list-header-column" sortable=sortable number='true' order='views' name='views'}}
+  {{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='activity'}}
 </script>
 
 <script>
-    function isHome() {
-        console.log('window.location.pathname')
-        return window.location.pathname === '/';
-    }
+  function isHome() {
+    console.log("window.location.pathname");
+    return window.location.pathname === "/";
+  }
 
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
 
-    function navFunction() {
-        const x = document.getElementById("mobileNav");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-        }
+  function navFunction() {
+    const x = document.getElementById("mobileNav");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
+  }
 
-    (function() {
-        console.log('Setting up ifHome helper function')
-        Handlebars.registerHelper("ifHome", function(conditional, options) {
-            if (window.location.pathname === '' || window.location.pathname === '/') {
-                options.fn(this);
-            } else {
-                options.inverse(this);
-            }
-        });
+  (function() {
+    console.log("Setting up ifHome helper function");
+    Handlebars.registerHelper("ifHome", function(conditional, options) {
+      if (window.location.pathname === "" || window.location.pathname === "/") {
+        options.fn(this);
+      } else {
+        options.inverse(this);
+      }
     });
-
-    
-    
+  });
 </script>
 
-<script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
-    <div>
-        <header id="keteHeader">
-            <div class="wrap header-container topnav">
-                <div class="nav-toggle">
-                    <a href="javascript:void(0);" class="icon" onclick="navFunction()">
-                        <img
-                            width="24"
-                            height="24"
-                            src=`{{settings.environment_url}}/icon/hamburger.png`
-                        />
-                    </a>
-                </div>
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/below-site-header/foobar"
+>
+  <div>
+      <header id="keteHeader">
+          <div class="wrap header-container topnav">
+              <div class="nav-toggle">
+                  <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+                      <img
+                          width="24"
+                          height="24"
+                          src=`{{settings.environment_url}}/icon/hamburger.png`
+                      />
+                  </a>
+              </div>
 
-                <div class="header-logo">
-                    <a href=`{{settings.environment_url}}`><img src=`{{settings.environment_url}}/nztelogo.png`/></a>
-                </div>
+              <div class="header-logo">
+                  <a href=`{{settings.environment_url}}`><img src=`{{settings.environment_url}}/nztelogo.png`/></a>
+              </div>
 
-                <div class="nav-container">
-                    {{#if currentUser}}
-                    <div class="navbar">
-                        <a class="nav-item" href="https://kete.nzte.govt.nz/learn">Learn</a>
-                        <span class="nav-item is-active">Forum</span>
-                        <a class="nav-item" href="https://kete.nzte.govt.nz/company">Plan</a>
-                        <!-- <a class="nav-item">Visit</a> -->
-                    </div>
-                    <div class="profile-dropdown" onclick="myFunction()">
-                            <span  class="dropbtn">
-                                <img
-                                        class="profile-avatar"
-                                        src="https://keteuat.nzte.govt.nz/blank-avatar.png"
-                                        height="44"
-                                        width="44"/>
-                                <span class="profile-name">{{currentUser.name}}</span>
-                                <img
-                                        class="profile-arrow"
-                                        height="24"
-                                        width="24"
-                                        src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
-                            </span>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/profile">My Profile</a>
-                            <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">My Company</a>
-                            <a class="nav-dropdown-item" href="#contact">Sign Out</a>
-                        </div>
-                    </div>
-                    {{/if}}
-                </div>
-            </div>
-        </header>
-        {{#if currentUser}}
-        <div id="mobileNav">
-            <div class="profile-dropdown mobile-nav-profile">
-                    <span class="dropbtn">
-                    <img class="profile-avatar" src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44"/>
-                    <span class="profile-name">{{currentUser.name}}</span>
-                </span>
-            </div>
-            <div class="mobile-nav-section">
-                <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/profile">My Profile</a>
-                <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">Plan</a>
-            </div>
-            <div class="mobile-nav-section">
-                <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/learn">Learn</a>
-                <a class="nav-dropdown-item" href="#about">Forum</a>
-                <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">Plan</a>
-                <!-- <a class="nav-dropdown-item" href="#about">Visit</a>-->
-            </div>
-            <a class="nav-dropdown-item" href="#about">Sign Out</a>
-        </div>
-        {{/if}}
-        
-    </div>
+              <div class="nav-container">
+                  {{#if currentUser}}
+                  <div class="navbar">
+                      <a class="nav-item" href="https://kete.nzte.govt.nz/learn">Learn</a>
+                      <span class="nav-item is-active">Forum</span>
+                      <a class="nav-item" href="https://kete.nzte.govt.nz/company">Plan</a>
+                      <!-- <a class="nav-item">Visit</a> -->
+                  </div>
+                  <div class="profile-dropdown" onclick="myFunction()">
+                          <span  class="dropbtn">
+                              <img
+                                      class="profile-avatar"
+                                      src="https://keteuat.nzte.govt.nz/blank-avatar.png"
+                                      height="44"
+                                      width="44"/>
+                              <span class="profile-name">{{currentUser.name}}</span>
+                              <img
+                                      class="profile-arrow"
+                                      height="24"
+                                      width="24"
+                                      src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
+                          </span>
+                      <div id="myDropdown" class="dropdown-content">
+                          <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/profile">My Profile</a>
+                          <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">My Company</a>
+                          <a class="nav-dropdown-item" href="#contact">Sign Out</a>
+                      </div>
+                  </div>
+                  {{/if}}
+              </div>
+          </div>
+      </header>
+      {{#if currentUser}}
+      <div id="mobileNav">
+          <div class="profile-dropdown mobile-nav-profile">
+                  <span class="dropbtn">
+                  <img class="profile-avatar" src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44"/>
+                  <span class="profile-name">{{currentUser.name}}</span>
+              </span>
+          </div>
+          <div class="mobile-nav-section">
+              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/profile">My Profile</a>
+              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">Plan</a>
+          </div>
+          <div class="mobile-nav-section">
+              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/learn">Learn</a>
+              <a class="nav-dropdown-item" href="#about">Forum</a>
+              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">Plan</a>
+              <!-- <a class="nav-dropdown-item" href="#about">Visit</a>-->
+          </div>
+          <a class="nav-dropdown-item" href="#about">Sign Out</a>
+      </div>
+      {{/if}}
+
+  </div>
 </script>
 
 <!-- Start new discussion - START -->
 <script type="text/x-handlebars" data-template-name="composer">
-    {{#composer-body composer=model
-    showPreview=showPreview
-    openIfDraft="openIfDraft"
-    typed="typed"
-    cancelled="cancelled"
-    save="save"}}
+  {{#composer-body composer=model
+  showPreview=showPreview
+  openIfDraft="openIfDraft"
+  typed="typed"
+  cancelled="cancelled"
+  save="save"}}
 
-    {{#if visible}}
-    {{composer-messages composer=model
-    messageCount=messageCount
-    addLinkLookup="addLinkLookup"}}
-    {{#if model.viewOpenOrFullscreen}}
+  {{#if visible}}
+  {{composer-messages composer=model
+  messageCount=messageCount
+  addLinkLookup="addLinkLookup"}}
+  {{#if model.viewOpenOrFullscreen}}
 
-    <header id="keteHeader">
-        <div class="wrap header-container topnav">
-            <div class="nav-toggle">
-                <a href="javascript:void(0);" onclick="navFunction()" class="icon">
-                    <img width="24" height="24" src="https://ketedev.nzte.govt.nz/icon/hamburger.png">
-                </a>
-            </div>
+  <header id="keteHeader">
+      <div class="wrap header-container topnav">
+          <div class="nav-toggle">
+              <a href="javascript:void(0);" onclick="navFunction()" class="icon">
+                  <img width="24" height="24" src="https://ketedev.nzte.govt.nz/icon/hamburger.png">
+              </a>
+          </div>
 
-            <div class="header-logo">
-                <a href="/"><img src="https://keteuat.nzte.govt.nz/nztelogo.png"></a>
-            </div>
+          <div class="header-logo">
+              <a href="/"><img src="https://keteuat.nzte.govt.nz/nztelogo.png"></a>
+          </div>
 
-            <div class="nav-container">
-                <div class="navbar">
-                    <a class="nav-item">Learn</a>
-                    <span class="nav-item is-active">Forum</span>
-                    <a class="nav-item">Plan</a>
-                    <!-- <a class="nav-item">Visit</a> -->
-                </div>
-                <div onclick="myFunction()" class="profile-dropdown">
-                    <span class="dropbtn">
-                        <img src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44" class="profile-avatar">
-                        <span class="profile-name">Test99 Kete13</span>
-                        <img height="24" width="24" src="https://ketedev.nzte.govt.nz/icon/expand.png" class="profile-arrow">
-                    </span>
-                    <div id="myDropdown" class="dropdown-content show">
-                        <a href="#home" class="nav-dropdown-item">My Profile</a>
-                        <a href="#about" class="nav-dropdown-item">My Company</a>
-                        <a href="#contact" class="nav-dropdown-item">Sign Out</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-    <div class="reply-area {{if canEditTags 'with-tags'}}">
-
-        <div class='composer-fields'>
-            {{plugin-outlet name="composer-open" args=(hash model=model)}}
-            <div class='reply-to'>
-                {{#unless model.viewFullscreen}}
-                <h2 class="discussionTitle">Start a new discussion</h2>
-                {{/unless}}
-                {{composer-toggles composeState=model.composeState
-                toggleComposer=(action "toggle")
-                toggleToolbar=(action "toggleToolbar")
-                toggleFullscreen=(action "fullscreenComposer")}}
-            </div>
-            {{#unless model.viewFullscreen}}
-            {{#if model.canEditTitle}}
-            {{#if model.creatingPrivateMessage}}
-            <div class='user-selector'>
-                {{composer-user-selector topicId=topicModel.id
-                usernames=model.targetUsernames
-                hasGroups=model.hasTargetGroups
-                focusTarget=focusTarget
-                class="users-input"}}
-                {{#if showWarning}}
-                <label class='add-warning'>
-                    {{input type="checkbox" checked=model.isWarning tabindex="3"}}
-                    {{i18n "composer.add_warning"}}
-                </label>
-                {{/if}}
-            </div>
-            {{/if}}
-
-            <div class="title-and-category {{if showPreview 'with-preview'}}">
-
-                {{composer-title composer=model lastValidatedAt=lastValidatedAt focusTarget=focusTarget}}
-
-                {{#if model.showCategoryChooser}}
-
-                {{/if}}
-                {{#if canEditTags}}
-                {{mini-tag-chooser tags=model.tags tabindex="4" categoryId=model.categoryId minimum=model.minimumRequiredTags}}
-                {{popup-input-tip validation=tagValidation}}
-                {{/if}}
-            </div>
-            {{/if}}
-
-            {{plugin-outlet name="composer-fields" args=(hash model=model)}}
-            {{/unless}}
-
-        </div>
-
-        {{composer-editor topic=topic
-        composer=model
-        lastValidatedAt=lastValidatedAt
-        canWhisper=canWhisper
-        storeToolbarState="storeToolbarState"
-        onPopupMenuAction=(action "onPopupMenuAction")
-        popupMenuOptions=popupMenuOptions
-        draftStatus=model.draftStatus
-        isUploading=isUploading
-        allowUpload=allowUpload
-        uploadIcon=uploadIcon
-        isCancellable=isCancellable
-        uploadProgress=uploadProgress
-        groupsMentioned="groupsMentioned"
-        cannotSeeMention="cannotSeeMention"
-        importQuote="importQuote"
-        togglePreview="togglePreview"
-        showToolbar=showToolbar
-        showUploadSelector="showUploadSelector"
-        afterRefresh="afterRefresh"}}
-
-        <div class='submit-panel'>
-            {{plugin-outlet name="composer-fields-below" args=(hash model=model)}}
-
-            <div class='save-or-cancel'>
-                {{#unless model.viewFullscreen}}
-                {{composer-save-button action=(action "save")
-                icon=model.saveIcon
-                label=model.saveLabel
-                disableSubmit=disableSubmit}}
-
-                {{#if site.mobileView}}
-                <a href {{action "cancel"}} class='cancel' tabindex="6" title="{{i18n 'cancel'}}">
-                {{#if canEdit}}
-                {{d-icon "times"}}
-                {{else}}
-                {{d-icon "trash-o"}}
-                {{/if}}
-                </a>
-                {{else}}
-                <a href {{action "cancel"}} class='cancel' tabindex="6" >{{i18n 'cancel'}}</a>
-                {{/if}}
-                {{/unless}}
+          <div class="nav-container">
+              <div class="navbar">
+                  <a class="nav-item">Learn</a>
+                  <span class="nav-item is-active">Forum</span>
+                  <a class="nav-item">Plan</a>
+                  <!-- <a class="nav-item">Visit</a> -->
+              </div>
+              <div onclick="myFunction()" class="profile-dropdown">
+                  <span class="dropbtn">
+                      <img src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44" class="profile-avatar">
+                      <span class="profile-name">Test99 Kete13</span>
+                      <img height="24" width="24" src="https://ketedev.nzte.govt.nz/icon/expand.png" class="profile-arrow">
+                  </span>
+                  <div id="myDropdown" class="dropdown-content show">
+                      <a href="#home" class="nav-dropdown-item">My Profile</a>
+                      <a href="#about" class="nav-dropdown-item">My Company</a>
+                      <a href="#contact" class="nav-dropdown-item">Sign Out</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
 
 
-                {{#if site.mobileView}}
-                {{#if whisperOrUnlistTopic}}
-                <span class='whisper'>
-       {{d-icon "eye-slash"}}
-     </span>
-                {{/if}}
-                {{#if model.noBump}}
-                <span class="no-bump">{{d-icon "anchor"}}</span>
-                {{/if}}
-                {{/if}}
+  <div class="reply-area {{if canEditTags 'with-tags'}}">
+
+      <div class='composer-fields'>
+          {{plugin-outlet name="composer-open" args=(hash model=model)}}
+          <div class='reply-to'>
+              {{#unless model.viewFullscreen}}
+              <h2 class="discussionTitle">Start a new discussion</h2>
+              {{/unless}}
+              {{composer-toggles composeState=model.composeState
+              toggleComposer=(action "toggle")
+              toggleToolbar=(action "toggleToolbar")
+              toggleFullscreen=(action "fullscreenComposer")}}
+          </div>
+          {{#unless model.viewFullscreen}}
+          {{#if model.canEditTitle}}
+          {{#if model.creatingPrivateMessage}}
+          <div class='user-selector'>
+              {{composer-user-selector topicId=topicModel.id
+              usernames=model.targetUsernames
+              hasGroups=model.hasTargetGroups
+              focusTarget=focusTarget
+              class="users-input"}}
+              {{#if showWarning}}
+              <label class='add-warning'>
+                  {{input type="checkbox" checked=model.isWarning tabindex="3"}}
+                  {{i18n "composer.add_warning"}}
+              </label>
+              {{/if}}
+          </div>
+          {{/if}}
+
+          <div class="title-and-category {{if showPreview 'with-preview'}}">
+
+              {{composer-title composer=model lastValidatedAt=lastValidatedAt focusTarget=focusTarget}}
+
+              {{#if model.showCategoryChooser}}
+
+              {{/if}}
+              {{#if canEditTags}}
+              {{mini-tag-chooser tags=model.tags tabindex="4" categoryId=model.categoryId minimum=model.minimumRequiredTags}}
+              {{popup-input-tip validation=tagValidation}}
+              {{/if}}
+          </div>
+          {{/if}}
+
+          {{plugin-outlet name="composer-fields" args=(hash model=model)}}
+          {{/unless}}
+
+      </div>
+
+      {{composer-editor topic=topic
+      composer=model
+      lastValidatedAt=lastValidatedAt
+      canWhisper=canWhisper
+      storeToolbarState="storeToolbarState"
+      onPopupMenuAction=(action "onPopupMenuAction")
+      popupMenuOptions=popupMenuOptions
+      draftStatus=model.draftStatus
+      isUploading=isUploading
+      allowUpload=allowUpload
+      uploadIcon=uploadIcon
+      isCancellable=isCancellable
+      uploadProgress=uploadProgress
+      groupsMentioned="groupsMentioned"
+      cannotSeeMention="cannotSeeMention"
+      importQuote="importQuote"
+      togglePreview="togglePreview"
+      showToolbar=showToolbar
+      showUploadSelector="showUploadSelector"
+      afterRefresh="afterRefresh"}}
+
+      <div class='submit-panel'>
+          {{plugin-outlet name="composer-fields-below" args=(hash model=model)}}
+
+          <div class='save-or-cancel'>
+              {{#unless model.viewFullscreen}}
+              {{composer-save-button action=(action "save")
+              icon=model.saveIcon
+              label=model.saveLabel
+              disableSubmit=disableSubmit}}
+
+              {{#if site.mobileView}}
+              <a href {{action "cancel"}} class='cancel' tabindex="6" title="{{i18n 'cancel'}}">
+              {{#if canEdit}}
+              {{d-icon "times"}}
+              {{else}}
+              {{d-icon "trash-o"}}
+              {{/if}}
+              </a>
+              {{else}}
+              <a href {{action "cancel"}} class='cancel' tabindex="6" >{{i18n 'cancel'}}</a>
+              {{/if}}
+              {{/unless}}
 
 
-                {{#if isUploading}}
-                <div id="file-uploading">
-                    {{loading-spinner size="small"}}<span>{{i18n 'upload_selector.uploading'}} {{uploadProgress}}%</span>
-                    {{#if isCancellable}}
-                    <a href id="cancel-file-upload" {{action "cancelUpload"}}>{{d-icon "times"}}</a>
-                    {{/if}}
-                </div>
-                {{/if}}
+              {{#if site.mobileView}}
+              {{#if whisperOrUnlistTopic}}
+              <span class='whisper'>
+     {{d-icon "eye-slash"}}
+   </span>
+              {{/if}}
+              {{#if model.noBump}}
+              <span class="no-bump">{{d-icon "anchor"}}</span>
+              {{/if}}
+              {{/if}}
 
-            </div>
 
-            <div class="composer-bottom-right">
-                {{#if site.mobileView}}
-                {{#if allowUpload}}
-                <a class="btn btn-default no-text mobile-file-upload {{if isUploading 'hidden'}}">
-                    {{d-icon uploadIcon}}
-                </a>
-                {{/if}}
+              {{#if isUploading}}
+              <div id="file-uploading">
+                  {{loading-spinner size="small"}}<span>{{i18n 'upload_selector.uploading'}} {{uploadProgress}}%</span>
+                  {{#if isCancellable}}
+                  <a href id="cancel-file-upload" {{action "cancelUpload"}}>{{d-icon "times"}}</a>
+                  {{/if}}
+              </div>
+              {{/if}}
 
-                {{#if showPreview}}
-                {{d-button action='togglePreview' class='hide-preview' label='composer.hide_preview'}}
-                {{/if}}
-                {{else}}
-                <a href {{action "togglePreview"}} class='toggle-preview'>{{{toggleText}}}</a>
-                {{/if}}
+          </div>
 
-            </div>
-        </div>
-    </div>
+          <div class="composer-bottom-right">
+              {{#if site.mobileView}}
+              {{#if allowUpload}}
+              <a class="btn btn-default no-text mobile-file-upload {{if isUploading 'hidden'}}">
+                  {{d-icon uploadIcon}}
+              </a>
+              {{/if}}
 
-    {{else}}
-    <div class='saving-text'>
-        {{#if model.createdPost}}
-        {{i18n 'composer.saved'}} <a class='permalink' href="{{unbound createdPost.url}}" {{action "viewNewReply"}}>{{i18n 'composer.view_new_post'}}</a>
-        {{else}}
-        {{i18n 'composer.saving'}} {{loading-spinner size="small"}}
-        {{/if}}
-    </div>
+              {{#if showPreview}}
+              {{d-button action='togglePreview' class='hide-preview' label='composer.hide_preview'}}
+              {{/if}}
+              {{else}}
+              <a href {{action "togglePreview"}} class='toggle-preview'>{{{toggleText}}}</a>
+              {{/if}}
 
-    <div class='draft-text'>
-        {{#if model.topic}}
-        {{d-icon "mail-forward"}} {{{draftTitle}}}
-        {{else}}
-        {{i18n "composer.saved_draft"}}
-        {{/if}}
-    </div>
+          </div>
+      </div>
+  </div>
 
-    {{composer-toggles composeState=model.composeState
-    toggleFullscreen=(action "fullscreenComposer")
-    toggleComposer=(action "toggle")
-    toggleToolbar=(action "toggleToolbar")}}
+  {{else}}
+  <div class='saving-text'>
+      {{#if model.createdPost}}
+      {{i18n 'composer.saved'}} <a class='permalink' href="{{unbound createdPost.url}}" {{action "viewNewReply"}}>{{i18n 'composer.view_new_post'}}</a>
+      {{else}}
+      {{i18n 'composer.saving'}} {{loading-spinner size="small"}}
+      {{/if}}
+  </div>
 
-    {{/if}}
+  <div class='draft-text'>
+      {{#if model.topic}}
+      {{d-icon "mail-forward"}} {{{draftTitle}}}
+      {{else}}
+      {{i18n "composer.saved_draft"}}
+      {{/if}}
+  </div>
 
-    {{/if}}
+  {{composer-toggles composeState=model.composeState
+  toggleFullscreen=(action "fullscreenComposer")
+  toggleComposer=(action "toggle")
+  toggleToolbar=(action "toggleToolbar")}}
 
-    {{/composer-body}}
+  {{/if}}
 
+  {{/if}}
+
+  {{/composer-body}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="application">
-    {{plugin-outlet name="above-site-header"}}
-    {{site-header canSignUp=canSignUp
-                  showCreateAccount=(route-action "showCreateAccount")
-                  showLogin=(route-action "showLogin")
-                  showKeyboard=(route-action "showKeyboardShortcutsHelp")
-                  toggleMobileView=(route-action "toggleMobileView")
-                  toggleAnonymous=(route-action "toggleAnonymous")
-                  logout=(route-action "logout")}}
-    
-    {{plugin-outlet name="below-site-header" args=(hash currentPath=currentPath)}}
-    
-    <div id="main-outlet" class="wrap">
-      
-      {{outlet}}
-      {{outlet "user-card"}}
-    </div>
-    
-    {{plugin-outlet name="above-footer" args=(hash showFooter=showFooter)}}
-    {{#if showFooter}}
-      {{custom-html name="footer" triggerAppEvent="true"}}
-    {{/if}}
-    {{plugin-outlet name="below-footer" args=(hash showFooter=showFooter)}}
-    
-    {{outlet "modal"}}
-    {{topic-entrance}}
-    {{outlet "composer"}}
-    
+  {{plugin-outlet name="above-site-header"}}
+  {{site-header canSignUp=canSignUp
+                showCreateAccount=(route-action "showCreateAccount")
+                showLogin=(route-action "showLogin")
+                showKeyboard=(route-action "showKeyboardShortcutsHelp")
+                toggleMobileView=(route-action "toggleMobileView")
+                toggleAnonymous=(route-action "toggleAnonymous")
+                logout=(route-action "logout")}}
+
+  {{plugin-outlet name="below-site-header" args=(hash currentPath=currentPath)}}
+
+  <div id="main-outlet" class="wrap">
+
+    {{outlet}}
+    {{outlet "user-card"}}
+  </div>
+
+  {{plugin-outlet name="above-footer" args=(hash showFooter=showFooter)}}
+  {{#if showFooter}}
+    {{custom-html name="footer" triggerAppEvent="true"}}
+  {{/if}}
+  {{plugin-outlet name="below-footer" args=(hash showFooter=showFooter)}}
+
+  {{outlet "modal"}}
+  {{topic-entrance}}
+  {{outlet "composer"}}
 </script>
 
 <!-- Start new discussion - END -->
 
 <!-- list items -->
 <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
-      
+
     {{#if bulkSelectEnabled}}
     <td class="bulk-select">
       <input type="checkbox" class="bulk-select">
@@ -614,30 +608,30 @@
         {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
       {{~/if}}
     </span>
-  
+
     {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
-    
+
       {{raw "list/topic-excerpt" topic=topic}}
-    
+
     {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
   </td>
-  
+
   <!-- {{#unless hideCategory}}
     {{#unless topic.isPinnedUncategorized}}
       {{raw "list/category-column" category=topic.category}}
     {{/unless}}
   {{/unless}} -->
-  
+
   {{#if showPosters}}
     {{raw "list/posters-column" posters=topic.posters}}
   {{/if}}
-  
+
   {{raw "list/posts-count-column" topic=topic}}
-  
+
   {{#if showParticipants}}
     {{raw "list/posters-column" posters=topic.participants}}
   {{/if}}
-  
+
   {{#if showLikes}}
   <td class="num likes">
     {{#if hasLikes}}
@@ -646,7 +640,7 @@
       </a>
     {{/if}}
   {{/if}}
-  
+
   {{#if showOpLikes}}
   <td class="num likes">
     {{#if hasOpLikes}}
@@ -655,201 +649,198 @@
       </a>
     {{/if}}
   {{/if}}
-  
-  <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td>
-  
-  {{raw "list/activity-column" topic=topic class="num" tagName="td"}}
-  
 
+  <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td>
+
+  {{raw "list/activity-column" topic=topic class="num" tagName="td"}}
 </script>
 
 <!-- widgets -->
 <script type="text/x-handlebars" data-template-name="composer">
-  {{#composer-body composer=model
-    showPreview=showPreview
-    openIfDraft="openIfDraft"
-    typed="typed"
-    cancelled="cancelled"
-    save="save"}}
+    {{#composer-body composer=model
+      showPreview=showPreview
+      openIfDraft="openIfDraft"
+      typed="typed"
+      cancelled="cancelled"
+      save="save"}}
 
-{{#if visible}}
-{{composer-messages composer=model
-             messageCount=messageCount
-             addLinkLookup="addLinkLookup"}}
-{{#if model.viewOpenOrFullscreen}}
+  {{#if visible}}
+  {{composer-messages composer=model
+               messageCount=messageCount
+               addLinkLookup="addLinkLookup"}}
+  {{#if model.viewOpenOrFullscreen}}
 
 
 
-<div class="reply-area {{if canEditTags 'with-tags'}}">
-  
-<div class='composer-fields'>
-{{plugin-outlet name="composer-open" args=(hash model=model)}}
-<div class='reply-to'>
- {{#unless model.viewFullscreen}}
-    <h2 class="discussionTitle">Start a new discussion</h2>
- {{/unless}}
- {{composer-toggles composeState=model.composeState
-           toggleComposer=(action "toggle")
-           toggleToolbar=(action "toggleToolbar")
-           toggleFullscreen=(action "fullscreenComposer")}}
-</div>
-{{#unless model.viewFullscreen}}
- {{#if model.canEditTitle}}
-   {{#if model.creatingPrivateMessage}}
-     <div class='user-selector'>
-       {{composer-user-selector topicId=topicModel.id
-                                usernames=model.targetUsernames
-                                hasGroups=model.hasTargetGroups
-                                focusTarget=focusTarget
-                                class="users-input"}}
-       {{#if showWarning}}
-         <label class='add-warning'>
-           {{input type="checkbox" checked=model.isWarning tabindex="3"}}
-           {{i18n "composer.add_warning"}}
-         </label>
+  <div class="reply-area {{if canEditTags 'with-tags'}}">
+
+  <div class='composer-fields'>
+  {{plugin-outlet name="composer-open" args=(hash model=model)}}
+  <div class='reply-to'>
+   {{#unless model.viewFullscreen}}
+      <h2 class="discussionTitle">Start a new discussion</h2>
+   {{/unless}}
+   {{composer-toggles composeState=model.composeState
+             toggleComposer=(action "toggle")
+             toggleToolbar=(action "toggleToolbar")
+             toggleFullscreen=(action "fullscreenComposer")}}
+  </div>
+  {{#unless model.viewFullscreen}}
+   {{#if model.canEditTitle}}
+     {{#if model.creatingPrivateMessage}}
+       <div class='user-selector'>
+         {{composer-user-selector topicId=topicModel.id
+                                  usernames=model.targetUsernames
+                                  hasGroups=model.hasTargetGroups
+                                  focusTarget=focusTarget
+                                  class="users-input"}}
+         {{#if showWarning}}
+           <label class='add-warning'>
+             {{input type="checkbox" checked=model.isWarning tabindex="3"}}
+             {{i18n "composer.add_warning"}}
+           </label>
+         {{/if}}
+       </div>
+     {{/if}}
+
+     <div class="title-and-category {{if showPreview 'with-preview'}}">
+
+       {{composer-title composer=model lastValidatedAt=lastValidatedAt focusTarget=focusTarget}}
+
+       {{#if model.showCategoryChooser}}
+
+       {{/if}}
+       {{#if canEditTags}}
+         {{mini-tag-chooser tags=model.tags tabindex="4" categoryId=model.categoryId minimum=model.minimumRequiredTags}}
+         {{popup-input-tip validation=tagValidation}}
        {{/if}}
      </div>
    {{/if}}
 
-   <div class="title-and-category {{if showPreview 'with-preview'}}">
+   {{plugin-outlet name="composer-fields" args=(hash model=model)}}
+  {{/unless}}
 
-     {{composer-title composer=model lastValidatedAt=lastValidatedAt focusTarget=focusTarget}}
+  </div>
 
-     {{#if model.showCategoryChooser}}
-   
-     {{/if}}
-     {{#if canEditTags}}
-       {{mini-tag-chooser tags=model.tags tabindex="4" categoryId=model.categoryId minimum=model.minimumRequiredTags}}
-       {{popup-input-tip validation=tagValidation}}
-     {{/if}}
-   </div>
- {{/if}}
+  {{composer-editor topic=topic
+                 composer=model
+                 lastValidatedAt=lastValidatedAt
+                 canWhisper=canWhisper
+                 storeToolbarState="storeToolbarState"
+                 onPopupMenuAction=(action "onPopupMenuAction")
+                 popupMenuOptions=popupMenuOptions
+                 draftStatus=model.draftStatus
+                 isUploading=isUploading
+                 allowUpload=allowUpload
+                 uploadIcon=uploadIcon
+                 isCancellable=isCancellable
+                 uploadProgress=uploadProgress
+                 groupsMentioned="groupsMentioned"
+                 cannotSeeMention="cannotSeeMention"
+                 importQuote="importQuote"
+                 togglePreview="togglePreview"
+                 showToolbar=showToolbar
+                 showUploadSelector="showUploadSelector"
+                 afterRefresh="afterRefresh"}}
 
- {{plugin-outlet name="composer-fields" args=(hash model=model)}}
-{{/unless}}
+  <div class='submit-panel'>
+  {{plugin-outlet name="composer-fields-below" args=(hash model=model)}}
 
-</div>
+  <div class='save-or-cancel'>
+   {{#unless model.viewFullscreen}}
+     {{composer-save-button action=(action "save")
+                            icon=model.saveIcon
+                            label=model.saveLabel
+                            disableSubmit=disableSubmit}}
 
-{{composer-editor topic=topic
-               composer=model
-               lastValidatedAt=lastValidatedAt
-               canWhisper=canWhisper
-               storeToolbarState="storeToolbarState"
-               onPopupMenuAction=(action "onPopupMenuAction")
-               popupMenuOptions=popupMenuOptions
-               draftStatus=model.draftStatus
-               isUploading=isUploading
-               allowUpload=allowUpload
-               uploadIcon=uploadIcon
-               isCancellable=isCancellable
-               uploadProgress=uploadProgress
-               groupsMentioned="groupsMentioned"
-               cannotSeeMention="cannotSeeMention"
-               importQuote="importQuote"
-               togglePreview="togglePreview"
-               showToolbar=showToolbar
-               showUploadSelector="showUploadSelector"
-               afterRefresh="afterRefresh"}}
-
-<div class='submit-panel'>
-{{plugin-outlet name="composer-fields-below" args=(hash model=model)}}
-
-<div class='save-or-cancel'>
- {{#unless model.viewFullscreen}}
-   {{composer-save-button action=(action "save")
-                          icon=model.saveIcon
-                          label=model.saveLabel
-                          disableSubmit=disableSubmit}}
-
- {{#if site.mobileView}}
-   <a href {{action "cancel"}} class='cancel' tabindex="6" title="{{i18n 'cancel'}}">
-     {{#if canEdit}}
-       {{d-icon "times"}}
-     {{else}}
-       {{d-icon "trash-o"}}
-     {{/if}}
-   </a>
- {{else}}
-   <a href {{action "cancel"}} class='cancel' tabindex="6" >{{i18n 'cancel'}}</a>
- {{/if}}
-{{/unless}}
-
-
- {{#if site.mobileView}}
-   {{#if whisperOrUnlistTopic}}
-     <span class='whisper'>
-       {{d-icon "eye-slash"}}
-     </span>
-   {{/if}}
-   {{#if model.noBump}}
-     <span class="no-bump">{{d-icon "anchor"}}</span>
-   {{/if}}
- {{/if}}
-
-
- {{#if isUploading}}
-   <div id="file-uploading">
-     {{loading-spinner size="small"}}<span>{{i18n 'upload_selector.uploading'}} {{uploadProgress}}%</span>
-     {{#if isCancellable}}
-       <a href id="cancel-file-upload" {{action "cancelUpload"}}>{{d-icon "times"}}</a>
-     {{/if}}
-   </div>
- {{/if}}
-
-</div>
-
-<div class="composer-bottom-right">
- {{#if site.mobileView}}
-   {{#if allowUpload}}
-     <a class="btn btn-default no-text mobile-file-upload {{if isUploading 'hidden'}}">
-       {{d-icon uploadIcon}}
+   {{#if site.mobileView}}
+     <a href {{action "cancel"}} class='cancel' tabindex="6" title="{{i18n 'cancel'}}">
+       {{#if canEdit}}
+         {{d-icon "times"}}
+       {{else}}
+         {{d-icon "trash-o"}}
+       {{/if}}
      </a>
+   {{else}}
+     <a href {{action "cancel"}} class='cancel' tabindex="6" >{{i18n 'cancel'}}</a>
+   {{/if}}
+  {{/unless}}
+
+
+   {{#if site.mobileView}}
+     {{#if whisperOrUnlistTopic}}
+       <span class='whisper'>
+         {{d-icon "eye-slash"}}
+       </span>
+     {{/if}}
+     {{#if model.noBump}}
+       <span class="no-bump">{{d-icon "anchor"}}</span>
+     {{/if}}
    {{/if}}
 
-   {{#if showPreview}}
-     {{d-button action='togglePreview' class='hide-preview' label='composer.hide_preview'}}
+
+   {{#if isUploading}}
+     <div id="file-uploading">
+       {{loading-spinner size="small"}}<span>{{i18n 'upload_selector.uploading'}} {{uploadProgress}}%</span>
+       {{#if isCancellable}}
+         <a href id="cancel-file-upload" {{action "cancelUpload"}}>{{d-icon "times"}}</a>
+       {{/if}}
+     </div>
    {{/if}}
- {{else}}
-   <a href {{action "togglePreview"}} class='toggle-preview'>{{{toggleText}}}</a>
- {{/if}}
 
-</div>
-</div>
-</div>
+  </div>
 
-{{else}}
-<div class='saving-text'>
-{{#if model.createdPost}}
-{{i18n 'composer.saved'}} <a class='permalink' href="{{unbound createdPost.url}}" {{action "viewNewReply"}}>{{i18n 'composer.view_new_post'}}</a>
-{{else}}
-{{i18n 'composer.saving'}} {{loading-spinner size="small"}}
-{{/if}}
-</div>
+  <div class="composer-bottom-right">
+   {{#if site.mobileView}}
+     {{#if allowUpload}}
+       <a class="btn btn-default no-text mobile-file-upload {{if isUploading 'hidden'}}">
+         {{d-icon uploadIcon}}
+       </a>
+     {{/if}}
 
-<div class='draft-text'>
-{{#if model.topic}}
-{{d-icon "mail-forward"}} {{{draftTitle}}}
-{{else}}
-{{i18n "composer.saved_draft"}}
-{{/if}}
-</div>
+     {{#if showPreview}}
+       {{d-button action='togglePreview' class='hide-preview' label='composer.hide_preview'}}
+     {{/if}}
+   {{else}}
+     <a href {{action "togglePreview"}} class='toggle-preview'>{{{toggleText}}}</a>
+   {{/if}}
 
-{{composer-toggles composeState=model.composeState
-toggleFullscreen=(action "fullscreenComposer")
-toggleComposer=(action "toggle")
-toggleToolbar=(action "toggleToolbar")}}
+  </div>
+  </div>
+  </div>
 
-{{/if}}
+  {{else}}
+  <div class='saving-text'>
+  {{#if model.createdPost}}
+  {{i18n 'composer.saved'}} <a class='permalink' href="{{unbound createdPost.url}}" {{action "viewNewReply"}}>{{i18n 'composer.view_new_post'}}</a>
+  {{else}}
+  {{i18n 'composer.saving'}} {{loading-spinner size="small"}}
+  {{/if}}
+  </div>
 
-{{/if}}
+  <div class='draft-text'>
+  {{#if model.topic}}
+  {{d-icon "mail-forward"}} {{{draftTitle}}}
+  {{else}}
+  {{i18n "composer.saved_draft"}}
+  {{/if}}
+  </div>
 
-{{/composer-body}}
+  {{composer-toggles composeState=model.composeState
+  toggleFullscreen=(action "fullscreenComposer")
+  toggleComposer=(action "toggle")
+  toggleToolbar=(action "toggleToolbar")}}
 
+  {{/if}}
+
+  {{/if}}
+
+  {{/composer-body}}
 </script>
-<!--Harmen-->
+<!-- Harmen -->
 
 <script>
-const width = document.getElementsByClassName('nav-container').offsetWidth;
-console.log('width',width);
-console.log('width',width)
+  const width = document.getElementsByClassName("nav-container").offsetWidth;
+  console.log("width", width);
+  console.log("width", width);
 </script>
