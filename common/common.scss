@@ -206,6 +206,15 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 #keteHeader {
   margin-bottom: 60px;
   border-bottom: solid #324164 1px;
+  a {
+    color: #252525 !important;
+  }
+  a:hover {
+    color: #252525 !important;
+  }
+  a:visited {
+    color: #252525 !important;
+  }
   .header-container {
     display: flex;
     height: 90px;
