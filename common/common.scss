@@ -398,8 +398,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     display: none;
   }
   ul li {
-    right: 330px;
-    top: 42px;
+    //right: 330px;
+    //top: 42px;
     i {
       font-size: 24px!important;
       margin-top: -7px;
@@ -437,6 +437,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 .docked .d-header {
   position: absolute;
+}
+
+.d-header .panel {
+  position: absolute;
+  left: 20%;
+    top: 25px;
 }
 
 
