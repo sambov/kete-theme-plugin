@@ -259,6 +259,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 }
 
 #mobileNav {
+  margin-top: -60px;
   display: none;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   .mobile-nav-profile {
