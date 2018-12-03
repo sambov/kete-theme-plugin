@@ -245,6 +245,8 @@ p {
 
   margin-right: 150px;
 
+
+
   @media only screen and (max-width: 1100px) {
 
     margin-left: 0px;
@@ -901,13 +903,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
   align-items: flex-end;
 
-  width: 100vw;
-
   position: relative;
-
-  left: 50%;
-
-  right: 50%;
 
   margin-left: -50vw;
 
@@ -916,6 +912,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   margin-top: -60px;
 
   margin-bottom: 60px;
+
+  text-align: center;
 
   h1 {
 
