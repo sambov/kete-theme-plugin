@@ -617,7 +617,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   margin-bottom: 60px;
 
   text-align: left;
-  overflow-x: hidden;
+  
 
   h1 {
     color: #ffffff;
@@ -630,6 +630,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
     max-width: 570px;
   }
+}
+
+#main {
+  overflow-x: hidden;
 }
 
 .reply-area {
