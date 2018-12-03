@@ -1021,6 +1021,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .title-and-category with-preview {
   width: 60%;
 }
+#reply-control {
+  z-index: 1000;
+}
 
 #reply-control .user-selector.with-preview,
 #reply-control .title-and-category.with-preview {
