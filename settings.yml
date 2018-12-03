@@ -1,0 +1,3 @@
+environment_url:
+  default: "http://ketedev.nzte.govt.nz"
+  description: "The url that you would like to point the theme to. Used across the theme to link back to Kete webapp."
