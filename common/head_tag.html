@@ -247,17 +247,6 @@
       x.style.display = "block";
     }
   }
-
-  (function() {
-    console.log("Setting up ifHome helper function");
-    Handlebars.registerHelper("ifHome", function(conditional, options) {
-      if (window.location.pathname === "" || window.location.pathname === "/") {
-        options.fn(this);
-      } else {
-        options.inverse(this);
-      }
-    });
-  });
 </script>
 
 <script
@@ -272,28 +261,28 @@
                       <img
                           width="24"
                           height="24"
-                          src="{{themeSettings.environment_url}}/icon/hamburger.png"
+                          src="{{themeSettings.web_url}}/icon/hamburger.png"
                       />
                   </a>
               </div>
 
               <div class="header-logo">
-                  <a href="{{themeSettings.environment_url}}"><img src="{{themeSettings.environment_url}}/nztelogo.png"/></a>
+                  <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
               </div>
 
               <div class="nav-container">
                   {{#if currentUser}}
                   <div class="navbar">
-                      <a class="nav-item" href="https://kete.nzte.govt.nz/learn">Learn</a>
-                      <span class="nav-item is-active">Forum</span>
-                      <a class="nav-item" href="https://kete.nzte.govt.nz/company">Plan</a>
+                      <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
+                      <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
+                      <a class="nav-item" href="{{themeSettings.web_url}}/company">Plan</a>
                       <!-- <a class="nav-item">Visit</a> -->
                   </div>
                   <div class="profile-dropdown" onclick="myFunction()">
                           <span  class="dropbtn">
                               <img
                                       class="profile-avatar"
-                                      src="https://keteuat.nzte.govt.nz/blank-avatar.png"
+                                      src="{{themeSettings.web_url}}/blank-avatar.png"
                                       height="44"
                                       width="44"/>
                               <span class="profile-name">{{currentUser.name}}</span>
@@ -301,11 +290,11 @@
                                       class="profile-arrow"
                                       height="24"
                                       width="24"
-                                      src="https://ketedev.nzte.govt.nz/icon/expand.png"/>
+                                      src="{{themeSettings.web_url}}/icon/expand.png"/>
                           </span>
                       <div id="myDropdown" class="dropdown-content">
-                          <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/profile">My Profile</a>
-                          <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">My Company</a>
+                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
                           <a class="nav-dropdown-item" href="#contact">Sign Out</a>
                       </div>
                   </div>
@@ -317,18 +306,18 @@
       <div id="mobileNav">
           <div class="profile-dropdown mobile-nav-profile">
                   <span class="dropbtn">
-                  <img class="profile-avatar" src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44"/>
+                  <img class="profile-avatar" src="{{themeSettings.web_url}}/blank-avatar.png" height="44" width="44"/>
                   <span class="profile-name">{{currentUser.name}}</span>
               </span>
           </div>
           <div class="mobile-nav-section">
-              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/profile">My Profile</a>
-              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">Plan</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">Plan</a>
           </div>
           <div class="mobile-nav-section">
-              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/learn">Learn</a>
-              <a class="nav-dropdown-item" href="#about">Forum</a>
-              <a class="nav-dropdown-item" href="https://kete.nzte.govt.nz/company">Plan</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}">Forum</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">Plan</a>
               <!-- <a class="nav-dropdown-item" href="#about">Visit</a>-->
           </div>
           <a class="nav-dropdown-item" href="#about">Sign Out</a>
@@ -357,12 +346,12 @@
       <div class="wrap header-container topnav">
           <div class="nav-toggle">
               <a href="javascript:void(0);" onclick="navFunction()" class="icon">
-                  <img width="24" height="24" src="https://ketedev.nzte.govt.nz/icon/hamburger.png">
+                  <img width="24" height="24" src="{{themeSettings.web_url}}/icon/hamburger.png">
               </a>
           </div>
 
           <div class="header-logo">
-              <a href="/"><img src="https://keteuat.nzte.govt.nz/nztelogo.png"></a>
+              <a href="/"><img src="{{themeSettings.web_url}}/nztelogo.png"></a>
           </div>
 
           <div class="nav-container">
@@ -374,13 +363,13 @@
               </div>
               <div onclick="myFunction()" class="profile-dropdown">
                   <span class="dropbtn">
-                      <img src="https://keteuat.nzte.govt.nz/blank-avatar.png" height="44" width="44" class="profile-avatar">
+                      <img src="{{themeSettings.web_url}}/blank-avatar.png" height="44" width="44" class="profile-avatar">
                       <span class="profile-name">Test99 Kete13</span>
-                      <img height="24" width="24" src="https://ketedev.nzte.govt.nz/icon/expand.png" class="profile-arrow">
+                      <img height="24" width="24" src="{{themeSettings.web_url}}/icon/expand.png" class="profile-arrow">
                   </span>
                   <div id="myDropdown" class="dropdown-content show">
-                      <a href="#home" class="nav-dropdown-item">My Profile</a>
-                      <a href="#about" class="nav-dropdown-item">My Company</a>
+                      <a href="{{themeSettings.web_url}}/profile" class="nav-dropdown-item">My Profile</a>
+                      <a href="{{themeSettings.web_url}}/company" class="nav-dropdown-item">My Company</a>
                       <a href="#contact" class="nav-dropdown-item">Sign Out</a>
                   </div>
               </div>
@@ -838,9 +827,3 @@
   {{/composer-body}}
 </script>
 <!-- Harmen -->
-
-<script>
-  const width = document.getElementsByClassName("nav-container").offsetWidth;
-  console.log("width", width);
-  console.log("width", width);
-</script>
