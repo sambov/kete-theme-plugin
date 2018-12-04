@@ -327,11 +327,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
     .nav-container {
       margin-left: auto;
-
       display: flex;
-
       align-items: center;
-
       @media only screen and (max-width: 767px) {
         display: none;
       }
@@ -345,7 +342,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
     .nav-toggle {
       display: none;
-
       @media only screen and (max-width: 767px) {
         display: block;
       }
@@ -355,20 +351,13 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #mobileNav {
   margin-top: -60px;
-
   display: none;
-
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-
   .mobile-nav-profile {
     background: #f2f4f7;
-
     border-top: solid 1px #324164;
-
     border-bottom: solid 1px #324164;
-
     margin-left: 0;
-
     padding: 15px 20px;
   }
 
@@ -380,13 +369,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     box-shadow: none !important;
   }
 
-  .nav-dropdown-item {
+  .nav-dropdown-item:not(:first-child) {
     display: block;
-
     padding: 15px 0px;
-
     margin: 0 15px;
-
     box-shadow: 0 1px 0 0 #d8d8d8;
   }
 }
