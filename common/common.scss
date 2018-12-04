@@ -729,10 +729,54 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 }
 
 #create-topic {
-  position: absolute;
+  @media only screen and (min-width: 769px) {
+  position: absolute!important;
   top: 430px;
-  right: 150px;
+  right: 150px!important;
+  }
 }
+
+#create-topic.btn-default {
+  @media only screen and (min-width: 769px) {
+  width: 190px!important;
+  color: #fff!important;
+  }
+}
+
+#reply-control .reply-to .composer-action-title { 
+  @media only screen and (max-width: 767px) {
+  display: flex!important;
+  flex-wrap: wrap-reverse
+  }
+}
+#reply-control .submit-panel {
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  }
+}
+
+#reply-control .wmd-controls {
+  padding: 15px;
+}
+
+.category-input{
+  display: none!important;
+}
+
+.composer-fields {
+  padding: 15px;
+}
+
+
+#reply-control .d-editor-button-bar .btn {
+  @media (max-width: 800px){
+    padding: 7.7px!important;
+  }
+}
+
+
 
 //Footer
 
@@ -999,6 +1043,11 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #reply-control {
   max-width: unset;
+  height: 100%!important;
+}
+
+.select-kit.dropdown-select-box.composer-actions {
+  display: none!important;
 }
 
 .create {
