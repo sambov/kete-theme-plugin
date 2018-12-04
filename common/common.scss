@@ -708,6 +708,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   }
 }
 
+.list-controls .nav-pills .drop li {
+  @media only screen and (max-width: 767px) {
+    padding-top: 0!important;
+  }
+}
+
 .list-controls .nav-pills > li > a .d-icon {
   @media only screen and (max-width: 767px) {
     margin-left: auto !important;
