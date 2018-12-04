@@ -3,6 +3,20 @@
   rel="stylesheet"
 />
 
+<script>
+    I18n.translations.en.js.topic.create = "Start new discussion";
+    I18n.translations.en.js.bookmarked.title = "Save to favourites";
+    I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
+
+    I18n.translations.en.js.bookmarks.created = "you've saved this post to your favourites";
+    I18n.translations.en.js.bookmarks.not_bookmarked = "Save this post to your favourites";
+    I18n.translations.en.js.bookmarks.remove = I18n.translations.en.js.bookmarked.clear_bookmarks;
+    I18n.translations.en.js.bookmarks.confirm_clear = "Are you sure you wish to clear all your favourites from this topic?";
+
+    I18n.translations.en.js.search.title = "Search Kete Community";
+    I18n.translations.en.js.search.full_page_title = I18n.translations.en.js.search.title;
+</script>
+
 <script type="text/x-handlebars" data-template-name="components/d-navigation">
   {{bread-crumbs categories=categories category=category noSubcategories=noSubcategories}}
 
@@ -293,7 +307,7 @@
                       <div id="myDropdown" class="dropdown-content">
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId{{currentUser.id}}">Sign Out</a>
+                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
                       </div>
                   </div>
                   {{/if}}
@@ -317,7 +331,7 @@
               <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}">Forum</a>
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
           </div>
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId{{currentUser.id}}">Sign Out</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
       </div>
       {{/if}}
   </div>
