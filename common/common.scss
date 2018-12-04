@@ -369,7 +369,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     box-shadow: none !important;
   }
 
-  .nav-dropdown-item:not(:first-child) {
+  .nav-dropdown-item {
     display: block;
     padding: 15px 0px;
     margin: 0 15px;
@@ -670,6 +670,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   .navigation-toggle {
     @media only screen and (max-width: 767px) {
       border-radius: 3px;
+      box-shadow: none !important;
     }
   }
   ul {
