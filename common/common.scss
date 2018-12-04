@@ -760,6 +760,11 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   padding: 15px;
 }
 
+@media (max-width: 800px){
+#reply-control .d-editor-button-bar .btn {
+    padding: 7.7px!important;
+}
+
 //Footer
 
 #keteFooter {
