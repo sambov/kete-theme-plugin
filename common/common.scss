@@ -678,6 +678,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   ul {
     @media only screen and (max-width: 767px) {
       padding: 0!important;
+      width: 100%!important;
     }
   }
   li {
@@ -704,6 +705,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     font-weight: 700;
     @media only screen and (max-width: 767px) {
       padding: 15px !important;
+      border-bottom: none!important;
     }
   }
 }
