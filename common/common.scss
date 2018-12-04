@@ -489,9 +489,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   padding-bottom: 7px !important;
   font-weight: 700;
   @media only screen and (max-width: 767px) {
-    font-weight: 300;
-    border-bottom: none;
-    background: #9f9f9f;
+    font-weight: 300!important;
+    border-bottom: none!important;
+    background: #9f9f9f!important;
   }
 }
 
