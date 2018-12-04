@@ -1069,10 +1069,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   color: #324164;
 }
 
-.composer-action-title {
-  display: none !important;
-}
-.category-chooser {
+.composer-action-title .invite-topic .category-chooser {
   display: none !important;
 }
 
