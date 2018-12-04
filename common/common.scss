@@ -675,10 +675,15 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 //forum nav
 
 #navigation-bar {
+  .navigation-toggle {
+    @media only screen and (max-width: 767px) {
+      border-radius: 3px;
+    }
+  }
   ul {
     @media only screen and (max-width: 767px) {
-      padding: 0!important;
-      width: 100%!important;
+      padding: 0 !important;
+      width: 100% !important;
     }
   }
   li {
@@ -686,7 +691,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
     color: #324164;
     @media only screen and (max-width: 767px) {
-      border-radius: 3px;
+      box-shadow: 0 1px 0 0 #9f9f9f;
     }
     a {
       padding-left: 0 !important;
@@ -705,14 +710,14 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     font-weight: 700;
     @media only screen and (max-width: 767px) {
       padding: 15px !important;
-      border-bottom: none!important;
+      border-bottom: none !important;
     }
   }
 }
 
 .list-controls .nav-pills .drop li {
   @media only screen and (max-width: 767px) {
-    padding-top: 0!important;
+    padding-top: 0 !important;
   }
 }
 
@@ -771,8 +776,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #create-topic.btn-default {
   @media only screen and (min-width: 769px) {
-    width: 240px!important;
-    color: #fff!important;
+    width: 240px !important;
+    color: #fff !important;
   }
 }
 
