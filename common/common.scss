@@ -1032,6 +1032,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #reply-control {
   max-width: unset;
+  height: 100%!important;
 }
 
 .create {
