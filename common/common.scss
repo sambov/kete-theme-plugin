@@ -229,24 +229,30 @@ tr {
 .btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon),
 button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) {
   border-radius: 25px !important;
-
   background-color: #2a7ab0 !important;
-
   font-size: 16px !important;
-
   font-weight: 300 !important;
-
   font-style: normal !important;
-
   font-stretch: normal !important;
-
   line-height: 1 !important;
-
   letter-spacing: -0.3px !important;
-
   color: #ffffff !important;
-
   padding: 16px 30px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  #create-topic {
+    border-radius: 25px !important;
+    background-color: #2a7ab0 !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    font-stretch: normal !important;
+    line-height: 1 !important;
+    letter-spacing: -0.3px !important;
+    color: #ffffff !important;
+    padding: 16px 30px !important;
+  }
 }
 
 .d-editor-button-bar button {
