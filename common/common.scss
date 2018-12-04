@@ -731,7 +731,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 #create-topic {
   position: absolute!important;
   top: 430px;
-  right: 150px;
+  right: 150px!important;
+}
+
+#create-topic.btn-default {
+  width: 190px!important;
+  color: #fff!important;
 }
 
 #reply-control .reply-to .composer-action-title { 
@@ -766,6 +771,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     padding: 7.7px!important;
   }
 }
+
+
 
 //Footer
 
