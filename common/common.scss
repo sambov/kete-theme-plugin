@@ -319,11 +319,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
       }
     }
 
-    .wrap{
-    @media only screen and (min-width: 1900px) {
-      margin-left: 260px!important;
-        }
-    }
+    
     
 
     .nav-container {
@@ -625,6 +621,11 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
   text-align: left;
   
+  .wrap{
+    @media only screen and (min-width: 1900px) {
+      margin-left: 260px!important;
+        }
+    }
 
   h1 {
     color: #ffffff;
