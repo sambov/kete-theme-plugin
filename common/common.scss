@@ -568,6 +568,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 }
 
 .menu-panel.slide-in {
+  top: 90px;
   @media only screen and (max-width: 767px) {
     left: 0px !important;
 
@@ -578,6 +579,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .menu-panel.drop-down {
   top: 87px !important;
   left: 0!important;
+  @media only screen and (max-width: 767px) {
+    top: 46px !important;
+  }
+  @media only screen and (max-width: 450px) {
+    left: 150px !important;
+  }
 }
 
 #navigation-bar li:first-child {
