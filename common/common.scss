@@ -787,6 +787,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   padding: 15px;
 }
 
+.category{
+  display: none!important;
+}
 .category-input {
   display: none !important;
 }
