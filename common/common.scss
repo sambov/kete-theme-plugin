@@ -699,12 +699,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
   li.active > a {
     border-bottom: 3px solid #58c7dd !important;
-
     background-color: initial !important;
-
     padding-bottom: 7px !important;
-
     font-weight: 700;
+    @media only screen and (max-width: 767px) {
+      padding: 15px !important;
+    }
   }
 }
 
