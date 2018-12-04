@@ -568,7 +568,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 }
 
 .menu-panel.slide-in {
-  top: 90px;
+  top: 90px!important;
   @media only screen and (max-width: 767px) {
     left: 0px !important;
 
