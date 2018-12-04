@@ -732,8 +732,13 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   @media only screen and (min-width: 769px) {
   position: absolute!important;
   top: 430px;
-  right: 150px!important;
+  right: 15px!important;
   }
+  @media only screen and (min-width: 1200px) {
+    position: absolute!important;
+    top: 430px;
+    right: 150px!important;
+    }
 }
 
 #create-topic.btn-default {
