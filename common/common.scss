@@ -668,7 +668,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   padding-top: 0 !important;
   margin-left: 150px !important;
   @media only screen and (max-width: 767px) {
-    margin-left: 0!important;
+    margin-left: 0 !important;
   }
 }
 
@@ -679,11 +679,16 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     margin-left: 30px;
 
     color: #324164;
-
+    @media only screen and (max-width: 767px) {
+      border-radius: 3px;
+    }
     a {
       padding-left: 0 !important;
 
       padding-right: 0 !important;
+      @media only screen and (max-width: 767px) {
+        padding: 15px !important;
+      }
     }
   }
 
@@ -695,6 +700,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     padding-bottom: 7px !important;
 
     font-weight: 700;
+  }
+}
+
+.list-controls .nav-pills > li > a .d-icon {
+  @media only screen and (max-width: 767px) {
+    margin-left: auto !important;
   }
 }
 
@@ -730,32 +741,32 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #create-topic {
   @media only screen and (min-width: 769px) {
-  position: absolute!important;
-  top: 430px;
-  right: 15px!important;
+    position: absolute !important;
+    top: 430px;
+    right: 15px !important;
   }
   @media only screen and (min-width: 1200px) {
-    position: absolute!important;
+    position: absolute !important;
     top: 430px;
-    right: 150px!important;
-    }
+    right: 150px !important;
+  }
 
-    @media only screen and (min-width: 1900px) {
-      right: 360px!important;
-      }
+  @media only screen and (min-width: 1900px) {
+    right: 360px !important;
+  }
 }
 
 #create-topic.btn-default {
   @media only screen and (min-width: 769px) {
-  width: 190px!important;
-  color: #fff!important;
+    width: 190px !important;
+    color: #fff !important;
   }
 }
 
-#reply-control .reply-to .composer-action-title { 
+#reply-control .reply-to .composer-action-title {
   @media only screen and (max-width: 767px) {
-  display: flex!important;
-  flex-wrap: wrap-reverse
+    display: flex !important;
+    flex-wrap: wrap-reverse;
   }
 }
 #reply-control .submit-panel {
@@ -770,22 +781,19 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   padding: 15px;
 }
 
-.category-input{
-  display: none!important;
+.category-input {
+  display: none !important;
 }
 
 .composer-fields {
   padding: 15px;
 }
 
-
 #reply-control .d-editor-button-bar .btn {
-  @media (max-width: 800px){
-    padding: 7.7px!important;
+  @media (max-width: 800px) {
+    padding: 7.7px !important;
   }
 }
-
-
 
 //Footer
 
@@ -1052,11 +1060,11 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #reply-control {
   max-width: unset;
-  height: 100%!important;
+  height: 100% !important;
 }
 
 .select-kit.dropdown-select-box.composer-actions {
-  display: none!important;
+  display: none !important;
 }
 
 .create {
