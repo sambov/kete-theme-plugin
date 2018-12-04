@@ -683,7 +683,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     }
   }
 
-  li:last-child {
+  .drop li:last-child {
     @media only screen and (max-width: 767px) {
       border-radius: 0 0 3px 3px;
     }
