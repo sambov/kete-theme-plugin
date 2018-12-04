@@ -638,6 +638,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 .reply-area {
   padding-top: 0 !important;
+  margin-left: 150px !important;
 }
 
 //forum nav
@@ -965,12 +966,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 .create {
   float: right;
-}
-
-.reply-area {
-  margin-left: 150px !important;
-
-  //padding-top: 50px !important;
 }
 
 .grippie,
