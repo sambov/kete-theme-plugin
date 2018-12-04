@@ -1,6 +1,9 @@
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $( ".invite-topic" ).remove();
-    });
+   setInterval(function() {
+       const inviteButton = $( ".invite-topic" );
+       if (inviteButton) {
+            inviteButton.remove();
+       }
+   }, 100);
 </script>
