@@ -667,6 +667,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .reply-area {
   padding-top: 0 !important;
   margin-left: 150px !important;
+  @media only screen and (max-width: 767px) {
+    margin-left: 0!important;
+  }
 }
 
 //forum nav
@@ -723,6 +726,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 .topic-list-item .category-uncategorized .has-excerpt {
   border: solid red 2px !important;
+}
+
+#create-topic {
+  position: absolute;
+  top: 430px;
+  right: 150px;
 }
 
 //Footer
@@ -1043,6 +1052,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .d-editor,
 .title-and-category with-preview {
   width: 60%;
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
 }
 #reply-control {
   z-index: 1000;
