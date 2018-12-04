@@ -669,7 +669,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   }
   li {
     margin-left: 30px;
-
     color: #324164;
     @media only screen and (max-width: 767px) {
       box-shadow: 0 1px 0 0 #9f9f9f;
@@ -681,6 +680,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
       @media only screen and (max-width: 767px) {
         padding: 15px !important;
       }
+    }
+  }
+
+  li:last-child {
+    @media only screen and (max-width: 767px) {
+      border-radius: 0 0 3px 3px;
     }
   }
 
