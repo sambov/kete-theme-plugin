@@ -297,10 +297,10 @@
                   </div>
                   <div class="profile-dropdown" onclick="myFunction()">
                           <span  class="dropbtn">
-                              {{#if currentUser.avatar_url}}
+                              {{#if currentUser.avatar_template}}
                                 <img
                                     class="profile-avatar"
-                                    src="{{currentUser.avatar_url}}"
+                                    src="{{currentUser.avatar_template}}"
                                     height="44"
                                     width="44"/>
                               {{else}}
@@ -332,10 +332,10 @@
       <div id="mobileNav">
           <div class="profile-dropdown mobile-nav-profile">
                   <span class="dropbtn">
-                  {{#if currentUser.avatar_url}}
+                  {{#if currentUser.avatar_template}}
                     <img
                             class="profile-avatar"
-                            src="{{currentUser.avatar_url}}"
+                            src="{{currentUser.avatar_template}}"
                             height="44"
                             width="44"/>
                   {{else}}
