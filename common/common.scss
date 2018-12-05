@@ -1119,25 +1119,28 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 #reply-title {
   padding: 10px;
-
   border-radius: 5px;
-
   outline: #9b9b9b;
-
   color: #9b9b9b;
 }
 
 #reply-title:focus {
   outline: #324164;
-
   color: #324164;
 }
 
-.composer-action-title .invite-topic .category-chooser {
+.composer-action-title,
+.invite-topic,
+.category-chooser {
   display: none !important;
 }
 
 .suggested-topics-title {
   text-transform: uppercase;
   color: #324164;
+}
+
+.topic-category,
+.badge-wrapper {
+  display: none;
 }
