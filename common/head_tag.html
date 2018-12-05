@@ -267,11 +267,11 @@
   }
 
   $(document).ready(function() {
-      const desktopProfile = $( "#desktopProfile" );
+      const desktopProfile = document.getElementById('desktopProfile');
       if (desktopProfile) {
           desktopProfile.src = desktopProfile.src.replace(/\{size\}/g, 60);
       }
-      const mobileProfile = $( "#mobileProfile" );
+      const mobileProfile = document.getElementById('mobileProfile');
       if (mobileProfile) {
           mobileProfile.src = mobileProfile.src.replace(/\{size\}/g, 60);
       }
