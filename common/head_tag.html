@@ -266,14 +266,16 @@
     }
   }
 
-  function getCurrentSessionImage() {
-      const image = Discourse.User.currentProp("avatar_template");
-      console.log('Discourse.User.currentProp("name")', image);
-      return image.replace(/\{size\}/g, 60);
-  }
-
-  (getCurrentSessionImage())();
-  //
+  $(document).ready(function() {
+      const desktopProfile = $( "#desktopProfile" );
+      if (desktopProfile) {
+          desktopProfile.src = desktopProfile.src.replace(/\{size\}/g, 60);
+      }
+      const mobileProfile = $( "#mobileProfile" );
+      if (mobileProfile) {
+          mobileProfile.src = mobileProfile.src.replace(/\{size\}/g, 60);
+      }
+  });
 </script>
 
 <script
@@ -308,9 +310,9 @@
                           <span  class="dropbtn">
                               {{#if currentUser.avatar_template}}
                                 <img
+                                    id="desktopProfile"
                                     class="profile-avatar"
                                     src="{{currentUser.avatar_template}}"
-                                    onload="this.onload=null; this.src=getCurrentSessionImage();"
                                     height="44"
                                     width="44"/>
                               {{else}}
@@ -344,6 +346,7 @@
                   <span class="dropbtn">
                   {{#if currentUser.avatar_template}}
                     <img
+                            id="mobileProfile"
                             class="profile-avatar"
                             src="{{currentUser.avatar_template}}"
                             onload="this.onload=null; this.src=getCurrentSessionImage();"
