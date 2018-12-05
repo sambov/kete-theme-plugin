@@ -57,16 +57,9 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 1rem;
   color: #252525 !important;
-
-  @media only screen and (max-width: 767px) {
-  }
-}
-
-html {
   box-sizing: border-box;
 }
 
@@ -76,11 +69,23 @@ html {
   box-sizing: inherit;
 }
 
+body,
 body input,
 body button,
 body select,
 body textarea {
   font-family: roboto-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  font-family: Gotham-bold;
+  margin-bottom: 0;
 }
 
 .column {
@@ -102,7 +107,6 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.07;
@@ -120,17 +124,11 @@ h2 {
 
 p {
   font-size: 1rem;
-
   font-weight: 300;
-
   font-style: normal;
-
   font-stretch: normal;
-
   line-height: 1.5;
-
   letter-spacing: normal;
-
   color: #252525;
 }
 
@@ -1057,88 +1055,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
     }
   }
 }
-
-// #topic-title {
-
-// padding-top: 60px;
-
-// }
-
-// .mobile-container {
-
-// max-width: 480px;
-
-// margin: auto;
-
-// background-color: #555;
-
-// height: 500px;
-
-// color: white;
-
-// border-radius: 10px;
-
-// }
-
-// .topnav {
-
-// overflow: hidden;
-
-// //background-color: #333;
-
-// position: relative;
-
-// }
-
-// .topnav #myLinks {
-
-// display: none;
-
-// }
-
-// .topnav a {
-
-// padding: 14px 16px;
-
-// text-decoration: none;
-
-// font-size: 17px;
-
-// display: block;
-
-// }
-
-// .topnav a.icon {
-
-// background: transparent;
-
-// display: block;
-
-// // position: absolute;
-
-// // right: 0;
-
-// // top: 0;
-
-// }
-
-// .topnav a:hover {
-
-// background-color: transparent;
-
-// color: black;
-
-// }
-
-// .active {
-
-// background-color: #4CAF50;
-
-// color: white;
-
-// }
-
-//<!-- Start new discussion -->
 
 #reply-control.open.edit-title {
   height: calc(100%);
