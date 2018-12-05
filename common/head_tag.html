@@ -269,10 +269,12 @@
   $(document).ready(function() {
       const desktopProfile = document.getElementById('desktopProfile');
       if (desktopProfile) {
+          console.log('desktopProfile', desktopProfile)
           desktopProfile.src = desktopProfile.src.replace(/\{size\}/g, 60);
       }
       const mobileProfile = document.getElementById('mobileProfile');
       if (mobileProfile) {
+          console.log('mobileProfile', mobileProfile)
           mobileProfile.src = mobileProfile.src.replace(/\{size\}/g, 60);
       }
   });
