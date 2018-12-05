@@ -135,7 +135,9 @@ p {
 #main-outlet {
   padding-top: 0px;
 
-  
+  @media only screen and (max-width: 767px) {
+    min-height: calc(100vh - 450px);
+  }
 
   a:not(.link-top-line a) {
     color: #58c7dd !important;
@@ -149,12 +151,6 @@ p {
     color: #58c7dd !important;
   }
 }
-
-@media only screen and (max-width: 767px) {
-  #main-outlet {
-    min-height: calc(100vh - 450px);
-    
-  }
 
 .nav-pills,
 .dropdown-content,
@@ -1144,5 +1140,4 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .suggested-topics-title {
   text-transform: uppercase;
   color: #324164;
-}
 }
