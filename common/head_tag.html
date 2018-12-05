@@ -266,9 +266,12 @@
     }
   }
 
-  (Handlebars.registerHelper("replaceImageUrl", function(imageUrl) {
-      return imageUrl.replace(/\{size\}/g, 60);
-  }))();
+  function getCurrentSessionImage() {
+      const image = Discourse.User.currentProp("avatar_template");
+      console.log('Discourse.User.currentProp("name")', image);
+      return image.replace(/\{size\}/g, 60);
+  }
+  //
 </script>
 
 <script
@@ -304,7 +307,8 @@
                               {{#if currentUser.avatar_template}}
                                 <img
                                     class="profile-avatar"
-                                    src="{{replaceImageUrl currentUser.avatar_template}}"
+                                    src="{{currentUser.avatar_template}}"
+                                    onload="this.onload=null; this.src=getCurrentSessionImage();"
                                     height="44"
                                     width="44"/>
                               {{else}}
@@ -339,7 +343,8 @@
                   {{#if currentUser.avatar_template}}
                     <img
                             class="profile-avatar"
-                            src="{{replaceImageUrl currentUser.avatar_template}}"
+                            src="{{currentUser.avatar_template}}"
+                            onload="this.onload=null; this.src=getCurrentSessionImage();"
                             height="44"
                             width="44"/>
                   {{else}}
