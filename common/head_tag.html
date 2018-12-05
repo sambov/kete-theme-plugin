@@ -5,6 +5,11 @@
 
 <script>
     I18n.translations.en.js.topic.create = "Start new discussion";
+    I18n.translations.en.js.topic.create_long = "Start new discussion";
+    I18n.translations.en.js.topic.reply.title = "Comment";
+    I18n.translations.en.js.composer.reply = "Save";
+    I18n.translations.en.js.wizard_js.wizard.previews.reply_button = "Save";
+    I18n.translations.en.js.composer.composer_actions.reply = "Save";
     I18n.translations.en.js.bookmarked.title = "Save to favourites";
     I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
 
@@ -328,7 +333,7 @@
           </div>
           <div class="mobile-nav-section">
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
-              <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}">Forum</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
           </div>
           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
