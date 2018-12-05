@@ -297,11 +297,20 @@
                   </div>
                   <div class="profile-dropdown" onclick="myFunction()">
                           <span  class="dropbtn">
-                              <img
+                              {{#if currentUser.avatar_url}}}
+                                <img
+                                    class="profile-avatar"
+                                    src="{{currentUser.avatar_url}}"
+                                    height="44"
+                                    width="44"/>
+                              {{else}}
+                                  <img
                                       class="profile-avatar"
                                       src="{{themeSettings.web_url}}/blank-avatar.png"
                                       height="44"
                                       width="44"/>
+                              {{/if}}
+
                               <span class="profile-name">{{currentUser.name}}</span>
                               <img
                                       class="profile-arrow"
@@ -323,7 +332,19 @@
       <div id="mobileNav">
           <div class="profile-dropdown mobile-nav-profile">
                   <span class="dropbtn">
-                  <img class="profile-avatar" src="{{themeSettings.web_url}}/blank-avatar.png" height="44" width="44"/>
+                  {{#if currentUser.avatar_url}}}
+                    <img
+                            class="profile-avatar"
+                            src="{{currentUser.avatar_url}}"
+                            height="44"
+                            width="44"/>
+                  {{else}}
+                      <img
+                              class="profile-avatar"
+                              src="{{themeSettings.web_url}}/blank-avatar.png"
+                              height="44"
+                              width="44"/>
+                  {{/if}}
                   <span class="profile-name">{{currentUser.name}}</span>
               </span>
           </div>
