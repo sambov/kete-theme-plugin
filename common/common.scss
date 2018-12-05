@@ -1,12 +1,73 @@
 //use Roboto font
 
+@font-face {
+  font-family: "Roboto-Light";
+  font-style: normal;
+  font-weight: 300;
+  src: url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-300.eot"); /* IE9 Compat Modes */
+  src: local("Roboto Light"), local("Roboto-Light"),
+  url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-300.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-300.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-300.woff")
+  format("woff"),
+    /* Modern Browsers */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-300.ttf")
+  format("truetype"),
+    /* Safari, Android, iOS */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-300.svg#Roboto")
+  format("svg"); /* Legacy iOS */
+}
+/* roboto-regular - latin */
+@font-face {
+  font-family: "Roboto-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local("Roboto-Regular"),
+  url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-regular.eot?#iefix")
+  format("embedded-opentype"),
+    /* IE6-IE8 */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-regular.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-regular.woff")
+  format("woff"),
+    /* Modern Browsers */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-regular.ttf")
+  format("truetype"),
+    /* Safari, Android, iOS */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-regular.svg#Roboto")
+  format("svg"); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  font-style: normal;
+  font-weight: 300;
+  src: url("https://kete.nzte.govt.nz/fonts/Roboto-Medium.tff"); /* IE9 Compat Modes */
+}
+/* roboto-900 - latin */
+@font-face {
+  font-family: "Roboto-Bold";
+  font-style: normal;
+  font-weight: 900;
+  src: url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-900.eot"); /* IE9 Compat Modes */
+  src: local("Roboto-Bold"), local("Roboto-Bold"),
+  url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-900.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-900.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-900.woff")
+  format("woff"),
+    /* Modern Browsers */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-900.ttf")
+  format("truetype"),
+    /* Safari, Android, iOS */ url("https://kete.nzte.govt.nz/fonts/roboto-v18-latin-900.svg#Roboto")
+  format("svg"); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: "Gotham-Bold";
+  font-style: normal;
+  font-weight: 900;
+  src: url("https://kete.nzte.govt.nz/fonts/gotham/Gotham-Bold.otf") format("opentype");
+  src: url("https://kete.nzte.govt.nz/fonts/gotham/Gotham-Bold.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
 html {
   font-family: "Roboto", sans-serif;
-
   font-weight: 300;
-
   font-size: 1rem;
-
   color: #252525 !important;
 
   @media only screen and (max-width: 767px) {
@@ -27,12 +88,11 @@ body input,
 body button,
 body select,
 body textarea {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: roboto-regular;
 }
 
 .column {
   float: left;
-
   width: 50%;
 }
 
@@ -50,18 +110,11 @@ h1,
 h2,
 h3,
 h4 {
-  //font-family: Gotham;
-
   font-weight: bold;
-
   font-style: normal;
-
   font-stretch: normal;
-
   line-height: 1.07;
-
   letter-spacing: normal;
-
   color: #252525;
 }
 
@@ -357,6 +410,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .intro-subtitle {
   margin-bottom: 50px;
   font-family: Roboto-Light;
+  color: #ffffff;
   font-size: 16px;
 }
 
