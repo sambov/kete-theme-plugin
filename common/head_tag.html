@@ -267,7 +267,7 @@
   }
 
   function getImageUrl(url, size) {
-      return url.replace('{size}', size);
+      return url.replace(/\{size\}/g, size);
   }
 </script>
 
@@ -304,7 +304,7 @@
                               {{#if currentUser.avatar_template}}
                                 <img
                                     class="profile-avatar"
-                                    src="{{currentUser.avatar_template}}"
+                                    src="{{getImageUrl(currentUser.avatar_template, 60)}}"
                                     height="44"
                                     width="44"/>
                               {{else}}
@@ -339,7 +339,7 @@
                   {{#if currentUser.avatar_template}}
                     <img
                             class="profile-avatar"
-                            src="{{currentUser.avatar_template}}"
+                            src="{{getImageUrl(currentUser.avatar_template, 60)}}"
                             height="44"
                             width="44"/>
                   {{else}}
