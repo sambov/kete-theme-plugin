@@ -247,7 +247,7 @@
   {{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='activity'}}
 </script>
 
-<script>
+<script type="text/javascript">
   function isHome() {
     console.log("window.location.pathname");
     return window.location.pathname === "/";
@@ -276,6 +276,10 @@
           mobileProfile.src = mobileProfile.src.replace(/%7Bsize%7D/g, 60);
       }
   });
+
+  function goBack() {
+      window.history.back();
+  }
 </script>
 
 <script
@@ -521,11 +525,6 @@
     </footer>
 </script>
 
-<script>
-function goBack() {
-    window.history.back();
-  }
-  </script>
 <script type="text/x-handlebars" data-template-name="/connectors/topic-above-post-stream/backbtn">
   <div class="back-arrow-container" onclick="goBack()"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
 </script>
