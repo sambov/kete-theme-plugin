@@ -668,7 +668,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
   .wrap {
     @media only screen and (min-width: 1900px) {
-      margin-left: 260px !important;
+      margin-left: 240px !important;
     }
   }
 
@@ -785,6 +785,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 }
 
 //forum list
+
+ol.category-breadcrumb{
+  margin: 0!important;
+}
 
 .topic-list-item .category-uncategorized .has-excerpt {
   border: solid red 2px !important;
