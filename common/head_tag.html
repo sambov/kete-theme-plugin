@@ -521,6 +521,11 @@
     </footer>
 </script>
 
+<script>
+function goBack() {
+    window.history.back();
+  }
+  </script>
 <script type="text/x-handlebars" data-template-name="/connectors/topic-above-post-stream/backbtn">
-  <div class="back-arrow-container"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
+  <div class="back-arrow-container" onclick="goBack()"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
 </script>

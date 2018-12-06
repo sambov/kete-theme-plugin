@@ -1145,3 +1145,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 .badge-wrapper {
   display: none;
 }
+
+.back-arrow-container {
+  display: flex;
+  align-items: center;
+}
