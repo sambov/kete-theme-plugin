@@ -281,10 +281,10 @@
       window.history.back();
   }
 
-  function logout(url) {
+  function logout() {
       console.log(window.location.origin);
       $.post(window.location.origin + '/logout', function( data ) {
-          window.location = url;
+          console.log('logged out')
       });
   }
 </script>
@@ -345,7 +345,8 @@
                       <div id="myDropdown" class="dropdown-content">
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-                          <a class="nav-dropdown-item" href="#" onclick="logout(`{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}`)">Sign Out</a>
+                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+                             onclick="logout()">Sign Out</a>
                       </div>
                   </div>
                   {{/if}}
@@ -382,7 +383,8 @@
               <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
           </div>
-          <a class="nav-dropdown-item" href="#" onclick="logout(`{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+             onclick="logout()">Sign Out</a>
       </div>
       {{/if}}
   </div>
