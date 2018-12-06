@@ -561,6 +561,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   height: auto;
 }
 
+#search-button:hover {
+background: transparent;
+}
+
 .d-header {
   height: 90px;
 
@@ -606,7 +610,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
     @media only screen and (max-width: 767px) {
       right: 260px;
-      top: 40px;
+      top: 42px;
+      left: 20px
 
       i {
         font-size: 22px !important;
@@ -678,8 +683,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
       margin-left: 240px !important;
     }
     @media only screen and (max-width: 767px) {
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: 15px;
+      margin-right: 15px;
     }
   }
 
