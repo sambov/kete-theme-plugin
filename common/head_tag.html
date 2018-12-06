@@ -281,11 +281,18 @@
       window.history.back();
   }
 
+
+</script>
+
+<script type="text/discourse-plugin" version="0.8.13">
   function logout() {
-      console.log(window.location);
-      //{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}
+      console.log(window.location.origin);
+      $.post(window.location.origin + '/logout', function( data ) {
+         window.location = `${themeSettings.web_url}/?loggedOut=true&fId=${Discourse.User.current().id}`;
+      });
   }
 </script>
+
 
 <script
   type="text/x-handlebars"
