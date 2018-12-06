@@ -195,9 +195,11 @@ p {
 }
 
 .wrap {
-  max-width: 1400px;
-  margin-left: 150px;
-  margin-right: 150px;
+  @media (min-width: 1200px) {
+    max-width: 1440px;
+    padding-left: 135px;
+    padding-right: 135px;
+  }
 
   @media only screen and (max-width: 1100px) {
     margin-left: 0px;
@@ -356,7 +358,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
       }
 
       img {
-        width: 168px;
+        width: 161px;
 
         @media only screen and (max-width: 767px) {
           width: 80px;
@@ -452,8 +454,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
 
 .profile-avatar {
   border-radius: 100%;
-
-  margin-right: 15px;
+  margin-right: 7px;
 }
 
 .profile-arrow {
@@ -486,7 +487,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon) 
   overflow: auto;
   z-index: 1;
   margin-top: 23px;
-  border: solid #324164 2px;
+  border: solid #324164 0.8px;
   border-top: 0;
   border-radius: 0 0 5px 5px;
 
