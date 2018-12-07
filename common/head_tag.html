@@ -280,7 +280,19 @@
   function goBack() {
       window.history.back();
   }
+
+  function logout() {
+      $.ajax({
+          url: `/session/${Discourse.User.current().username}`,
+          type: 'DELETE',
+          success: function(result) {
+              // Do something with the result
+              console.log(result);
+          }
+      });
+  }
 </script>
+
 
 <script
   type="text/x-handlebars"
@@ -337,7 +349,8 @@
                       <div id="myDropdown" class="dropdown-content">
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
+                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+                             onclick="logout()">Sign Out</a>
                       </div>
                   </div>
                   {{/if}}
@@ -374,7 +387,8 @@
               <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
           </div>
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+             onclick="logout()">Sign Out</a>
       </div>
       {{/if}}
   </div>
