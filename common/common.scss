@@ -732,7 +732,18 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 }
 
 .topic-post:not(:first-child) {
-  border-top: solid #252525 1px!important;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-image: 
+  -webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+-webkit-border-image: 
+  -webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+-moz-border-image:
+  -moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;    
+-o-border-image:
+  -o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+border-image:
+  linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
 }
 
 //forum nav
