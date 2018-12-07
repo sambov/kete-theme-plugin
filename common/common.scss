@@ -731,7 +731,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   }
 }
 
-.topic-post::before {
+.topic-post article.boxed::before {
   content: '';
   display: block;
   position: absolute;
