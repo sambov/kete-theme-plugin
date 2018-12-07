@@ -836,6 +836,10 @@ ol.category-breadcrumb{
   }
 }
 
+#draft-status {
+  display: none!important;
+}
+
 #reply-control .reply-to .composer-action-title {
   @media only screen and (max-width: 767px) {
     display: flex !important;
