@@ -323,7 +323,6 @@
                   <div class="navbar">
                       <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
                       <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
-                      <a class="nav-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
                   </div>
                   <div class="profile-dropdown" onclick="myFunction()">
                           <span  class="dropbtn">
@@ -388,7 +387,6 @@
           <div class="mobile-nav-section">
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
               <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
-              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
           </div>
           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
              onclick="logout()">Sign Out</a>
@@ -543,5 +541,10 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="/connectors/topic-above-post-stream/backbtn">
+  <div class="back-arrow-container" onclick="goBack()"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="/connectors/full-page-search-below-search-info/backbtnsearch">
   <div class="back-arrow-container" onclick="goBack()"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
 </script>
