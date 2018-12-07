@@ -281,10 +281,17 @@
       window.history.back();
   }
 
-  function logout() {
+  function logout(userName) {
       console.log(window.location.origin);
-      $.post(window.location.origin + '/logout', function( data ) {
-          console.log('logged out')
+
+      //ajax(`/session/${this.get("username")}`, { type: "DELETE" })
+      $.ajax({
+          url: `/session/${userName}`,
+          type: 'DELETE',
+          success: function(result) {
+              // Do something with the result
+              console.log(result);
+          }
       });
   }
 </script>
@@ -346,7 +353,7 @@
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
-                             onclick="{{currentUser.destroySession()}}">Sign Out</a>
+                             onclick="logout(\'{{currentUser.name}}\')">Sign Out</a>
                       </div>
                   </div>
                   {{/if}}
@@ -384,7 +391,7 @@
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
           </div>
           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
-             onclick="{{currentUser.destroySession()}}">Sign Out</a>
+             onclick="logout(\'{{currentUser.name}}\')">Sign Out</a>
       </div>
       {{/if}}
   </div>
