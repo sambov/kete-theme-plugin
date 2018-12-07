@@ -840,6 +840,10 @@ ol.category-breadcrumb{
   display: none!important;
 }
 
+#user-card {
+  z-index: 1999!important;
+}
+
 #reply-control .reply-to .composer-action-title {
   @media only screen and (max-width: 767px) {
     display: flex !important;
