@@ -1160,13 +1160,16 @@ ol.category-breadcrumb {
 }
 
 .save-or-cancel {
-  float: left;
+  // float: left;
 
-  display: block !important;
+  // display: block !important;
 
-  width: 60%;
+  // width: 60%;
 
-  flex-basis: unset !important;
+  // flex-basis: unset !important;
+  display: flex!important;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .d-editor-textarea-wrapper,
