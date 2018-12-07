@@ -281,9 +281,7 @@
       window.history.back();
   }
 
-  function logout(userName) {
-      console.log(window.location.origin);
-
+  function logout() {
       $.ajax({
           url: `/session/${Discourse.User.current().username}`,
           type: 'DELETE',
