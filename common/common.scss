@@ -846,6 +846,10 @@ ol.category-breadcrumb {
   border: solid red 2px !important;
 }
 
+.topic-list .topic-excerpt {
+  display: none!important;
+}
+
 #create-topic {
   @media only screen and (min-width: 769px) {
     position: absolute !important;
