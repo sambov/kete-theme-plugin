@@ -732,8 +732,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 }
 
 .topic-post:not(:first-child) {
-  border-top: solid #bdbdbd 1px!important;
+  border-top: solid #bdbdbd 1px !important;
   max-width: 750px;
+
   @media only screen and (max-width: 767px) {
     max-width: 100%;
   }
@@ -849,7 +850,7 @@ ol.category-breadcrumb {
 
 
 .topic-list .topic-excerpt {
-  display: none!important;
+  display: none !important;
 }
 
 #create-topic {
@@ -871,6 +872,24 @@ ol.category-breadcrumb {
 }
 
 #create-topic.btn-default {
+  border-radius: unset;
+  position: unset;
+  bottom: unset;
+  right: unset;
+  z-index: unset;
+  padding: unset;
+  background-color: unset;
+  color: unset;
+  white-space: unset;
+  text-indent: unset;
+  box-shadow:unset;
+  overflow: unset;
+  width: unset;
+  height: unset;
+  transition: unset;
+}
+
+#create-topic.btn-default {
   @media only screen and (min-width: 769px) {
     width: 280px !important;
     color: #fff !important;
@@ -889,6 +908,11 @@ ol.category-breadcrumb {
     border-radius: 24px;
     background-color: #2a7ab0;
     padding: 16px 30px;
+    height: fit-content;
+
+    i {
+      display: none;
+    }
   }
 }
 
@@ -1142,7 +1166,7 @@ ol.category-breadcrumb {
 }
 
 .timeline-footer-controls {
-  display: none!important;
+  display: none !important;
 }
 
 #reply-control.open.edit-title {
@@ -1186,9 +1210,9 @@ ol.category-breadcrumb {
   // width: 60%;
 
   flex-basis: 60% !important;
-  display: flex!important;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+  display: flex !important;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .d-editor-textarea-wrapper,
