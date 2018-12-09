@@ -872,7 +872,12 @@ ol.category-breadcrumb {
 }
 
 #create-topic.btn-default {
-  border-radius: unset;
+  
+}
+
+#create-topic.btn-default {
+  @media only screen and (min-width: 769px) {
+    border-radius: unset;
   position: unset;
   bottom: unset;
   right: unset;
@@ -887,10 +892,7 @@ ol.category-breadcrumb {
   width: unset;
   height: unset;
   transition: unset;
-}
 
-#create-topic.btn-default {
-  @media only screen and (min-width: 768px) {
     //width: 280px !important;
     color: #fff !important;
     display: flex;
