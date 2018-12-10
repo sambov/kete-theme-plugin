@@ -617,9 +617,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
       margin-top: -7px;
     }
     @media only screen and (max-width: 767px) {
-      right: 260px;
+      right: 250px;
       top: 42px;
-      left: 20px !important;
+      //left: 20px !important;
       i {
         font-size: 22px !important;
       }
