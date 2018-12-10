@@ -1,12 +1,17 @@
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500"
-  rel="stylesheet"
-/>
-
 <script>
     I18n.translations.en.js.topic.create = "Start new discussion";
+    I18n.translations.en.js.topic.create_long = "Start new discussion";
+    I18n.translations.en.js.topic.reply.title = "Comment";
+    I18n.translations.en.js.composer.reply = "Save";
+    I18n.translations.en.js.composer.create_topic = I18n.translations.en.js.composer.reply;
+    I18n.translations.en.js.composer.composer_actions.reply = I18n.translations.en.js.composer.reply;
+    I18n.translations.en.js.composer.title_or_link_placeholder = "Enter your title";
+    I18n.translations.en.js.composer.reply_placeholder = "Add a comment, discussion point, question or link to a video or website";
+
     I18n.translations.en.js.bookmarked.title = "Save to favourites";
     I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
+    I18n.translations.en.js.bookmarked.help.bookmark = "Click to save to favourites";
+    I18n.translations.en.js.bookmarked.help.unbookmark = "Click to remove from favourites";
 
     I18n.translations.en.js.bookmarks.created = "you've saved this post to your favourites";
     I18n.translations.en.js.bookmarks.not_bookmarked = "Save this post to your favourites";
@@ -15,6 +20,9 @@
 
     I18n.translations.en.js.search.title = "Search Kete Community";
     I18n.translations.en.js.search.full_page_title = I18n.translations.en.js.search.title;
+
+    I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
+
 </script>
 
 <script type="text/x-handlebars" data-template-name="components/d-navigation">
@@ -172,8 +180,8 @@
 <script type="text/x-handlebars" data-template-name="discovery">
     <div id="headerBanner">
             <div class="wrap">
-                <h1>Kete Community</h1>
-                <p>Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</p>
+                <h1 class="intro-title">Kete Community</h1>
+                <h3 class="intro-subtitle">Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</h3>
             </div>
         </div>
 
@@ -242,7 +250,7 @@
   {{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='activity'}}
 </script>
 
-<script>
+<script type="text/javascript">
   function isHome() {
     console.log("window.location.pathname");
     return window.location.pathname === "/";
@@ -260,7 +268,34 @@
       x.style.display = "block";
     }
   }
+
+  $(document).ready(function() {
+      const desktopProfile = document.getElementById('desktopProfile');
+      if (desktopProfile) {
+          desktopProfile.src = desktopProfile.src.replace(/%7Bsize%7D/g, 60);
+      }
+      const mobileProfile = document.getElementById('mobileProfile');
+      if (mobileProfile) {
+          mobileProfile.src = mobileProfile.src.replace(/%7Bsize%7D/g, 60);
+      }
+  });
+
+  function goBack() {
+      window.history.back();
+  }
+
+  function logout() {
+      $.ajax({
+          url: `/session/${Discourse.User.current().username}`,
+          type: 'DELETE',
+          success: function(result) {
+              // Do something with the result
+              console.log(result);
+          }
+      });
+  }
 </script>
+
 
 <script
   type="text/x-handlebars"
@@ -270,7 +305,7 @@
       <header id="keteHeader">
           <div class="wrap header-container topnav">
               <div class="nav-toggle">
-                  <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+                  <a href="#" class="icon" onclick="navFunction()">
                       <img
                           width="24"
                           height="24"
@@ -288,15 +323,24 @@
                   <div class="navbar">
                       <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
                       <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
-                      <a class="nav-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
                   </div>
                   <div class="profile-dropdown" onclick="myFunction()">
                           <span  class="dropbtn">
-                              <img
+                              {{#if currentUser.avatar_template}}
+                                <img
+                                    id="desktopProfile"
+                                    class="profile-avatar"
+                                    src="{{currentUser.avatar_template}}"
+                                    height="34px"
+                                    width="34px"/>
+                              {{else}}
+                                  <img
                                       class="profile-avatar"
                                       src="{{themeSettings.web_url}}/blank-avatar.png"
-                                      height="44"
-                                      width="44"/>
+                                      height="34px"
+                                      width="34px"/>
+                              {{/if}}
+
                               <span class="profile-name">{{currentUser.name}}</span>
                               <img
                                       class="profile-arrow"
@@ -307,7 +351,8 @@
                       <div id="myDropdown" class="dropdown-content">
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
                           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
+                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+                             onclick="logout()">Sign Out</a>
                       </div>
                   </div>
                   {{/if}}
@@ -318,7 +363,20 @@
       <div id="mobileNav">
           <div class="profile-dropdown mobile-nav-profile">
                   <span class="dropbtn">
-                  <img class="profile-avatar" src="{{themeSettings.web_url}}/blank-avatar.png" height="44" width="44"/>
+                  {{#if currentUser.avatar_template}}
+                    <img
+                            id="mobileProfile"
+                            class="profile-avatar"
+                            src="{{currentUser.avatar_template}}"
+                            height="34px"
+                            width="34px"/>
+                  {{else}}
+                      <img
+                              class="profile-avatar"
+                              src="{{themeSettings.web_url}}/blank-avatar.png"
+                              height="34px"
+                              width="34px"/>
+                  {{/if}}
                   <span class="profile-name">{{currentUser.name}}</span>
               </span>
           </div>
@@ -328,10 +386,10 @@
           </div>
           <div class="mobile-nav-section">
               <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
-              <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}">Forum</a>
-              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company#plan">Plan</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
           </div>
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}">Sign Out</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+             onclick="logout()">Sign Out</a>
       </div>
       {{/if}}
   </div>
@@ -480,4 +538,13 @@
             </div>
         </div>
     </footer>
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/topic-above-post-stream/backbtn">
+  <div class="back-arrow-container" onclick="goBack()"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="/connectors/full-page-search-below-search-info/backbtnsearch">
+  <div class="back-arrow-container" onclick="goBack()"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
 </script>
