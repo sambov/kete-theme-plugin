@@ -742,6 +742,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
     max-width: 100%;
   }
 }
+.topic-post:last-child {
+  border-bottom: solid #bdbdbd 1px !important;
+}
 
 //forum nav
 
@@ -1320,4 +1323,8 @@ ol.category-breadcrumb {
 
 .topic-notifications-button {
   display: none!important;
+}
+
+#suggested-topics {
+  padding: 60px 0!important;
 }
