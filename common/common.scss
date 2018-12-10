@@ -608,7 +608,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   box-shadow: none;
   background: transparent;
   position: absolute;
-  ul {
+  .panel {
     position: unset!important;
   }
   ul li:not(:first-child) {
