@@ -847,10 +847,16 @@ ol.category-breadcrumb {
   border: solid red 2px !important;
 }
 
-
+.topic-list .topic-list-item-separator td {
+  display: none!important;
+}
 
 .topic-list .topic-excerpt {
   display: none !important;
+}
+
+.topic-list-bottom {
+  display: none!important;
 }
 
 #create-topic {
