@@ -218,6 +218,10 @@ p {
     margin-left: 20px;
     margin-right: 20px;
   }
+  @media only screen and (max-width: 450px) {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
 
 .topic-list {
