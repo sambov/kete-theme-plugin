@@ -1333,9 +1333,9 @@ ol.category-breadcrumb {
   padding: 60px 0!important;
 }
 
-// .post-controls .actions .reply {
-//   display: none!important;
-// }
+.post-controls .actions .reply:not(:first-child) {
+  display: none!important;
+}
 
 .timeline-container {
   display: none!important;
