@@ -736,7 +736,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
 .topic-post:not(:first-child) {
   border-top: solid #bdbdbd 1px !important;
-  max-width: 750px;
+  max-width: 850px;
 
   @media only screen and (max-width: 767px) {
     max-width: 100%;
