@@ -234,8 +234,10 @@ tr {
 
 .topic-body {
   box-shadow: none !important;
-
   border-top: none !important;
+  @media only screen and (max-width: 767px) {
+    padding: 0;
+  }
 }
 
 #reply-control .d-editor-button-bar .btn {
@@ -844,6 +846,10 @@ ol.category-breadcrumb {
   margin: 0 !important;
 }
 
+.topic-list .main-link {
+  font-size: 1rem;
+}
+
 .topic-list-item .category-uncategorized .has-excerpt {
   border: solid red 2px !important;
 }
@@ -1194,7 +1200,7 @@ ol.category-breadcrumb {
 
 #reply-control {
   max-width: unset;
-  height: 100% !important;
+  height: 59% !important;
 }
 
 .select-kit.dropdown-select-box.composer-actions {
