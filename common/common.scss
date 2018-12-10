@@ -574,7 +574,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 }
 
 #search-button:hover {
-  background: transparent;
+  background: transparent!important;
+  border: none!important;
 }
 
 .d-header {
@@ -1323,5 +1324,9 @@ ol.category-breadcrumb {
 }
 
 .timeline-container {
+  display: none!important;
+}
+
+.kit-header {
   display: none!important;
 }
