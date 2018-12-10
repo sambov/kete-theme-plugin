@@ -606,30 +606,25 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
 .d-header {
   box-shadow: none;
-
   background: transparent;
-
   position: absolute;
-
+  ul {
+    position: unset!important;
+  }
   ul li:not(:first-child) {
     display: none;
   }
-
   ul li {
     left: 200px;
     top: 26px;
-
     i {
       font-size: 24px !important;
-
       margin-top: -7px;
     }
-
     @media only screen and (max-width: 767px) {
       right: 260px;
       top: 42px;
       left: 20px !important;
-
       i {
         font-size: 22px !important;
       }
@@ -889,10 +884,6 @@ ol.category-breadcrumb {
   @media only screen and (min-width: 1900px) {
     right: 360px !important;
   }
-}
-
-#create-topic.btn-default {
-  
 }
 
 #create-topic.btn-default {
