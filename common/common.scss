@@ -762,6 +762,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   @media only screen and (max-width: 767px) {
     height: 175px;
     margin-top: -30px
+    margin-bottom: 0;
   }
 
   .wrap {
@@ -909,7 +910,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
 .list-controls {
   margin-bottom: 50px;
-
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 0px;
+  }
   section {
     display: flex;
 
