@@ -298,7 +298,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   padding: 10px 24px !important;
   text-align: center;
 
-  i:not(.fa-picture-o):not(.action .reply i) {
+  i:not(.fa-picture-o):not(.action .reply) {
     display: none !important;
   }
 }
