@@ -343,7 +343,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 }
 
 #create-topic i {
+  @media only screen and (min-width: 768px) {
   display: none;
+  }
 }
 
 @media only screen and (max-width: 767px) {
