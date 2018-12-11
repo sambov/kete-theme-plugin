@@ -301,6 +301,15 @@ tr {
 
   @media only screen and (max-width: 767px) {
     padding: 0 !important;
+
+  background-color: transparent !important;
+  font-weight: 300 !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  line-height: 1 !important;
+  letter-spacing: -0.3px !important;
+  color: #aaa !important;
+  text-align: center;
   }
 
   i:not(:last-child) {
