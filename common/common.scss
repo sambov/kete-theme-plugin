@@ -497,9 +497,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   margin-top: -60px;
   display: none;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-  @media only screen and (max-width: 767px) {
-    margin-top: -30px;
-  }
 
   .mobile-nav-profile {
     background: #f2f4f7;
@@ -1409,6 +1406,7 @@ font-size: 1.1rem!important;
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-left: -5px;
 }
 
 .share {
