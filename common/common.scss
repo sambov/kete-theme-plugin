@@ -799,9 +799,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 .topic-post:last-child {
   border-bottom: solid #bdbdbd 1px !important;
 }
-.topic-post .fancy-title{
-  font-family: roboto-light;
-  font-size: 36px;
+#topic-title .fancy-title{
+  font-family: roboto-light!important;
+  font-size: 36px!important;
 }
 
 //forum nav
