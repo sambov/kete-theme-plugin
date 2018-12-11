@@ -298,7 +298,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   padding: 10px 24px !important;
   text-align: center;
 
-  i:not(.fa-picture-o):not(.reply:last-child) {
+  .reply i,
+  i:not(.fa-picture-o) {
     @media only screen and (min-width: 767px) {
     display: none !important;
   }
