@@ -802,6 +802,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 .topic-post:last-child {
   border-bottom: solid #bdbdbd 1px !important;
 }
+.topic-post article {
+  @media only screen and (max-width: 767px) {
+    padding: 0;
+  }
+}
+
 #topic-title .fancy-title{
   font-family: roboto-light!important;
   font-size: 36px!important;
