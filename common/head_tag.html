@@ -1,5 +1,5 @@
 <script>
-    I18n.translations.en.js.topic.create = "Start new discussion";
+  I18n.translations.en.js.topic.create = "Start new discussion";
     I18n.translations.en.js.topic.create_long = "Start new discussion";
     I18n.translations.en.js.topic.reply.title = "Comment";
     I18n.translations.en.js.composer.reply = "Save";
@@ -84,7 +84,7 @@
 
 <script type="text/x-handlebars" data-template-name="discovery/topics">
 
-    {{#if redirectedReason}}
+  {{#if redirectedReason}}
         <div class="alert alert-info">{{redirectedReason}}</div>
     {{/if}}
 
@@ -178,7 +178,7 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="discovery">
-    <div id="headerBanner">
+  <div id="headerBanner">
             <div class="wrap">
                 <h1 class="intro-title">Kete Community</h1>
                 <h3 class="intro-subtitle">Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</h3>
@@ -269,38 +269,35 @@
     }
   }
 
-  $(document).ready(function() {
-      const desktopProfile = document.getElementById('desktopProfile');
-      if (desktopProfile) {
-          desktopProfile.src = desktopProfile.src.replace(/%7Bsize%7D/g, 60);
-      }
-      const mobileProfile = document.getElementById('mobileProfile');
-      if (mobileProfile) {
-          mobileProfile.src = mobileProfile.src.replace(/%7Bsize%7D/g, 60);
-      }
+  $(document).ready(function () {
+    const desktopProfile = document.getElementById('desktopProfile');
+    if (desktopProfile) {
+      desktopProfile.src = desktopProfile.src.replace(/%7Bsize%7D/g, 60);
+    }
+    const mobileProfile = document.getElementById('mobileProfile');
+    if (mobileProfile) {
+      mobileProfile.src = mobileProfile.src.replace(/%7Bsize%7D/g, 60);
+    }
   });
 
   function goBack() {
-      window.history.back();
+    window.history.back();
   }
 
   function logout() {
-      $.ajax({
-          url: `/session/${Discourse.User.current().username}`,
-          type: 'DELETE',
-          success: function(result) {
-              // Do something with the result
-              console.log(result);
-          }
-      });
+    $.ajax({
+      url: `/session/${Discourse.User.current().username}`,
+      type: 'DELETE',
+      success: function (result) {
+        // Do something with the result
+        console.log(result);
+      }
+    });
   }
 </script>
 
 
-<script
-  type="text/x-handlebars"
-  data-template-name="/connectors/below-site-header/foobar"
->
+<script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
   <div>
       <header id="keteHeader">
           <div class="wrap header-container topnav">
@@ -428,7 +425,7 @@
 <!-- list items -->
 <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
 
-    {{#if bulkSelectEnabled}}
+  {{#if bulkSelectEnabled}}
     <td class="bulk-select">
       <input type="checkbox" class="bulk-select">
     </td>
@@ -495,7 +492,7 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-footer/custom-footer">
-    <footer id="keteFooter">
+  <footer id="keteFooter">
         <div class="wrap footer-container">
             <div class="footer-nav-container-left">
                 <div><a>About</a></div>
@@ -763,46 +760,6 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="/action-type/flag-footer">
-  {{#d-modal-body class="flag-modal" title=title}}
-  <form>
-    {{#flag-selection nameKey=selected.name_key flags=flagsAvailable as |f|}}
-      {{flag-action-type flag=f
-                         message=message
-                         isWarning=isWarning
-                         selectedFlag=selected
-                         username=model.username
-                         staffFlagsAvailable=staffFlagsAvailable
-                         changePostActionType="changePostActionType"}}
-   {{/flag-selection}}
-  </form>
-{{/d-modal-body}}
-
-<div class="modal-footer">
-  {{d-button
-    class="btn-primary"
-    action=(action "createFlag")
-    disabled=submitDisabled
-    title="flagging.submit_tooltip"
-    icon=submitIcon
-    label=submitLabel}}
-
-  {{#if canSendWarning}}
-    {{d-button
-      class="btn-danger"
-      action=(action "createFlagAsWarning")
-      disabled=submitDisabled
-      icon="exclamation-triangle"
-      label="flagging.official_warning"}}
-  {{/if}}
-
-  {{#if showDeleteSpammer}}
-    {{d-button
-      class="btn-danger"
-      action="deleteSpammer"
-      disabled=submitDisabled
-      icon="exclamation-triangle"
-      label="flagging.delete_spammer"}}
-  {{/if}}
-</div>
+  <h1>doom</h1>
 
 </script>
