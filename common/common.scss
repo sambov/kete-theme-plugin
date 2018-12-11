@@ -305,6 +305,9 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 #create-topic i{
   display: none;
 }
+.post-controls .actions .reply i {
+  display: block!important
+}
 
 @media only screen and (max-width: 767px) {
   #create-topic {
