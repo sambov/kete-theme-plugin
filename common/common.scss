@@ -295,8 +295,9 @@ tr {
   color: #ffffff !important;
   padding: 10px 24px !important;
   text-align: center;
-  @media only screen and (max-width: 767px) { 
-    padding: 0!important;
+
+  @media only screen and (max-width: 767px) {
+    padding: 0 !important;
   }
 
   i:not(:last-child) {
@@ -322,7 +323,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
     display: none !important;
   }
 }
-#create-topic i{
+
+#create-topic i {
   display: none;
 }
 
@@ -366,6 +368,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 #keteHeader {
   margin-bottom: 60px;
   border-bottom: solid #324164 1px;
+
   @media only screen and (max-width: 767px) {
     margin-bottom: 30px;
   }
@@ -779,8 +782,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 }
 
 .topic-post {
-  border-top: solid #bdbdbd 1px !important;
-} 
+  @media only screen and (max-width: 767px) {
+    border-top: solid #bdbdbd 1px;
+  }
+}
 
 .topic-post:not(:first-child) {
   border-top: solid #bdbdbd 1px !important;
