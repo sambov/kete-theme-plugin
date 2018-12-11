@@ -242,11 +242,17 @@ tr {
   border-top: none !important;
 
   @media only screen and (max-width: 767px) {
-    padding: 0;
+    padding: 20px 0!important;
   }
 }
 .topic-post:last-of-type {
   padding-bottom: 0px!important;
+}
+
+.topic-avatar {
+  @media only screen and (max-width: 767px) {
+  padding-left: 0!important;
+  }
 }
 
 #reply-control .d-editor-button-bar .btn {
