@@ -741,8 +741,22 @@
 </script>
 
 
-<script type="text/x-handlebars" data-template-name="/flag-action-type/flag">
-  <h1>doom</h1>
+<!-- <script type="text/x-handlebars" data-template-name="/flag-action-type/flag">
+  <div class='controls'>
+    <label class='radio'>
+      <input type='radio' id="radio_{{unbound flag.name_key}}" {{action "changePostActionType" flag}} name='post_action_type_index'>
+      <div class='flag-action-type-details'>
+        <strong>{{formattedName}}</strong>
+        {{#if showDescription}}
+          <div class='description'>{{{description}}}</div>
+        {{/if}}
+        {{#if showMessageInput}}
+          {{textarea name="message" class="flag-message" placeholder=customPlaceholder value=message}}
+          <div class="custom-message-length {{customMessageLengthClasses}}">{{customMessageLength}}</div>
+        {{/if}}
+      </div>
+    </label>
+  </div>
 </script>
 
 <script type="text/x-handlebars" data-template-name="/action-type/flag-footer">
@@ -786,6 +800,6 @@
       icon="exclamation-triangle"
       label="flagging.delete_spammer"}}
   {{/if}}
-</div>
+</div> -->
 
 </script>
