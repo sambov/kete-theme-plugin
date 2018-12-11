@@ -974,6 +974,12 @@ ol.category-breadcrumb {
   display: none !important;
 }
 
+.preview {
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
 #create-topic {
   margin: 0!important;
   @media only screen and (min-width: 769px) {
