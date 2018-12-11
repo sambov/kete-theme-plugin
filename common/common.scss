@@ -837,7 +837,13 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
 //forum nav
 
+.list-controls .navigation-container {
+  margin: 10px 0;
+}
+
 #navigation-bar {
+  margin: 0;
+  margin-right: 5px;
   .navigation-toggle {
     @media only screen and (max-width: 767px) {
       border-radius: 3px;
@@ -973,6 +979,8 @@ ol.category-breadcrumb {
     position: absolute !important;
     top: 440px;
     right: 15px !important;
+    margin: 0;
+    margin-left: 5px;
   }
 
   @media only screen and (min-width: 1200px) {
