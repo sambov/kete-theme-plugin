@@ -144,6 +144,7 @@ p {
   padding-top: 0px;
 
   min-height: calc(100vh - 340px);
+
   @media only screen and (max-width: 767px) {
     min-height: calc(100vh - 450px);
   }
@@ -243,16 +244,17 @@ tr {
   border-top: none !important;
 
   @media only screen and (max-width: 767px) {
-    padding: 20px 0!important;
+    padding: 20px 0 !important;
   }
 }
+
 .topic-post:last-of-type {
-  padding-bottom: 0px!important;
+  padding-bottom: 0px !important;
 }
 
 .topic-avatar {
   @media only screen and (max-width: 767px) {
-  padding-left: 0!important;
+    padding-left: 0 !important;
   }
 }
 
@@ -309,14 +311,14 @@ tr {
   @media only screen and (max-width: 767px) {
     padding: 0 !important;
 
-  background-color: transparent !important;
-  font-weight: 300 !important;
-  font-style: normal !important;
-  font-stretch: normal !important;
-  line-height: 1 !important;
-  letter-spacing: -0.3px !important;
-  color: #aaa !important;
-  text-align: center;
+    background-color: transparent !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    font-stretch: normal !important;
+    line-height: 1 !important;
+    letter-spacing: -0.3px !important;
+    color: #aaa !important;
+    text-align: center;
   }
 
   i:not(:last-child) {
@@ -345,7 +347,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
 #create-topic i {
   @media only screen and (min-width: 769px) {
-  display: none;
+    display: none;
   }
 }
 
@@ -500,10 +502,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   margin-top: -60px;
   display: none;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+
   @media only screen and (max-width: 767px) {
     margin-top: -30px;
     margin-bottom: 30px;
   }
+
   .mobile-nav-profile {
     background: #f2f4f7;
     border-top: solid 1px #324164;
@@ -824,15 +828,16 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 .topic-post:last-child {
   border-bottom: solid #bdbdbd 1px !important;
 }
+
 .topic-post article {
   @media only screen and (max-width: 767px) {
     padding: 0;
   }
 }
 
-#topic-title .fancy-title{
-  font-family: roboto-light!important;
-  font-size: 36px!important;
+#topic-title .fancy-title {
+  font-family: roboto-light !important;
+  font-size: 36px !important;
 }
 
 .names span a {
@@ -850,6 +855,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 #navigation-bar {
   margin: 0;
   margin-right: 5px;
+
   .navigation-toggle {
     @media only screen and (max-width: 767px) {
       border-radius: 3px;
@@ -922,9 +928,11 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
 .list-controls {
   margin-bottom: 50px;
+
   @media only screen and (max-width: 767px) {
     margin-bottom: 0px;
   }
+
   section {
     display: flex;
 
@@ -980,17 +988,17 @@ ol.category-breadcrumb {
   display: none !important;
 }
 
-.preview {
-  @media only screen and (max-width: 767px) {
-    display: none!important;
-    #reply-control .d-editor-button-bar .btn.preview {
-      margin-left: 15px!important;
-  }
+@media only screen and (max-width: 767px) {
+  display: none !important;
+
+  #reply-control .d-editor-button-bar .btn.preview {
+    margin-left: 15px !important;
   }
 }
 
 #create-topic {
-  margin: 0!important;
+  margin: 0 !important;
+
   @media only screen and (min-width: 769px) {
     position: absolute !important;
     top: 440px;
@@ -1118,7 +1126,7 @@ ol.category-breadcrumb {
   #topic-footer-buttons {
     display: flex !important;
     align-items: center !important;
-    padding: 0!important;
+    padding: 0 !important;
   }
 
   .topic-footer-main-buttons div:first-child {
@@ -1135,9 +1143,9 @@ ol.category-breadcrumb {
 }
 
 #suggested-topics .topic-list td,
-#suggested-topics a{
-color: #252525!important;
-font-size: 1.1rem!important;
+#suggested-topics a {
+  color: #252525 !important;
+  font-size: 1.1rem !important;
 }
 
 //Footer
@@ -1327,6 +1335,7 @@ font-size: 1.1rem!important;
 #reply-control {
   max-width: unset;
   height: 59% !important;
+
   @media only screen and (max-width: 767px) {
     height: 100% !important;
   }
@@ -1502,9 +1511,9 @@ font-size: 1.1rem!important;
 }
 
 position: fixed;
-    display: flex;
-    flex-direction: column;
-    bottom: 0;
-    height: 0;
-    right: 0;
-    left: 0;
+display: flex;
+flex-direction: column;
+bottom: 0;
+height: 0;
+right: 0;
+left: 0;
