@@ -990,7 +990,7 @@ ol.category-breadcrumb {
 
 @media only screen and (max-width: 767px) {
   #reply-control .d-editor-button-bar .btn.preview {
-    display: none!important;
+    display: none !important;
     margin-left: 15px !important;
   }
 }
@@ -1512,7 +1512,7 @@ ol.category-breadcrumb {
 .topic-item-stats {
   display: flex;
   justify-content: flex-end;
-  width: 100%!important;
+  width: 100% !important;
 }
 
 .topic-item-stats a {
@@ -1526,4 +1526,10 @@ ol.category-breadcrumb {
 
 #topic-progress {
   display: none;
+}
+
+.topic-meta-data .names {
+  @media only screen and (max-width: 767px) {
+    width: 77% !important;
+  }
 }
