@@ -990,6 +990,7 @@ ol.category-breadcrumb {
 
 @media only screen and (max-width: 767px) {
   #reply-control .d-editor-button-bar .btn.preview {
+    display: none!important;
     margin-left: 15px !important;
   }
 }
