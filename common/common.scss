@@ -1327,6 +1327,9 @@ font-size: 1.1rem!important;
 #reply-control {
   max-width: unset;
   height: 59% !important;
+  @media only screen and (max-width: 767px) {
+    height: 100% !important;
+  }
 }
 
 .select-kit.dropdown-select-box.composer-actions {
@@ -1497,3 +1500,11 @@ font-size: 1.1rem!important;
 .post-date {
   pointer-events: none;
 }
+
+position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    height: 0;
+    right: 0;
+    left: 0;
