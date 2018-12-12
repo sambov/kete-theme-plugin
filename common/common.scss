@@ -1510,7 +1510,8 @@ ol.category-breadcrumb {
 }
 
 .topic-item-stats {
-  position: absolute;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .topic-item-stats a {
