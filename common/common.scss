@@ -142,13 +142,10 @@ p {
 
 #main-outlet {
   padding-top: 0px;
-
-  min-height: calc(100vh - 340px);
-
+  min-height: calc(100vh - 140px);
   @media only screen and (max-width: 767px) {
     min-height: calc(100vh - 450px);
   }
-
   a:not(.link-top-line a) {
     color: #58c7dd !important;
   }
