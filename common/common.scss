@@ -1018,21 +1018,21 @@ ol.category-breadcrumb {
 
 #create-topic.btn-default {
   @media only screen and (min-width: 769px) {
-    border-radius: unset;
-    position: unset;
-    bottom: unset;
-    right: unset;
-    z-index: unset;
-    padding: unset;
-    background-color: unset;
-    color: unset;
-    white-space: unset;
-    text-indent: unset;
-    box-shadow: unset;
-    overflow: unset;
-    width: unset;
-    height: unset;
-    transition: unset;
+    border-radius: unset!important;
+    position: unset!important;
+    bottom: unset!important;
+    right: unset!important;
+    z-index: unset!important;
+    padding: unset!important;
+    background-color: unset!important;
+    color: unset!important;
+    white-space: unset!important;
+    text-indent: unset!important;
+    box-shadow: unset!important;
+    overflow: unset!important;
+    width: unset!important;
+    height: unset!important;
+    transition: unset!important;
 
     //width: 280px !important;
     color: #fff !important;
