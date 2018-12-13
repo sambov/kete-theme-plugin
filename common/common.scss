@@ -659,6 +659,8 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
   .panel {
     position: absolute !important;
+    right: 0;
+    height: 0;
   }
 }
 
