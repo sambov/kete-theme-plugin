@@ -261,6 +261,10 @@
     document.getElementById("myDropdown").classList.toggle("show");
   }
 
+  function testfunction() {
+    console.log('hello');
+  }
+
   function navFunction() {
     const x = document.getElementById("mobileNav");
     if (x.style.display === "block") {
@@ -328,6 +332,7 @@ document.onload = window.scrollTo(0, 0);
                       <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
                       <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
                   </div>
+                  <button onclick="testfunction()">click me</button>
                   <div class="profile-dropdown" onclick="myFunction()">
                           <span  class="dropbtn">
                               {{#if currentUser.avatar_template}}
