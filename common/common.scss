@@ -1530,3 +1530,9 @@ ol.category-breadcrumb {
     width: 77% !important;
   }
 }
+
+.composer-bottom-right {
+  @media only screen and (max-width: 767px) {
+    display: none !important;
+  }
+}
