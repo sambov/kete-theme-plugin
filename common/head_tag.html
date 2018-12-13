@@ -256,9 +256,7 @@
     return window.location.pathname === "/";
   }
 
-  function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
+  
 
   function navFunction() {
     const x = document.getElementById("mobileNav");
@@ -304,6 +302,9 @@ document.onload = window.scrollTo(0, 0);
 
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
+  <script>function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }</script>
   <div>
       <header id="keteHeader">
           <div class="wrap header-container topnav">
