@@ -324,7 +324,6 @@ document.onload = window.scrollTo(0, 0);
               <div class="nav-container">
                   {{#if currentUser}}
                   <div class="navbar">
-                      <span class="profile-name">name:{{currentUser.firstName}}</span>
                       <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
                       <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
                   </div>
@@ -346,7 +345,6 @@ document.onload = window.scrollTo(0, 0);
                               {{/if}}
 
                               <span class="profile-name">{{currentUser.name}}</span>
-                              
                               <img
                                       class="profile-arrow"
                                       height="24"
