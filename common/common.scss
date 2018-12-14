@@ -724,6 +724,10 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   }
 }
 
+.upload-selector .inputs {
+display: block!important;
+}
+
 .menu-panel.drop-down {
   top: 87px !important;
   right: 0 !important;
