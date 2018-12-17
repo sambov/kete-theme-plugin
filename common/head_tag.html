@@ -283,11 +283,7 @@
   function goBack() {
     window.history.back();
   }
-  if(window.location.hash=='#logout'){
-                document.cookie = '_forum_session=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-                document.cookie = '_t=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-                document.location = "{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}";
-   }
+  
   function logout() {
     $.ajax({
       url: `/session/${Discourse.User.current().username}`,
