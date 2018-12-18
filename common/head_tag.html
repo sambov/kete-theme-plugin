@@ -285,7 +285,15 @@
   }
   
   if(window.location.hash=='#logout'){
-    document.location =  `https://ketedev.nzte.govt.nz/?loggedOut=true&fId=${Discourse.User.current().id}`;
+    $.ajax({
+      url: `/session/${Discourse.User.current().username}`,
+      type: 'DELETE',
+      success: function (result) {
+        document.location =  `https://ketedev.nzte.govt.nz`;
+      }
+    });
+
+ 
    }
 
   function logout() {
