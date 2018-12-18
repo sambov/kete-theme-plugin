@@ -284,6 +284,10 @@
     window.history.back();
   }
   
+  if(window.location.hash=='#logout'){
+    document.location =  'https://ketedev.nzte.govt.nz/?loggedOut=true&fId=' + {{currentUser.id}};
+   }
+
   function logout() {
     $.ajax({
       url: `/session/${Discourse.User.current().username}`,
