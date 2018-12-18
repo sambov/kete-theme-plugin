@@ -285,7 +285,7 @@
   }
   
   if(window.location.hash=='#logout'){
-    document.location =  `https://ketedev.nzte.govt.nz/?loggedOut=true&fId=${Discourse.User.current().username}`;
+    document.location =  `https://ketedev.nzte.govt.nz/?loggedOut=true&fId=${Discourse.User.current().id}`;
    }
 
   function logout() {
