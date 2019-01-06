@@ -288,7 +288,7 @@
 
   function logout() {
     $.ajax({
-      url: `/session/${Discourse.User.current().username}`,
+      url: '/session/{{Discourse.User.current().username}}' ,
       type: 'DELETE',
       success: function (result) {
         // Do something with the result
@@ -507,7 +507,7 @@ document.onload = window.scrollTo(0, 0);
                 <div><a href="https://www.nzte.govt.nz/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of use</a></div>
                 <div><a href="https://www.nzte.govt.nz/linking-policy" target="_blank" rel="noopener noreferrer">Linking policy</a></div>
                 <div><a href="https://www.nzte.govt.nz/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a></div>
-                <div><a>Contact</a></div>
+                <div><a href="https://www.nzte.govt.nz/privacy-policy" target="_blank" rel="noopener noreferrer"></div>
             </div>
             <div class="footer-nav-container-right">
                 <div class="footer-subscribe">
