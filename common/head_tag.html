@@ -288,7 +288,7 @@
 
   function logout() {
     $.ajax({
-      url: '/session/{{Discourse.User.current().username}}' ,
+      url: '/session/' + Discourse.User.current().username,
       type: 'DELETE',
       success: function (result) {
         // Do something with the result
