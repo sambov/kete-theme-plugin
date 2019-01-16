@@ -140,3 +140,10 @@ aside.quote {
 .list-controls .container #create-topic {
   align-self: flex-start;
 }
+
+.save-or-cancel {
+  display: flex !important;
+  flex-basis: 100% !important;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}

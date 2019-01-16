@@ -266,3 +266,14 @@
     margin-left: 0;
   }
 }
+
+.save-or-cancel {
+  // float: left;
+  // display: block !important;
+  // width: 60%;
+  display: flex !important;
+  flex-basis: 100% !important;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-right: 16px;
+}

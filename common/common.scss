@@ -571,7 +571,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   border: solid #324164 0.8px;
   border-top: 0;
   border-radius: 0 0 5px 5px;
-  right: 140px;
+  right: 190px;
 
   @media only screen and (max-width: 1199px) {
     right: -1px;
@@ -817,7 +817,7 @@ display: block!important;
 
 .topic-post:not(:first-child) {
   border-top: solid #bdbdbd 1px !important;
-  max-width: 850px;
+  // max-width: 850px;
 
   @media only screen and (max-width: 767px) {
     max-width: 100%;
@@ -1329,17 +1329,6 @@ ol.category-breadcrumb {
   padding: 5px;
 }
 
-.save-or-cancel {
-  // float: left;
-  // display: block !important;
-  // width: 60%;
-  display: flex !important;
-  flex-basis: 100% !important;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  padding-right: 16px;
-}
-
 .d-editor-textarea-wrapper,
 .d-editor {
   border-radius: 5px;
@@ -1561,4 +1550,12 @@ ol.category-breadcrumb {
 
 .modal-footer:before, .modal-footer:after {
   content: none;
+}
+
+.d-editor-button-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+  padding-top: 8px;
 }
