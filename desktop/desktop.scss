@@ -50,9 +50,10 @@
 .topic-body {
   @include boxShadow;
   background-color: lighten($secondary, 10%);
-  margin-top: 10px;
+  margin-top: 14px;
   border-radius: 2px;
-  padding: 12px 20px 0 20px;
+  // padding: 12px 20px 0 20px;
+  width: 100%;
 }
 
 //more space for avatars
@@ -146,7 +147,7 @@
     margin-left: 820px;
   }
   .topic-admin-popup-menu {
-    left: -40% !important;
+    // left: -40% !important;
   }
 }
 
@@ -224,7 +225,7 @@
     }
     .topic-admin-popup-menu {
       left: initial !important;
-      right: -40% !important;
+      // right: -40% !important;
     }
   }
 }

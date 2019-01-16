@@ -6,16 +6,18 @@
 .topic-body {
   @include boxShadow;
   background-color: lighten($secondary, 10%);
-  margin-top: 10px;
-  padding: 20px;
+  margin-top: 18px;
+  // padding: 20px;
   border-radius: 2px;
+  width: 100%;
 }
 
 //more space for avatars
 .topic-avatar {
   border-top: 0;
-  padding-top: 20px;
+  padding-top: 6px;
   padding-left: 10px;
+
   .avatar-flair {
     right: 4px;
   }
@@ -80,5 +82,61 @@ aside.quote {
   display: flex;
   justify-content: center;
   min-width: 290px;
+  align-self: flex-start;
+}
+
+.post-controls .actions .reply {
+  border-radius: 25px !important;
+  background-color: #2a7ab0 !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  line-height: 1 !important;
+  letter-spacing: -0.3px !important;
+  color: #ffffff !important;
+  padding: 10px 14px !important;
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#topic-footer-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.post-controls clearfix {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.topic-post nav.post-controls button.reply {
+  margin-left: 0;
+}
+
+.topic-post nav.post-controls .actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topic-meta-data {
+  margin-left: 0;
+}
+
+#topic-progress-wrapper.docked {
+  display: none;
+}
+#topic-progress-wrapper .topic-admin-menu-button-container {
+  display: none;
+}
+
+.list-controls .container #create-topic {
   align-self: flex-start;
 }
