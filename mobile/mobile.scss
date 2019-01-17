@@ -133,6 +133,7 @@ aside.quote {
 #topic-progress-wrapper.docked {
   display: none;
 }
+// Hide admin console button for mobile mode
 #topic-progress-wrapper .topic-admin-menu-button-container {
   display: none;
 }
@@ -146,4 +147,12 @@ aside.quote {
   flex-basis: 100% !important;
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+
+.select-kit-header {
+  height: 40px !important;
+}
+
+.pinned-button {
+  margin: 0 !important;
 }

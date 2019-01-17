@@ -277,3 +277,16 @@
   justify-content: space-between;
   padding-right: 16px;
 }
+
+// Hide second admin console button for desktop mode
+#topic-progress-wrapper {
+  display: none;
+}
+
+.select-kit {
+  height: 40px;
+}
+
+.pinned-button {
+  margin: 0 !important;
+}

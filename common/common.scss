@@ -331,7 +331,7 @@ tr {
 }
 
 .btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):not(.emoji),
-button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):not(.emoji) {
+button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):not(.emoji):not(.clear-filter) {
   border-radius: 25px !important;
   background-color: #2a7ab0 !important;
   font-size: 16px !important;
@@ -1532,6 +1532,7 @@ ol.category-breadcrumb {
 
 .popup-menu {
   z-index: 2000;
+  width: 265px;
 }
 
 .topic-footer-main-buttons {
@@ -1558,4 +1559,15 @@ ol.category-breadcrumb {
   flex-wrap: wrap;
   padding-bottom: 8px;
   padding-top: 8px;
+}
+
+.topic-admin-popup-menu.right-side {
+  right: 210px !important;
+}
+
+.clear-filter {
+  position: relative !important;
+  display: flex !important;
+  top: 0 !important;
+  padding: 0 !important;
 }
