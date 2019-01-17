@@ -663,6 +663,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
   .panel {
     position: unset !important;
+    padding-left: 32px;
 
     @media only screen and (max-width: 767px) {
       left: 0;
@@ -672,12 +673,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
   ul li:not(:first-child) {
     display: none;
-  }
-  ul {
-    @media only screen and (max-width: 767px) {
-      width: 100%;
-      padding-left: 32px;
-    }
   }
   ul li {
     //left: 200px;
@@ -691,6 +686,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
     @media only screen and (max-width: 767px) {
       // right: 280px;
       top: 40px;
+      background-color: white;
 
       //left: 20px !important;
       i {
@@ -765,6 +761,7 @@ display: block!important;
   margin-top: -60px;
   margin-bottom: 60px;
   text-align: left;
+  padding-left: 8px;
 
   @media only screen and (max-width: 767px) {
     height: 175px;
@@ -1596,4 +1593,32 @@ ol.category-breadcrumb {
 
 .edit-controls {
   width: auto !important;
+}
+
+.header-buttons {
+  position: relative;
+  top: 40px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+}
+
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#credentials > table > tr {
+  border-bottom: 0 !important;
+}
+
+.login-form > form > table > tr {
+  border-bottom: 0 !important;
+}
+
+#forgot-password-link {
+  text-decoration: underline;
 }
