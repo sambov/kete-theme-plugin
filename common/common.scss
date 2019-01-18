@@ -663,7 +663,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 
   .panel {
     position: unset !important;
-    padding-left: 32px;
 
     @media only screen and (max-width: 767px) {
       left: 0;
@@ -686,17 +685,16 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
     @media only screen and (max-width: 767px) {
       // right: 280px;
       top: 40px;
-      background-color: white;
-
       //left: 20px !important;
       i {
         font-size: 22px !important;
       }
     }
 
-    // @media only screen and (max-width: 330px) {
-    //   right: 200px;
-    // }
+    @media only screen and (max-width: 375px) {
+      // right: 200px;
+      background-color: $header_background;
+    }
   }
 }
 
@@ -880,9 +878,8 @@ display: block!important;
     }
 
     a {
-      padding-left: 0 !important;
-
-      padding-right: 0 !important;
+      // padding-left: 0 !important;
+      // padding-right: 0 !important;
 
       @media only screen and (max-width: 767px) {
         padding: 15px !important;
@@ -1621,4 +1618,9 @@ ol.category-breadcrumb {
 
 #forgot-password-link {
   text-decoration: underline;
+}
+
+.activation-controls {
+  display: flex;
+  flex-wrap: wrap;
 }

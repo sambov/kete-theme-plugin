@@ -179,44 +179,44 @@
 
 <script type="text/x-handlebars" data-template-name="discovery">
   <div id="headerBanner">
-            <div class="wrap">
-                <h1 class="intro-title">Community</h1>
-                <h3 class="intro-subtitle">Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</h3>
-            </div>
+    <div class="wrap">
+      <h1 class="intro-title">Community</h1>
+      <h3 class="intro-subtitle">Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</h3>
+    </div>
+  </div>
+
+  <div class="container">
+    {{discourse-banner user=currentUser banner=site.banner}}
+  </div>
+
+  <div class="list-controls">
+    <div class="container">
+      {{outlet "navigation-bar"}}
+    </div>
+  </div>
+
+  {{conditional-loading-spinner condition=loading}}
+
+  <div class="container list-container {{if loading "hidden"}}">
+    <div class="row">
+      <div class="full-width">
+        <div id="header-list-area">
+          {{outlet "header-list-container"}}
         </div>
-
-        <div class="container">
-          {{discourse-banner user=currentUser banner=site.banner}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="full-width">
+        <div id="list-area">
+          {{plugin-outlet name="discovery-list-container-top"
+                          args=(hash category=category listLoading=loading)}}
+          {{outlet "list-container"}}
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="list-controls">
-          <div class="container">
-            {{outlet "navigation-bar"}}
-          </div>
-        </div>
-
-        {{conditional-loading-spinner condition=loading}}
-
-        <div class="container list-container {{if loading "hidden"}}">
-          <div class="row">
-            <div class="full-width">
-              <div id="header-list-area">
-                {{outlet "header-list-container"}}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="full-width">
-              <div id="list-area">
-                {{plugin-outlet name="discovery-list-container-top"
-                                args=(hash category=category listLoading=loading)}}
-                {{outlet "list-container"}}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {{plugin-outlet name="discovery-below"}}
+  {{plugin-outlet name="discovery-below"}}
 </script>
 
 <!-- Topic list -->
@@ -283,7 +283,7 @@
   function goBack() {
     window.history.back();
   }
-  
+
 
 
   function logout() {
@@ -307,96 +307,97 @@ document.onload = window.scrollTo(0, 0);
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
   <div>
-      <header id="keteHeader">
-          <div class="wrap header-container topnav">
-              <div class="nav-toggle">
-                  <a href="#" class="icon" onclick="navFunction()">
-                      <img
-                          width="24"
-                          height="24"
-                          src="{{themeSettings.web_url}}/icon/hamburger.png"
-                      />
-                  </a>
-              </div>
+    <header id="keteHeader">
+        <div class="wrap header-container topnav">
+          {{#if currentUser}}
+            <div class="nav-toggle">
+                <a href="#" class="icon" onclick="navFunction()">
+                    <img
+                        width="24"
+                        height="24"
+                        src="{{themeSettings.web_url}}/icon/hamburger.png"
+                    />
+                </a>
+            </div>
+          {{/if}}
+          <div class="header-logo">
+              <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
+          </div>
 
-              <div class="header-logo">
-                  <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
-              </div>
-
-              <div class="nav-container">
-                  {{#if currentUser}}
-                  <div class="navbar">
-                      <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
-                      <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
-                  </div>
-                  <div class="profile-dropdown" onclick="document.getElementById('myDropdown').classList.toggle('show')">
-                          <span  class="dropbtn">
-                              {{#if currentUser.avatar_template}}
+            <div class="nav-container">
+                {{#if currentUser}}
+                <div class="navbar">
+                    <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
+                    <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
+                </div>
+                <div class="profile-dropdown" onclick="document.getElementById('myDropdown').classList.toggle('show')">
+                        <span  class="dropbtn">
+                            {{#if currentUser.avatar_template}}
+                              <img
+                                  id="desktopProfile"
+                                  class="profile-avatar"
+                                  src="{{currentUser.avatar_template}}"
+                                  height="34px"
+                                  width="34px"/>
+                            {{else}}
                                 <img
-                                    id="desktopProfile"
                                     class="profile-avatar"
-                                    src="{{currentUser.avatar_template}}"
+                                    src="{{themeSettings.web_url}}/blank-avatar.png"
                                     height="34px"
                                     width="34px"/>
-                              {{else}}
-                                  <img
-                                      class="profile-avatar"
-                                      src="{{themeSettings.web_url}}/blank-avatar.png"
-                                      height="34px"
-                                      width="34px"/>
-                              {{/if}}
+                            {{/if}}
 
-                              <span class="profile-name">{{currentUser.name}}</span>
-                              <img
-                                      class="profile-arrow"
-                                      height="24"
-                                      width="24"
-                                      src="{{themeSettings.web_url}}/icon/expand.png"/>
-                          </span>
-                      <div id="myDropdown" class="dropdown-content">
-                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
-                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-                          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
-                             onclick="logout()">Sign Out</a>
-                      </div>
-                  </div>
-                  {{/if}}
-              </div>
-          </div>
-      </header>
-      {{#if currentUser}}
+                            <span class="profile-name">{{currentUser.name}}</span>
+                            <img
+                                    class="profile-arrow"
+                                    height="24"
+                                    width="24"
+                                    src="{{themeSettings.web_url}}/icon/expand.png"/>
+                        </span>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+                        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
+                        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+                           onclick="logout()">Sign Out</a>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </header>
+    {{#if currentUser}}
       <div id="mobileNav">
-          <div class="profile-dropdown mobile-nav-profile">
-                  <span class="dropbtn">
-                  {{#if currentUser.avatar_template}}
-                    <img
-                            id="mobileProfile"
-                            class="profile-avatar"
-                            src="{{currentUser.avatar_template}}"
-                            height="34px"
-                            width="34px"/>
-                  {{else}}
-                      <img
-                              class="profile-avatar"
-                              src="{{themeSettings.web_url}}/blank-avatar.png"
-                              height="34px"
-                              width="34px"/>
-                  {{/if}}
-                  <span class="profile-name">{{currentUser.name}}</span>
-              </span>
-          </div>
-          <div class="mobile-nav-section">
-              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
-              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-          </div>
-          <div class="mobile-nav-section">
-              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
-              <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
-          </div>
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
-             onclick="logout()">Sign Out</a>
+        <div class="profile-dropdown mobile-nav-profile">
+          <span class="dropbtn">
+            {{#if currentUser.avatar_template}}
+              <img
+                id="mobileProfile"
+                class="profile-avatar"
+                src="{{currentUser.avatar_template}}"
+                height="34px"
+                width="34px"/>
+            {{else}}
+              <img
+                class="profile-avatar"
+                src="{{themeSettings.web_url}}/blank-avatar.png"
+                height="34px"
+                width="34px"/>
+            {{/if}}
+            <span class="profile-name">{{currentUser.name}}</span>
+          </span>
+        </div>
+        <div class="mobile-nav-section">
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
+        </div>
+        <div class="mobile-nav-section">
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
+        </div>
+        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+           onclick="logout()">Sign Out</a>
       </div>
-      {{/if}}
+    {{/if}}
   </div>
 </script>
 
@@ -414,7 +415,6 @@ document.onload = window.scrollTo(0, 0);
   {{plugin-outlet name="below-site-header" args=(hash currentPath=currentPath)}}
 
   <div id="main-outlet" class="wrap">
-
     {{outlet}}
     {{outlet "user-card"}}
   </div>
@@ -586,7 +586,6 @@ document.onload = window.scrollTo(0, 0);
 
     {{#if hasResults}}
       <div class='search-title'>
-        
 
         {{#if canBulkSelect}}
           {{d-button icon="list" class="btn-default bulk-select" title="topics.bulk.toggle" action="toggleBulkSelect"}}
