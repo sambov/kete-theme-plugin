@@ -308,62 +308,62 @@ document.onload = window.scrollTo(0, 0);
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
   <div>
     <header id="keteHeader">
-        <div class="wrap header-container topnav">
+      <div class="wrap header-container topnav">
+        {{#if currentUser}}
+          <div class="nav-toggle">
+            <a href="#" class="icon" onclick="navFunction()">
+              <img
+                width="24"
+                height="24"
+                src="{{themeSettings.web_url}}/icon/hamburger.png"
+              />
+            </a>
+          </div>
+        {{/if}}
+        <div class="header-logo">
+            <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
+        </div>
+
+        <div class="nav-container">
           {{#if currentUser}}
-            <div class="nav-toggle">
-                <a href="#" class="icon" onclick="navFunction()">
-                    <img
-                        width="24"
-                        height="24"
-                        src="{{themeSettings.web_url}}/icon/hamburger.png"
-                    />
-                </a>
+            <div class="navbar">
+              <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
+              <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
+            </div>
+            <div class="profile-dropdown" onclick="document.getElementById('myDropdown').classList.toggle('show')">
+              <span  class="dropbtn">
+                {{#if currentUser.avatar_template}}
+                  <img
+                      id="desktopProfile"
+                      class="profile-avatar"
+                      src="{{currentUser.avatar_template}}"
+                      height="34px"
+                      width="34px"/>
+                {{else}}
+                  <img
+                      class="profile-avatar"
+                      src="{{themeSettings.web_url}}/blank-avatar.png"
+                      height="34px"
+                      width="34px"/>
+                {{/if}}
+
+                <span class="profile-name">{{currentUser.name}}</span>
+                  <img
+                      class="profile-arrow"
+                      height="24"
+                      width="24"
+                      src="{{themeSettings.web_url}}/icon/expand.png"/>
+              </span>
+              <div id="myDropdown" class="dropdown-content">
+                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
+                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+                   onclick="logout()">Sign Out</a>
+              </div>
             </div>
           {{/if}}
-          <div class="header-logo">
-              <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
-          </div>
-
-            <div class="nav-container">
-                {{#if currentUser}}
-                <div class="navbar">
-                    <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
-                    <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
-                </div>
-                <div class="profile-dropdown" onclick="document.getElementById('myDropdown').classList.toggle('show')">
-                        <span  class="dropbtn">
-                            {{#if currentUser.avatar_template}}
-                              <img
-                                  id="desktopProfile"
-                                  class="profile-avatar"
-                                  src="{{currentUser.avatar_template}}"
-                                  height="34px"
-                                  width="34px"/>
-                            {{else}}
-                                <img
-                                    class="profile-avatar"
-                                    src="{{themeSettings.web_url}}/blank-avatar.png"
-                                    height="34px"
-                                    width="34px"/>
-                            {{/if}}
-
-                            <span class="profile-name">{{currentUser.name}}</span>
-                            <img
-                                    class="profile-arrow"
-                                    height="24"
-                                    width="24"
-                                    src="{{themeSettings.web_url}}/icon/expand.png"/>
-                        </span>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
-                        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-                        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
-                           onclick="logout()">Sign Out</a>
-                    </div>
-                </div>
-                {{/if}}
-            </div>
         </div>
+      </div>
     </header>
     {{#if currentUser}}
       <div id="mobileNav">
