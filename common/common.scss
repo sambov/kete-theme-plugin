@@ -1631,3 +1631,36 @@ ol.category-breadcrumb {
   display: flex;
   flex-wrap: wrap;
 }
+
+.topic-list-item {
+  height: 150px;
+}
+
+button {
+  &.has-like {
+    color: #324164 !important;
+  }
+}
+
+.search-input > #search-term, input[type="text"]:focus {
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  box-shadow: none !important;
+}
+
+//Dont move search paned
+.menu-panel {
+  position: static !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  padding: 0px !important;
+  width: auto !important;
+  margin-right: 16px;
+}
+
+.cap-block {
+  display: flex;
+  flex-grow: 1;
+}

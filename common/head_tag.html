@@ -42,7 +42,15 @@
       reorder=reorderCategories}}
   {{/if}}
 
-  {{navigation-bar navItems=navItems filterMode=filterMode category=category}}
+  <div class='navigation-breadcrumbs-block'>
+    {{navigation-bar navItems=navItems filterMode=filterMode category=category}}
+  </div>
+
+  <div class='cap-block'></div>
+
+  <div class='community-search-block'>
+    {{mount-widget widget="search-menu"}}
+  </div>
 
   {{#if showCategoryNotifications}}
     {{category-notifications-button value=category.notification_level category=category}}
@@ -62,6 +70,18 @@
       icon="wrench"
       label="category.edit_long"}}
   {{/if}}
+</script>
+
+<!-- @TODO Navigation bar -->
+<script type="text/x-handlebars" data-template-name="components/navigation-bar">
+  {{#each navItems as |navItem|}}
+    {{navigation-item content=navItem filterMode=filterMode category=category}}
+  {{/each}}
+  {{custom-html name="extraNavItem" tagName="li"}}
+  {{!- this is done to avoid DIV in the UL, originally {{plugin-outlet name="extra-nav-item"}}
+  {{#each connectors as |c|}}
+  {{plugin-connector connector=c class=c.classNames tagName="li" args=(hash category=category filterMode=filterMode)}}
+  {{/each}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="components/bread-crumbs">
@@ -356,11 +376,11 @@ document.onload = window.scrollTo(0, 0);
                 {{/if}}
 
                 <span class="profile-name">{{currentUser.name}}</span>
-                  <img
-                      class="profile-arrow"
-                      height="24"
-                      width="24"
-                      src="{{themeSettings.web_url}}/icon/expand.png"/>
+                <img
+                    class="profile-arrow"
+                    height="24"
+                    width="24"
+                    src="{{themeSettings.web_url}}/icon/expand.png"/>
               </span>
               <div id="myDropdown" class="dropdown-content">
                 <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
@@ -440,7 +460,7 @@ document.onload = window.scrollTo(0, 0);
 
 <!-- List header -->
 <script type="text/x-handlebars" data-template-name="topic-list-header.raw">
-  <!-- Hide list heater-->
+  <!-- Hide list heater -->
 </script>
 
 <!-- list items -->
