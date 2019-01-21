@@ -1,28 +1,36 @@
 <script>
   I18n.translations.en.js.topic.create = "Start new discussion";
-    I18n.translations.en.js.topic.create_long = "Start new discussion";
-    I18n.translations.en.js.topic.reply.title = "Comment";
-    I18n.translations.en.js.composer.reply = "Save";
-    I18n.translations.en.js.composer.create_topic = I18n.translations.en.js.composer.reply;
-    I18n.translations.en.js.composer.composer_actions.reply = I18n.translations.en.js.composer.reply;
-    I18n.translations.en.js.composer.title_or_link_placeholder = "Enter your title";
-    I18n.translations.en.js.composer.reply_placeholder = "Add a comment, discussion point, question or link to a video or website";
+  I18n.translations.en.js.topic.create_long = "Start new discussion";
+  I18n.translations.en.js.topic.reply.title = "Comment";
+  I18n.translations.en.js.composer.reply = "Save";
+  I18n.translations.en.js.composer.create_topic = I18n.translations.en.js.composer.reply;
+  I18n.translations.en.js.composer.composer_actions.reply = I18n.translations.en.js.composer.reply;
+  I18n.translations.en.js.composer.title_or_link_placeholder = "Enter your title";
+  I18n.translations.en.js.composer.reply_placeholder = "Add a comment, discussion point, question or link to a video or website";
 
-    I18n.translations.en.js.bookmarked.title = "Save to favourites";
-    I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
-    I18n.translations.en.js.bookmarked.help.bookmark = "Click to save to favourites";
-    I18n.translations.en.js.bookmarked.help.unbookmark = "Click to remove from favourites";
+  I18n.translations.en.js.bookmarked.title = "Save to favourites";
+  I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
+  I18n.translations.en.js.bookmarked.help.bookmark = "Click to save to favourites";
+  I18n.translations.en.js.bookmarked.help.unbookmark = "Click to remove from favourites";
 
-    I18n.translations.en.js.bookmarks.created = "you've saved this post to your favourites";
-    I18n.translations.en.js.bookmarks.not_bookmarked = "Save this post to your favourites";
-    I18n.translations.en.js.bookmarks.remove = I18n.translations.en.js.bookmarked.clear_bookmarks;
-    I18n.translations.en.js.bookmarks.confirm_clear = "Are you sure you wish to clear all your favourites from this topic?";
+  I18n.translations.en.js.bookmarks.created = "you've saved this post to your favourites";
+  I18n.translations.en.js.bookmarks.not_bookmarked = "Save this post to your favourites";
+  I18n.translations.en.js.bookmarks.remove = I18n.translations.en.js.bookmarked.clear_bookmarks;
+  I18n.translations.en.js.bookmarks.confirm_clear = "Are you sure you wish to clear all your favourites from this topic?";
 
-    I18n.translations.en.js.search.title = "Search Kete Community";
-    I18n.translations.en.js.search.full_page_title = I18n.translations.en.js.search.title;
+  I18n.translations.en.js.search.title = "Search Kete Community";
+  I18n.translations.en.js.search.full_page_title = I18n.translations.en.js.search.title;
 
-    I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
+  I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
 
+</script>
+
+<script type="text/discourse-plugin" version="0.8">
+  $( document ).ready(function() {
+    const user = api.getCurrentUser(),
+      username = user.username;
+    $('span.profile-name').html(username)
+  });
 </script>
 
 <script type="text/x-handlebars" data-template-name="components/d-navigation">
