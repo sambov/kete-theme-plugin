@@ -238,11 +238,13 @@ p {
 }
 
 tbody {
-  border-top: 1px solid #989898 !important;
+  // border-top: 1px solid #989898 !important;
+  border-top: 0 !important;
 }
 
 tr {
   border-bottom: 1px solid #989898 !important;
+  // border-bottom: 0 !important;
 }
 
 .topic-body {
@@ -734,6 +736,7 @@ display: block!important;
   margin-left: 0;
 }
 
+// Hide Categories bread-crumb
 #navigation-bar li:nth-child(5) {
   display: none;
 }
@@ -936,7 +939,8 @@ display: block!important;
 
 .select-kit-header {
   width: 170px;
-  height: 54px !important;
+  // height: 54px !important;
+  height: 36px !important;
   border-radius: 3px;
   background-color: #ffffff !important;
 
@@ -1490,7 +1494,8 @@ ol.category-breadcrumb {
 
 .select-kit-header {
   width: auto;
-  height: 54px !important;
+  // height: 54px !important;
+  height: 36px !important;
   border-radius: 3px;
   background-color: #ffffff !important;
 }

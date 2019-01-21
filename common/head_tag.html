@@ -438,6 +438,11 @@ document.onload = window.scrollTo(0, 0);
   {{outlet "composer"}}
 </script>
 
+<!-- List header -->
+<script type="text/x-handlebars" data-template-name="topic-list-header.raw">
+  <!-- Hide list heater-->
+</script>
+
 <!-- list items -->
 <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
 
@@ -446,6 +451,10 @@ document.onload = window.scrollTo(0, 0);
       <input type="checkbox" class="bulk-select">
     </td>
   {{/if}}
+
+  <td>
+    {{avatar topic.posters.firstObject avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}
+  </td>
 
   <td class='main-link clearfix' colspan="1">
     <span class='link-top-line'>
