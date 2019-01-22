@@ -472,8 +472,8 @@ document.onload = window.scrollTo(0, 0);
     </td>
   {{/if}}
 
-  <td>
-    {{avatar topic.posters.firstObject avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}
+  <td class='avatar-cell'>
+    {{avatar topic.posters.firstObject avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="large"}}
   </td>
 
   <td class='main-link clearfix' colspan="1">
@@ -489,10 +489,13 @@ document.onload = window.scrollTo(0, 0);
         {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
       {{~/if}}
     </span>
+    <span class='age-block'>
+      {{raw "list/activity-column" topic=topic class="num" tagName="div"}}
+    </span>
 
     {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
 
-      {{raw "list/topic-excerpt" topic=topic}}
+    {{raw "list/topic-excerpt" topic=topic}}
 
     {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
   </td>
@@ -503,11 +506,13 @@ document.onload = window.scrollTo(0, 0);
     {{/unless}}
   {{/unless}} -->
 
-  {{#if showPosters}}
+  <!-- Participants avatars block -->
+  <!-- {{#if showPosters}}
     {{raw "list/posters-column" posters=topic.posters}}
-  {{/if}}
+  {{/if}} -->
 
-  {{raw "list/posts-count-column" topic=topic}}
+  <!-- Replies (comments) count -->
+  <!-- {{raw "list/posts-count-column" topic=topic}} -->
 
   {{#if showParticipants}}
     {{raw "list/posters-column" posters=topic.participants}}
@@ -531,9 +536,35 @@ document.onload = window.scrollTo(0, 0);
     {{/if}}
   {{/if}}
 
-  <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td>
+  <!-- Count views -->
+  <!-- <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td> -->
 
-  {{raw "list/activity-column" topic=topic class="num" tagName="td"}}
+  <!-- Last updated time -->
+  <!-- {{raw "list/activity-column" topic=topic class="num" tagName="td"}} -->
+
+  <td class='participants-cell'>
+    <div class='num posts-map posts {{view.likesHeat}} comments-count-block' title='{{view.title}}'>
+      <!-- <a href class='posts-map badge-posts {{view.likesHeat}}'> -->
+        {{raw-plugin-outlet name="topic-list-before-reply-count"}}
+        <span class='comments-count-line'>
+          {{fa-icon 'comment' class='comments-count-icon'}}
+          <!-- <img width="24px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
+          {{number topic.replyCount noTitle="true"}}
+          comments <!-- @TODO  transfer to consts-->
+        </span>
+      <!-- </a> -->
+    </div>
+    <div class='posters'>
+      {{#each topic.posters as |poster|}}
+        <a href="{{poster.user.path}}" data-user-card="{{poster.user.username}}" class="{{poster.extraClasses}}">{{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}</a>
+      {{/each}}
+    </div>
+  </td>
+
+</script>
+
+<script type="text/x-handlebars" data-template-name="list/posts-column.raw">
+
 </script>
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-footer/custom-footer">

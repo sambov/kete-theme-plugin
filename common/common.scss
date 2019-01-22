@@ -1664,3 +1664,59 @@ button {
   display: flex;
   flex-grow: 1;
 }
+
+.panel-body {
+  position: static !important;
+}
+
+.topic-list-item > td {
+  vertical-align: top;
+}
+
+.comments-count-block {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.comments-count-line {
+  display: block;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.comments-count-icon {
+}
+
+.avatar-cell {
+  width: 24px;
+}
+
+.posters {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.posts, .posters {
+  width: auto !important;
+}
+
+.topic-list td:first-of-type {
+  padding-left: 0px;
+}
+.topic-list td:last-of-type {
+  padding-right: 0px;
+}
+
+.age-block {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.age {
+  width: auto !important;
+}
