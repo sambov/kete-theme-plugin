@@ -1720,3 +1720,8 @@ button {
 .age {
   width: auto !important;
 }
+
+// Hide pop-up search results under the search bar
+.panel-body-contents > .results {
+  display: none;
+}
