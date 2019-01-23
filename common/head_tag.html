@@ -519,21 +519,21 @@ document.onload = window.scrollTo(0, 0);
   {{/if}}
 
   {{#if showLikes}}
-  <td class="num likes">
-    {{#if hasLikes}}
-      <a href='{{topic.summaryUrl}}'>
-        {{number topic.like_count}} {{d-icon "heart"}}</td>
-      </a>
-    {{/if}}
+    <td class="num likes">
+      {{#if hasLikes}}
+        <a href='{{topic.summaryUrl}}'>
+          {{number topic.like_count}} {{d-icon "heart"}}</td>
+        </a>
+      {{/if}}
   {{/if}}
 
   {{#if showOpLikes}}
-  <td class="num likes">
-    {{#if hasOpLikes}}
-      <a href='{{topic.summaryUrl}}'>
-        {{number topic.op_like_count}} {{d-icon "heart"}}</td>
-      </a>
-    {{/if}}
+    <td class="num likes">
+      {{#if hasOpLikes}}
+        <a href='{{topic.summaryUrl}}'>
+          {{number topic.op_like_count}} {{d-icon "heart"}}</td>
+        </a>
+      {{/if}}
   {{/if}}
 
   <!-- Count views -->
@@ -560,7 +560,13 @@ document.onload = window.scrollTo(0, 0);
       {{/each}}
     </div>
   </td>
+</script>
 
+<script type="text/discourse-plugin" version="0.8">
+  const user = api.getCurrentTopic();
+  // console.log('apiapiapiapi', api)
+  // console.dir (this)
+  console.dir (user)
 </script>
 
 <script type="text/x-handlebars" data-template-name="list/posts-column.raw">

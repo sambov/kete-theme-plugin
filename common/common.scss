@@ -1742,6 +1742,8 @@ button {
   padding-bottom: 0 !important;
   width: auto !important;
   height: 360px !important;
+  // width: 830px !important;
+  // height: 470px !important;
 }
 
 .lazyYT-image-loaded {
@@ -1763,6 +1765,20 @@ iframe {
   justify-content: center !important;
   align-items: center !important;
 }
+
 .html5-info-bar {
   width: 100%;
+}
+
+.onebox.video-onebox {
+  max-width: 890px;
+}
+
+.header-cloak {
+  display: none !important;
+}
+
+// Fix search block height when changing orientation
+.slide-in {
+  height: auto !important;
 }
