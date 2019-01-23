@@ -441,7 +441,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
       margin-left: auto;
       display: flex;
       align-items: center;
-      margin-right: 45px;
+      // margin-right: 45px; // Indent for search icon
 
       @media only screen and (max-width: 767px) {
         display: none;
@@ -1723,5 +1723,10 @@ button {
 
 // Hide pop-up search results under the search bar
 .panel-body-contents > .results {
+  display: none;
+}
+
+// Hide search icon in header
+.d-header-icons {
   display: none;
 }
