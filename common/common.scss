@@ -971,7 +971,7 @@ ol.category-breadcrumb {
   display: none !important;
 }
 
-.topic-list .topic-excerpt {
+.topic-list {
   display: none !important;
 }
 
@@ -1630,10 +1630,6 @@ ol.category-breadcrumb {
 .activation-controls {
   display: flex;
   flex-wrap: wrap;
-}
-
-.topic-list-item {
-  height: 150px;
 }
 
 button {
