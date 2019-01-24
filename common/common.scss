@@ -1642,7 +1642,7 @@ button {
   }
 }
 
-.search-input > #search-term, input[type="text"]:focus {
+.search-input > #search-term, .search-input > input[type="text"]:focus {
   border-top: 0 !important;
   border-left: 0 !important;
   border-right: 0 !important;
@@ -1783,7 +1783,7 @@ iframe {
   height: auto !important;
 }
 
-.cancel {
+.save-or-cancel > .cancel {
   border: 2px solid #2a7ab0;
   border-radius: 25px !important;
   font-size: 16px !important;
