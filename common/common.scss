@@ -1075,7 +1075,7 @@ ol.category-breadcrumb {
 }
 
 .select-kit.dropdown-select-box .dropdown-select-box-header:hover .d-icon {
-  color: #08c;
+  color: #2a7ab0;
 }
 
 #draft-status {
@@ -1781,4 +1781,23 @@ iframe {
 // Fix search block height when changing orientation
 .slide-in {
   height: auto !important;
+}
+
+.cancel {
+  border: 2px solid #2a7ab0;
+  border-radius: 25px !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  line-height: 1 !important;
+  letter-spacing: -0.3px !important;
+  color: #2a7ab0 !important;
+  padding: 10px 24px !important;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-transform: capitalize;
+  background-color: #ffffff;
+  margin-left: 0 !important;
 }
