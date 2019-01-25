@@ -83,7 +83,8 @@
 html {
   font-weight: 300;
   font-size: 1rem;
-  color: #252525 !important;
+  color: #324164 !important;
+  // color: #324164 !important;
   box-sizing: border-box;
 }
 
@@ -133,7 +134,7 @@ h4 {
   font-stretch: normal;
   line-height: 1.07;
   letter-spacing: normal;
-  color: #252525;
+  color: #324164;
 }
 
 h1 {
@@ -151,7 +152,7 @@ p {
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  color: #252525;
+  color: #324164;
 }
 
 #main-outlet {
@@ -177,13 +178,13 @@ p {
 .dropdown-content,
 #mobileNav {
   a {
-    color: #252525 !important;
+    color: #324164 !important;
   }
   a:hover {
-    color: #252525 !important;
+    color: #324164 !important;
   }
   a:visited {
-    color: #252525 !important;
+    color: #324164 !important;
   }
 }
 
@@ -295,7 +296,7 @@ tr {
 }
 
 .link-top-line a {
-  color: #252525 !important;
+  color: #324164 !important;
   font-weight: 600 !important;
 }
 
@@ -401,13 +402,13 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   }
 
   a {
-    color: #252525 !important;
+    color: #324164 !important;
   }
   a:hover {
-    color: #252525 !important;
+    color: #324164 !important;
   }
   a:visited {
-    color: #252525 !important;
+    color: #324164 !important;
   }
 
   .header-container {
@@ -834,12 +835,13 @@ display: block!important;
 }
 
 #topic-title .fancy-title {
-  font-family: roboto-light !important;
+  font-family: roboto-regular !important;
   font-size: 36px !important;
+  color: #324164;
 }
 
 .names span a {
-  color: #252525;
+  color: #324164;
   font-size: 16px;
   font-family: roboto-bold;
 }
@@ -1071,7 +1073,7 @@ ol.category-breadcrumb {
 
 .discourse-no-touch .btn:hover,
 .discourse-no-touch .btn.btn-hover {
-  color: #252525;
+  color: #324164;
 }
 
 .select-kit.dropdown-select-box .dropdown-select-box-header:hover .d-icon {
@@ -1145,7 +1147,7 @@ ol.category-breadcrumb {
 
 #suggested-topics .topic-list td,
 #suggested-topics a {
-  color: #252525 !important;
+  color: #324164 !important;
   font-size: 1.1rem !important;
 }
 
@@ -1155,7 +1157,7 @@ ol.category-breadcrumb {
   height: 90px;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #252525;
+  background-color: #324164;
   background-image: linear-gradient(to right, #324164, #0f1f46);
 
   @media only screen and (max-width: 1379px) {
@@ -1634,7 +1636,7 @@ ol.category-breadcrumb {
 
 button {
   &.has-like {
-    color: #324164 !important;
+    color: #2a7ab0 !important;
   }
 }
 
