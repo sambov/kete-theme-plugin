@@ -562,6 +562,63 @@ document.onload = window.scrollTo(0, 0);
   </td>
 </script>
 
+<!-- list items for mobile mode-->
+<script type="text/x-handlebars" data-template-name="mobile/list/topic-list-item.raw">
+
+  {{#if bulkSelectEnabled}}
+    <td class="bulk-select">
+      <input type="checkbox" class="bulk-select">
+    </td>
+  {{/if}}
+
+  <td class='avatar-cell'>
+    {{avatar topic.posters.firstObject avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="large"}}
+  </td>
+
+  <td class='main-link clearfix' colspan="1">
+    <span class='link-top-line'>
+      {{~raw-plugin-outlet name="topic-list-before-status"}}
+      {{~raw "topic-status" topic=topic}}
+      {{~topic-link topic class="raw-link raw-topic-link"}}
+      {{~#if topic.featured_link}}
+        {{~topic-featured-link topic}}
+      {{~/if}}
+      {{~raw-plugin-outlet name="topic-list-after-title"}}
+      {{~#if showTopicPostBadges}}
+        {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
+      {{~/if}}
+    </span>
+    <span class='age-block'>
+      {{raw "list/activity-column" topic=topic class="num" tagName="div"}}
+    </span>
+
+    {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
+
+    {{raw "list/topic-excerpt" topic=topic}}
+
+    {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
+
+    <span class='participants-cell'>
+      <div class='num posts-map posts {{view.likesHeat}} comments-count-block' title='{{view.title}}'>
+        <!-- <a href class='posts-map badge-posts {{view.likesHeat}}'> -->
+          {{raw-plugin-outlet name="topic-list-before-reply-count"}}
+          <span class='comments-count-line'>
+            {{fa-icon 'comment' class='comments-count-icon'}}
+            <!-- <img width="24px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
+            {{number topic.replyCount noTitle="true"}}
+            comments <!-- @TODO  transfer to consts-->
+          </span>
+        <!-- </a> -->
+      </div>
+      <div class='posters'>
+        {{#each topic.posters as |poster|}}
+          <a href="{{poster.user.path}}" data-user-card="{{poster.user.username}}" class="{{poster.extraClasses}}">{{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}</a>
+        {{/each}}
+      </div>
+    </span>
+  </td>
+</script>
+
 <script type="text/x-handlebars" data-template-name="/connectors/below-footer/custom-footer">
   <footer id="keteFooter">
         <div class="wrap footer-container">

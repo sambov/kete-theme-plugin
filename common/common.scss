@@ -310,7 +310,7 @@ tr {
   line-height: 1 !important;
   letter-spacing: -0.3px !important;
   color: #ffffff !important;
-  padding: 10px 24px !important;
+  padding: 10px 24px;
   text-align: center;
   display: flex;
   flex-wrap: nowrap;
@@ -973,9 +973,12 @@ ol.category-breadcrumb {
   display: none !important;
 }
 
-// .topic-list .topic-excerpt {
-//   display: none !important;
-// }
+.topic-list .topic-excerpt {
+  width: 100%;
+  color: #324164;
+  // display: none !important;
+
+}
 
 .topic-list-bottom {
   display: none !important;
@@ -1798,4 +1801,12 @@ iframe {
   text-transform: capitalize;
   background-color: #ffffff;
   margin-left: 0 !important;
+}
+
+.discourse-no-touch .topic-body .actions .fade-out {
+  opacity: 1 !important;
+}
+
+nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
+  color: #2a7ab0 !important;
 }
