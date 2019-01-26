@@ -619,6 +619,86 @@ document.onload = window.scrollTo(0, 0);
   </td>
 </script>
 
+<!-- suggested topic list for mobile mode-->
+<script type="text/x-handlebars" data-template-name="components/suggested-topics">
+  <h3 class="suggested-topics-title">{{{suggestedTitle}}}</h3>
+  <div class="topics">
+    {{#if topic.isPrivateMessage}}
+      <!-- {{basic-topic-list
+        hideCategory="true"
+        showPosters="true"
+        topics=topic.suggestedTopics}} -->
+      {{#conditional-loading-spinner condition=loading}}
+        {{#if hasIncoming}}
+          <div class="show-mores">
+            <div class='alert alert-info clickable' {{action showInserted}}>
+              <a tabindex="0" href="" {{action showInserted}}>
+                {{count-i18n key="topic_count_" suffix="latest" count=incomingCount}}
+              </a>
+            </div>
+          </div>
+        {{/if}}
+
+        {{#if topic.suggestedTopics}}
+          {{topic-list showParticipants=showParticipants
+                       showPosters="true"
+                       hideCategory="true"
+                       topics=topic.suggestedTopics
+                       expandExcerpts=expandExcerpts
+                       bulkSelectEnabled=bulkSelectEnabled
+                       canBulkSelect=canBulkSelect
+                       selected=selected
+                       skipHeader=skipHeader
+                       tagsForUser=tagsForUser
+          }}
+        {{else}}
+          {{#unless loadingMore}}
+            <div class='alert alert-info'>
+              {{i18n 'choose_topic.none_found'}}
+            </div>
+          {{/unless}}
+        {{/if}}
+      {{/conditional-loading-spinner}}
+    {{else}}
+      {{#conditional-loading-spinner condition=loading}}
+        {{#if hasIncoming}}
+          <div class="show-mores">
+            <div class='alert alert-info clickable' {{action showInserted}}>
+              <a tabindex="0" href="" {{action showInserted}}>
+                {{count-i18n key="topic_count_" suffix="latest" count=incomingCount}}
+              </a>
+            </div>
+          </div>
+        {{/if}}
+
+        {{#if topic.suggestedTopics}}
+          {{topic-list showParticipants=showParticipants
+                       showPosters=showPosters
+                       hideCategory=hideCategory
+                       topics=topic.suggestedTopics
+                       expandExcerpts=expandExcerpts
+                       bulkSelectEnabled=bulkSelectEnabled
+                       canBulkSelect=canBulkSelect
+                       selected=selected
+                       skipHeader=skipHeader
+                       tagsForUser=tagsForUser
+          }}
+        {{else}}
+          {{#unless loadingMore}}
+          <div class='alert alert-info'>
+            {{i18n 'choose_topic.none_found'}}
+          </div>
+          {{/unless}}
+        {{/if}}
+      {{/conditional-loading-spinner}}
+
+      <!-- {{basic-topic-list topics=topic.suggestedTopics}} -->
+    {{/if}}
+  </div>
+
+  <h3 class="suggested-topics-message">{{{browseMoreMessage}}}</h3>
+</script>
+
 <script type="text/x-handlebars" data-template-name="/connectors/below-footer/custom-footer">
   <footer id="keteFooter">
         <div class="wrap footer-container">
