@@ -340,6 +340,7 @@ tr {
 .btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):not(.emoji):not(.jump-top):not(.jump-bottom),
 button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):not(.emoji):not(.clear-filter):not(.pika-button):not(.pika-prev):not(.pika-next):not(.jump-top):not(.jump-bottom) {
   border-radius: 25px !important;
+  border: 1px solid #2a7ab0 !important;
   background-color: #2a7ab0 !important;
   font-size: 16px !important;
   font-weight: 300 !important;
@@ -396,7 +397,6 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 }
 
 //Header
-
 #keteHeader {
   margin-bottom: 60px;
   border-bottom: solid #324164 1px;
@@ -1845,4 +1845,11 @@ nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
 }
 #navigation-bar li a {
   padding: 5px 15px !important;
+}
+
+.popup-tip.bad {
+  background: none;
+  box-shadow: none;
+  color: #dc143c;
+  top: 4px;
 }
