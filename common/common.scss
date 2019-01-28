@@ -239,31 +239,26 @@ p {
 }
 
 tbody {
-  // border-top: 1px solid #d8d8d8 !important;
   border-top: 0 !important;
 }
 
 tr {
-  border-bottom: 1px solid #d8d8d8 !important;
-  // border-bottom: 0 !important;
+  border-top: 1px solid #d8d8d8 !important;
   &:first-of-type {
-    border-top: 1px solid #d8d8d8 !important;
+    border-top: 0 !important;
   }
   &:last-of-type {
     border-bottom: 0 !important;
   }
-}
-.suggested-topics > .topics > .loading-container > .topic-list > tbody > .topic-list-item:first-of-type {
-  border-top: 0 !important;
 }
 
 .topic-body {
   box-shadow: none !important;
   border-top: none !important;
 
-  @media only screen and (max-width: 767px) {
-    // padding: 20px 0 !important;
-  }
+  // @media only screen and (max-width: 767px) {
+  //   padding: 20px 0 !important;
+  // }
 }
 
 .topic-post:last-of-type {
@@ -818,11 +813,11 @@ display: block!important;
   }
 }
 
-.topic-post {
-  @media only screen and (max-width: 767px) {
-    border-top: solid #d8d8d8 1px;
-  }
-}
+// .topic-post {
+//   @media only screen and (max-width: 767px) {
+//     border-top: solid #d8d8d8 1px;
+//   }
+// }
 
 .topic-post:not(:first-child) {
   border-top: solid #d8d8d8 1px !important;
@@ -834,7 +829,7 @@ display: block!important;
 }
 
 .topic-post:last-child {
-  border-bottom: solid #d8d8d8 1px !important;
+  border-bottom:  1px  solid #d8d8d8!important;
 }
 
 .topic-post article {
@@ -908,17 +903,15 @@ display: block!important;
     }
   }
 
-  li.active>a {
+  li.active > a {
     border-bottom: 3px solid #58c7dd !important;
     background-color: initial !important;
     padding-bottom: 7px !important;
     font-weight: 700;
 
     @media only screen and (max-width: 767px) {
-      padding: 15px !important;
-      border-bottom: none !important;
+      padding: 5px 15px !important;
       font-weight: 300 !important;
-      background: #f2f4f7 !important;
     }
   }
 }
@@ -929,7 +922,7 @@ display: block!important;
   }
 }
 
-.list-controls .nav-pills>li>a .d-icon {
+.list-controls .nav-pills > li > a .d-icon {
   @media only screen and (max-width: 767px) {
     margin-left: auto !important;
   }
@@ -939,7 +932,7 @@ display: block!important;
   margin-bottom: 50px;
 
   @media only screen and (max-width: 767px) {
-    margin-bottom: 0px;
+    margin-bottom: 25px;
   }
 
   section {
@@ -961,7 +954,6 @@ display: block!important;
 }
 
 //forum list
-
 ol.category-breadcrumb {
   margin: 0 !important;
 }
@@ -1030,6 +1022,8 @@ ol.category-breadcrumb {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 16px 30px !important;
+  height: auto !important;
 
   @media only screen and (min-width: 769px) {
     border-radius: unset!important;
@@ -1037,7 +1031,6 @@ ol.category-breadcrumb {
     bottom: unset!important;
     right: unset!important;
     z-index: unset!important;
-    padding: unset!important;
     background-color: unset!important;
     color: unset!important;
     white-space: unset!important;
@@ -1064,8 +1057,6 @@ ol.category-breadcrumb {
     text-align: center!important;
     border-radius: 24px!important;
     background-color: #2a7ab0!important;
-    padding: 10px 20px!important;
-    height: 36px!important;
     width: auto!important;
     align-content: center!important;
     align-items: center!important;
@@ -1157,8 +1148,7 @@ ol.category-breadcrumb {
   }
 }
 
-#suggested-topics .topic-list td,
-#suggested-topics a {
+#suggested-topics .topic-list td, #suggested-topics a {
   color: #324164 !important;
   font-size: 1.1rem !important;
 }
@@ -1702,7 +1692,7 @@ button {
   display: block;
   white-space: nowrap;
   vertical-align: middle;
-  color: #d8d8d8;
+  color: #959595;
   cursor: pointer;
 }
 
@@ -1735,6 +1725,7 @@ button {
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
+  color: #959595 !important;
 }
 
 .age {
@@ -1834,6 +1825,24 @@ nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
 }
 
 .topic-list {
-  // border-bottom: 1px solid #d8d8d8;
   margin-bottom: 0 !important;
+}
+
+.contents > .topic-list > tbody > .topic-list-item:first-of-type {
+  border-top: 1px solid #d8d8d8 !important;
+}
+
+#list-area {
+  margin-bottom: 0px !important;
+}
+
+.btn .d-icon {
+  opacity: 1 !important;
+}
+
+#navigation-bar li {
+  box-shadow: none;
+}
+#navigation-bar li a {
+  padding: 5px 15px !important;
 }
