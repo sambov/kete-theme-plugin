@@ -892,7 +892,7 @@ display: block!important;
       // padding-right: 0 !important;
 
       @media only screen and (max-width: 767px) {
-        padding: 15px !important;
+        padding: 15px;
       }
     }
   }
@@ -1676,6 +1676,7 @@ button {
 
 .panel-body {
   position: static !important;
+  height: auto !important;
 }
 
 .topic-list-item > td {
@@ -1844,7 +1845,7 @@ nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
   box-shadow: none;
 }
 #navigation-bar li a {
-  padding: 5px 15px !important;
+  padding: 5px 15px;
 }
 
 .popup-tip.bad {
@@ -1852,4 +1853,10 @@ nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
   box-shadow: none;
   color: #dc143c;
   top: 4px;
+}
+
+.navigation-toggle .toggle-link {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0px !important;
 }

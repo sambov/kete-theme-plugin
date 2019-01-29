@@ -25,6 +25,9 @@
 
   I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
 
+  I18n.translations.en.js.filters.latest.title = "Latest first";
+  I18n.translations.en.js.filters.top.title = "Popular";
+
 </script>
 
 <script type="text/discourse-plugin" version="0.8">
@@ -75,41 +78,55 @@
 </script>
 
 <!-- @TODO Navigation bar -->
-<script type="text/x-handlebars" data-template-name="components/navigation-bar">
-  {{#each navItems as |navItem|}}
-    {{navigation-item content=navItem filterMode=filterMode category=category}}
-  {{/each}}
-  {{custom-html name="extraNavItem" tagName="li"}}
-  {{!- this is done to avoid DIV in the UL, originally {{plugin-outlet name="extra-nav-item"}}
-  {{#each connectors as |c|}}
+<!-- {{#each navItems as |navItem|}}
+  {{navigation-item content=navItem filterMode=filterMode category=category}}
+{{/each}}
+{{custom-html name="extraNavItem" tagName="li"}}
+{{!- this is done to avoid DIV in the UL, originally {{plugin-outlet name="extra-nav-item"}}
+{{#each connectors as |c|}}
   {{plugin-connector connector=c class=c.classNames tagName="li" args=(hash category=category filterMode=filterMode)}}
-  {{/each}}
+{{/each}} -->
+<script type="text/x-handlebars" data-template-name="components/navigation-bar">
+  <li class='navigation-toggle'>
+    <a {{action "toggleDrop"}} class='toggle-link'>
+      {{selectedNavItem.displayName}}
+      {{d-icon "caret-down"}}
+    </a>
+  </li>
+  {{#if expanded}}
+    <ul class='drop'>
+      {{#each navItems as |navItem|}}
+        {{navigation-item content=navItem filterMode=filterMode category=category}}
+      {{/each}}
+      {{#each connectors as |c|}}
+        {{plugin-connector connector=c class=c.classNames tagName="li" args=(hash category=category filterMode=filterMode)}}
+      {{/each}}
+    </ul>
+  {{/if}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="components/bread-crumbs">
-  <!-- {{
-      category-drop
+  <!-- {{category-drop
       category=firstCategory
       categories=parentCategoriesSorted
       countSubcategories=true
-    }} -->
+  }}
+  {{#if childCategories}}
+    {{category-drop
+      category=secondCategory
+      parentCategory=firstCategory
+      categories=childCategories
+      subCategory=true
+      noSubcategories=noSubcategories}}
+  {{/if}} -->
 
-    {{#if childCategories}}
-      {{category-drop
-        category=secondCategory
-        parentCategory=firstCategory
-        categories=childCategories
-        subCategory=true
-        noSubcategories=noSubcategories}}
-    {{/if}}
+  <!-- {{#if siteSettings.tagging_enabled}}
+    {{tag-drop firstCategory=firstCategory secondCategory=secondCategory tagId=tagId}}
+  {{/if}} -->
 
-    <!-- {{#if siteSettings.tagging_enabled}}
-      {{tag-drop firstCategory=firstCategory secondCategory=secondCategory tagId=tagId}}
-    {{/if}} -->
+  {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
 
-    {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
-
-    <div class='clear'></div>
+  <div class='clear'></div>
 </script>
 
 <script type="text/x-handlebars" data-template-name="discovery/topics">
