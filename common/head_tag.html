@@ -542,7 +542,8 @@
     <td class="num likes">
       {{#if hasLikes}}
         <a href='{{topic.summaryUrl}}'>
-          {{number topic.like_count}} {{d-icon "heart"}}</td>
+          {{number topic.like_count}} {{d-icon "heart"}}
+        </td>
         </a>
       {{/if}}
   {{/if}}
@@ -551,7 +552,8 @@
     <td class="num likes">
       {{#if hasOpLikes}}
         <a href='{{topic.summaryUrl}}'>
-          {{number topic.op_like_count}} {{d-icon "heart"}}</td>
+          {{number topic.op_like_count}} {{d-icon "heart"}}
+        </td>
         </a>
       {{/if}}
   {{/if}}
@@ -567,8 +569,9 @@
       <!-- <a href class='posts-map badge-posts {{view.likesHeat}}'> -->
         {{raw-plugin-outlet name="topic-list-before-reply-count"}}
         <span class='comments-count-line'>
-          {{fa-icon 'comment' class='comments-count-icon'}}
-          <!-- <img width="24px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
+          <!-- {{fa-icon 'comment' class='comments-count-icon'}} -->
+          <!-- <img width="20px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
+          <img width="20px" src="https://mydev.nzte.govt.nz/icon/comment-DG.png"/>
           {{number topic.replyCount noTitle="true"}}
           comments <!-- @TODO  transfer to consts-->
         </span>
@@ -623,8 +626,9 @@
         <!-- <a href class='posts-map badge-posts {{view.likesHeat}}'> -->
           {{raw-plugin-outlet name="topic-list-before-reply-count"}}
           <span class='comments-count-line'>
-            {{fa-icon 'comment' class='comments-count-icon'}}
-            <!-- <img width="24px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
+            <!-- {{fa-icon 'comment' class='comments-count-icon'}} -->
+            <!-- <img width="20px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
+            <img width="20px" src="https://mydev.nzte.govt.nz/icon/comment-DG.png"/>
             {{number topic.replyCount noTitle="true"}}
             comments <!-- @TODO  transfer to consts-->
           </span>
