@@ -50,7 +50,7 @@
 .topic-body {
   @include boxShadow;
   background-color: lighten($secondary, 10%);
-  margin-top: 14px;
+  // margin-top: 14px;
   border-radius: 2px;
   // padding: 12px 20px 0 20px;
   width: 100%;
@@ -307,10 +307,6 @@
   top: -50px !important;
 }
 
-.topic-list-item {
-  height: 150px;
-}
-
 .list-controls .nav-pills {
   display: flex;
   flex: 1 1 auto;
@@ -356,4 +352,8 @@
 }
 .list-controls .nav-pills .drop li {
   list-style-type: none;
+}
+
+.topic-list td {
+  padding: 6px 5px;
 }

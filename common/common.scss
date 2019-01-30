@@ -367,9 +367,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
 }
 
 #create-topic i, #create-topic svg {
-  @media only screen and (min-width: 769px) {
-    display: none;
-  }
+  display: none;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1431,14 +1429,14 @@ ol.category-breadcrumb {
 
 #suggested-topics {
   border: 1px solid #d8d8d8;
-  padding: 16px 16px 0px 16px;
+  padding: 8px 8px 0px 8px;
   margin: 90px 0 60px !important;
 }
 
 .suggested-topics-title {
   justify-content: center;
   margin-bottom: 16px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 // .post-controls .actions .reply:first-child {
@@ -1505,10 +1503,22 @@ ol.category-breadcrumb {
   display: none;
 }
 
+.topic-meta-data {
+  align-items: flex-start;
+}
+
 .topic-meta-data .names {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 4px;
+
   @media only screen and (max-width: 767px) {
     width: 77% !important;
   }
+}
+
+.topic-meta-data .post-infos {
+  margin-top: 4px;
 }
 
 .composer-bottom-right {
@@ -1554,7 +1564,7 @@ ol.category-breadcrumb {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  padding-bottom: 8px;
+  // padding-bottom: 8px;
 }
 
 .popup-menu {
@@ -1872,4 +1882,8 @@ nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
   display: flex;
   justify-content: space-between;
   padding-right: 4px !important;
+}
+
+.post-menu-area {
+  margin: 0px;
 }
