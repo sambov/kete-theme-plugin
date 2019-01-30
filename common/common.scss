@@ -335,6 +335,9 @@ tr {
   i:not(:last-child) {
     display: none !important;
   }
+  svg:not(:last-child) {
+    display: none !important;
+  }
 }
 
 .btn:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):not(.emoji):not(.jump-top):not(.jump-bottom),
@@ -358,9 +361,12 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
   i:not(.fa-picture-o) {
     display: none !important;
   }
+  svg:not(.fa-picture-o) {
+    display: none !important;
+  }
 }
 
-#create-topic i {
+#create-topic i, #create-topic svg {
   @media only screen and (min-width: 769px) {
     display: none;
   }
@@ -685,7 +691,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
     //left: 200px;
     top: 40px;
 
-    i {
+    i, svg {
       font-size: 24px !important;
       margin-top: -7px;
     }
@@ -694,7 +700,7 @@ button:not(#create-topic):not(.select-kit-header):not(.btn-flat):not(.btn-icon):
       // right: 280px;
       top: 40px;
       //left: 20px !important;
-      i {
+      i, svg {
         font-size: 22px !important;
       }
     }
@@ -910,7 +916,8 @@ display: block!important;
     font-weight: 700;
 
     @media only screen and (max-width: 767px) {
-      padding: 5px 15px !important;
+      padding: 15px 15px !important;
+      padding-right: 4px !important;
       font-weight: 300 !important;
     }
   }
@@ -970,7 +977,7 @@ ol.category-breadcrumb {
   display: none !important;
 }
 
-.bulk-select i {
+.bulk-select i, .bulk-select svg {
   display: none !important;
 }
 
@@ -1061,7 +1068,7 @@ ol.category-breadcrumb {
     align-content: center!important;
     align-items: center!important;
     margin-left: auto!important;
-    i {
+    i, svg {
       display: none;
     }
   }
@@ -1071,6 +1078,12 @@ ol.category-breadcrumb {
   @media only screen and (min-width: 769px) {
     width: unset;
     text-indent: unset;
+  }
+}
+
+#create-topic.btn-default i, #create-topic.btn-default svg {
+  @media only screen and (min-width: 769px) {
+    display: none;
   }
 }
 
@@ -1845,7 +1858,7 @@ nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
   box-shadow: none;
 }
 #navigation-bar li a {
-  padding: 5px 15px;
+  padding: 15px 15px;
 }
 
 .popup-tip.bad {
@@ -1858,5 +1871,5 @@ nav.post-controls button.like.d-hover, nav.post-controls button.like:focus {
 .navigation-toggle .toggle-link {
   display: flex;
   justify-content: space-between;
-  padding-right: 0px !important;
+  padding-right: 4px !important;
 }

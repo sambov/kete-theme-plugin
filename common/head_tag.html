@@ -2,7 +2,7 @@
   I18n.translations.en.js.topic.create = "Start new discussion";
   I18n.translations.en.js.topic.create_long = "Start new discussion";
   I18n.translations.en.js.topic.reply.title = "Comment";
-  I18n.translations.en.js.composer.reply = "Save";
+  I18n.translations.en.js.composer.reply = "Post";
   I18n.translations.en.js.composer.create_topic = I18n.translations.en.js.composer.reply;
   I18n.translations.en.js.composer.composer_actions.reply = I18n.translations.en.js.composer.reply;
   I18n.translations.en.js.composer.title_or_link_placeholder = "Enter your subject (mandatory)";
@@ -27,6 +27,8 @@
 
   I18n.translations.en.js.filters.latest.title = "Latest first";
   I18n.translations.en.js.filters.top.title = "Popular";
+
+  I18n.translations.en.js.composer.save_edit = "Update"
 
 </script>
 
@@ -345,10 +347,10 @@
   }
 
   window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
+    window.scrollTo(0, 0);
+  }
 
-document.onload = window.scrollTo(0, 0);
+  document.onload = window.scrollTo(0, 0);
 </script>
 
 
@@ -368,7 +370,7 @@ document.onload = window.scrollTo(0, 0);
           </div>
         {{/if}}
         <div class="header-logo">
-            <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
+          <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
         </div>
 
         <div class="nav-container">
@@ -447,7 +449,6 @@ document.onload = window.scrollTo(0, 0);
     {{/if}}
   </div>
 </script>
-
 
 <script type="text/x-handlebars" data-template-name="application">
   {{plugin-outlet name="above-site-header"}}
