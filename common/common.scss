@@ -88,11 +88,11 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+// *,
+// *:before,
+// *:after {
+//   box-sizing: inherit;
+// }
 
 body,
 body input,
@@ -1547,12 +1547,12 @@ ol.category-breadcrumb {
 #topic-title h1 {
   display: flex;
   flex-wrap: nowrap;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .edit-topic {
   margin-left: 16px;
-  margin-bottom: 4px;
+  margin-top: 8px;
 }
 
 .actions {
@@ -1894,4 +1894,38 @@ nav.post-controls button.delete.d-hover, nav.post-controls button.delete:focus {
 }
 .heatmap-high, .heatmap-high a {
   color: #2a7ab0 !important;
+}
+
+.topic-stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  padding-top: 14px;
+}
+.topic-stats img {
+  margin-right: 4px;
+}
+.topic-like-stat, .topic-comment-stat, .topic-share-stat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.topic-title-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 250px;
+  flex-grow: 1;
+}
+.topic-title-block .relative-date {
+  color: #919191;
+  font-size: 18px;
+}
+.edit-topic .d-icon {
+  color: #324164;
 }
