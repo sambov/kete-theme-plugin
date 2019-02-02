@@ -1119,7 +1119,11 @@
               </div>
               <div class='topic-share-stat'>
                 <img width="24px" src="{{themeSettings.web_url}}/icon/share-CB.png"/>
-                {{model.postStream.posts.firstObject.link_counts.length}}
+                {{#if model.postStream.posts.firstObject.link_counts}}
+                  {{model.postStream.posts.firstObject.link_counts.length}}
+                {{else}}
+                  0
+                {{/if}}
               </div>
             </div>
 
