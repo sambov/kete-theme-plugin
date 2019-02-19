@@ -1,1389 +1,1534 @@
 <script>
+
   I18n.translations.en.js.topic.create = "Start new discussion";
-  I18n.translations.en.js.topic.create_long = "Start new discussion";
-  I18n.translations.en.js.topic.reply.title = "Comment";
-  I18n.translations.en.js.composer.reply = "Post";
-  I18n.translations.en.js.composer.create_topic = I18n.translations.en.js.composer.reply;
-  I18n.translations.en.js.composer.composer_actions.reply = I18n.translations.en.js.composer.reply;
-  I18n.translations.en.js.composer.title_or_link_placeholder = "Enter your subject (mandatory)";
-  I18n.translations.en.js.composer.reply_placeholder = "Add comment, discussion point, question (mandatory)";
-  I18n.translations.en.js.composer.error.title_missing = "You must enter a subject or headline";
-  I18n.translations.en.js.composer.error.post_missing = "You must enter a blurb, question or discussion point";
 
-  I18n.translations.en.js.bookmarked.title = "Save to favourites";
-  I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
-  I18n.translations.en.js.bookmarked.help.bookmark = "Click to save to favourites";
-  I18n.translations.en.js.bookmarked.help.unbookmark = "Click to remove from favourites";
+    I18n.translations.en.js.topic.create_long = "Start new discussion";
 
-  I18n.translations.en.js.bookmarks.created = "you've saved this post to your favourites";
-  I18n.translations.en.js.bookmarks.not_bookmarked = "Save this post to your favourites";
-  I18n.translations.en.js.bookmarks.remove = I18n.translations.en.js.bookmarked.clear_bookmarks;
-  I18n.translations.en.js.bookmarks.confirm_clear = "Are you sure you wish to clear all your favourites from this topic?";
+    I18n.translations.en.js.topic.reply.title = "Comment";
 
-  I18n.translations.en.js.search.title = "Search Kete Community";
-  I18n.translations.en.js.search.full_page_title = I18n.translations.en.js.search.title;
+    I18n.translations.en.js.composer.reply = "Save";
 
-  I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
+    I18n.translations.en.js.composer.create_topic = I18n.translations.en.js.composer.reply;
 
-  I18n.translations.en.js.filters.latest.title = "Latest first";
-  I18n.translations.en.js.filters.top.title = "Popular";
+    I18n.translations.en.js.composer.composer_actions.reply = I18n.translations.en.js.composer.reply;
 
-  I18n.translations.en.js.composer.save_edit = "Update"
+    I18n.translations.en.js.composer.title_or_link_placeholder = "Enter your title";
+
+    I18n.translations.en.js.composer.reply_placeholder = "Add a comment, discussion point, question or link to a video or website";
+
+
+    I18n.translations.en.js.bookmarked.title = "Save to favourites";
+
+    I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
+
+    I18n.translations.en.js.bookmarked.help.bookmark = "Click to save to favourites";
+
+    I18n.translations.en.js.bookmarked.help.unbookmark = "Click to remove from favourites";
+
+
+    I18n.translations.en.js.bookmarks.created = "you've saved this post to your favourites";
+
+    I18n.translations.en.js.bookmarks.not_bookmarked = "Save this post to your favourites";
+
+    I18n.translations.en.js.bookmarks.remove = I18n.translations.en.js.bookmarked.clear_bookmarks;
+
+    I18n.translations.en.js.bookmarks.confirm_clear = "Are you sure you wish to clear all your favourites from this topic?";
+
+
+    I18n.translations.en.js.search.title = "Search Kete Community";
+
+    I18n.translations.en.js.search.full_page_title = I18n.translations.en.js.search.title;
+
+
+    I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
+
 
 </script>
 
-<script type="text/discourse-plugin" version="0.8">
-  $( document ).ready(function() {
-    const user = api.getCurrentUser(),
-      username = user.username;
-    $('span.profile-name').html(username)
-  });
-</script>
 
 <script type="text/x-handlebars" data-template-name="components/d-navigation">
+
   {{bread-crumbs categories=categories category=category noSubcategories=noSubcategories}}
 
+
   {{#if showCategoryAdmin}}
+
     {{categories-admin-dropdown
+
       create=createCategory
+
       reorder=reorderCategories}}
+
   {{/if}}
 
-  <div class='navigation-breadcrumbs-block'>
-    {{navigation-bar navItems=navItems filterMode=filterMode category=category}}
-  </div>
 
-  <div class='cap-block'></div>
+  {{navigation-bar navItems=navItems filterMode=filterMode category=category}}
 
-  <div class='community-search-block'>
-    {{mount-widget widget="search-menu"}}
-  </div>
 
   {{#if showCategoryNotifications}}
+
     {{category-notifications-button value=category.notification_level category=category}}
+
   {{/if}}
+
 
   {{create-topic-button
+
     canCreateTopic=canCreateTopic
+
     action=createTopic
+
     disabled=createTopicDisabled
+
     label=createTopicLabel
+
   }}
+
 
   {{#if showCategoryEdit}}
+
     {{d-button
+
       class="btn-default edit-category"
+
       action=editCategory
+
       icon="wrench"
+
       label="category.edit_long"}}
+
   {{/if}}
+
 </script>
 
-<!-- @TODO Navigation bar -->
-<!-- {{#each navItems as |navItem|}}
-  {{navigation-item content=navItem filterMode=filterMode category=category}}
-{{/each}}
-{{custom-html name="extraNavItem" tagName="li"}}
-{{!- this is done to avoid DIV in the UL, originally {{plugin-outlet name="extra-nav-item"}}
-{{#each connectors as |c|}}
-  {{plugin-connector connector=c class=c.classNames tagName="li" args=(hash category=category filterMode=filterMode)}}
-{{/each}} -->
-<script type="text/x-handlebars" data-template-name="components/navigation-bar">
-  <li class='navigation-toggle'>
-    <a {{action "toggleDrop"}} class='toggle-link'>
-      {{selectedNavItem.displayName}}
-      {{d-icon "caret-down"}}
-    </a>
-  </li>
-  {{#if expanded}}
-    <ul class='drop'>
-      {{#each navItems as |navItem|}}
-        {{navigation-item content=navItem filterMode=filterMode category=category}}
-      {{/each}}
-      {{#each connectors as |c|}}
-        {{plugin-connector connector=c class=c.classNames tagName="li" args=(hash category=category filterMode=filterMode)}}
-      {{/each}}
-    </ul>
-  {{/if}}
-</script>
 
 <script type="text/x-handlebars" data-template-name="components/bread-crumbs">
-  <!-- {{category-drop
+
+  <!-- {{
+
+      category-drop
+
       category=firstCategory
+
       categories=parentCategoriesSorted
+
       countSubcategories=true
-  }}
-  {{#if childCategories}}
-    {{category-drop
-      category=secondCategory
-      parentCategory=firstCategory
-      categories=childCategories
-      subCategory=true
-      noSubcategories=noSubcategories}}
-  {{/if}} -->
 
-  <!-- {{#if siteSettings.tagging_enabled}}
-    {{tag-drop firstCategory=firstCategory secondCategory=secondCategory tagId=tagId}}
-  {{/if}} -->
+    }} -->
 
-  {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
 
-  <div class='clear'></div>
+    {{#if childCategories}}
+
+      {{category-drop
+
+        category=secondCategory
+
+        parentCategory=firstCategory
+
+        categories=childCategories
+
+        subCategory=true
+
+        noSubcategories=noSubcategories}}
+
+    {{/if}}
+
+
+    <!-- {{#if siteSettings.tagging_enabled}}
+
+      {{tag-drop firstCategory=firstCategory secondCategory=secondCategory tagId=tagId}}
+
+    {{/if}} -->
+
+
+    {{plugin-outlet name="bread-crumbs-right" connectorTagName="li"}}
+
+
+    <div class='clear'></div>
+
 </script>
+
 
 <script type="text/x-handlebars" data-template-name="discovery/topics">
 
+
   {{#if redirectedReason}}
+
         <div class="alert alert-info">{{redirectedReason}}</div>
+
     {{/if}}
 
+
   {{#if showDismissAtTop}}
+
     <div class="row">
+
       {{#if showDismissRead}}
+
         <button title="{{i18n 'topics.bulk.dismiss_tooltip'}}" id='dismiss-topics-top' class='btn btn-default dismiss-read' {{action "dismissReadPosts"}}>{{i18n 'topics.bulk.dismiss_button'}}</button>
+
       {{/if}}
+
       {{#if showResetNew}}
+
         <button id='dismiss-new-top' class='btn btn-default dismiss-read' {{action "resetNew"}}>{{d-icon "check"}} {{i18n 'topics.bulk.dismiss_new'}}</button>
+
       {{/if}}
+
     </div>
+
   {{/if}}
 
+
   {{#if model.sharedDrafts}}
+
     {{topic-list
+
       class="shared-drafts"
+
       listTitle="shared_drafts.title"
+
       top=top
+
       hideCategory="true"
+
       category=category
+
       topics=model.sharedDrafts
+
       discoveryList=true}}
+
   {{/if}}
+
 
   {{bulk-select-button selected=selected action="refresh" category=category}}
 
+
   {{#discovery-topics-list model=model refresh="refresh" incomingCount=topicTrackingState.incomingCount}}
+
     {{#if top}}
+
       <div class='top-lists'>
+
         {{period-chooser period=period action="changePeriod"}}
+
       </div>
+
     {{else}}
+
       {{#if topicTrackingState.hasIncoming}}
+
         <div class="show-more {{if hasTopics 'has-topics'}}">
+
           <div class='alert alert-info clickable' {{action "showInserted"}}>
+
             <a tabindex="0" href="" {{action "showInserted"}}>
+
               {{count-i18n key="topic_count_" suffix=topicTrackingState.filter count=topicTrackingState.incomingCount}}
+
             </a>
+
           </div>
+
         </div>
+
       {{/if}}
+
     {{/if}}
+
 
     {{#if hasTopics}}
+
       {{topic-list
+
         highlightLastVisited=true
+
         top=top
+
         showTopicPostBadges=showTopicPostBadges
+
         showPosters=true
+
         canBulkSelect=canBulkSelect
+
         changeSort="changeSort"
+
         toggleBulkSelect="toggleBulkSelect"
+
         hideCategory=model.hideCategory
+
         order=order
+
         ascending=ascending
+
         bulkSelectEnabled=bulkSelectEnabled
+
         selected=selected
+
         expandGloballyPinned=expandGloballyPinned
+
         expandAllPinned=expandAllPinned
+
         category=category
+
         topics=model.topics
+
         discoveryList=true}}
+
     {{/if}}
+
   {{/discovery-topics-list}}
 
+
   <footer class='topic-list-bottom'>
+
     {{conditional-loading-spinner condition=model.loadingMore}}
+
     {{#if allLoaded}}
+
       {{#if showDismissRead}}
+
         <button title="{{i18n 'topics.bulk.dismiss_tooltip'}}" id='dismiss-topics' class='btn btn-default dismiss-read' {{action "dismissReadPosts"}}>{{i18n 'topics.bulk.dismiss_button'}}</button>
+
       {{/if}}
+
       {{#if showResetNew}}
+
         <button id='dismiss-new' class='btn btn-default dismiss-read' {{action "resetNew"}}>
+
           {{d-icon "check"}} {{i18n 'topics.bulk.dismiss_new'}}</button>
+
       {{/if}}
+
 
       {{#footer-message education=footerEducation message=footerMessage}}
+
         {{#if latest}}
+
           {{#if canCreateTopicOnCategory}}<a href {{action "createTopic"}}>{{i18n 'topic.suggest_create_topic'}}</a>.{{/if}}
+
         {{else if top}}
+
           {{#link-to "discovery.categories"}}{{i18n 'topic.browse_all_categories'}}{{/link-to}}, {{#link-to 'discovery.latest'}}{{i18n 'topic.view_latest_topics'}}{{/link-to}} {{i18n 'or'}} {{i18n 'filters.top.other_periods'}}.
+
           {{top-period-buttons period=period action="changePeriod"}}
+
         {{else}}
+
           {{#link-to "discovery.categories"}} {{i18n 'topic.browse_all_categories'}}{{/link-to}} {{i18n 'or'}} {{#link-to 'discovery.latest'}}{{i18n 'topic.view_latest_topics'}}{{/link-to}}.
+
         {{/if}}
+
       {{/footer-message}}
 
+
     {{/if}}
+
   </footer>
+
 </script>
+
 
 <script type="text/x-handlebars" data-template-name="discovery">
+
   <div id="headerBanner">
-    <div class="wrap">
-      <h1 class="intro-title">Community</h1>
-      <h3 class="intro-subtitle">Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</h3>
-    </div>
-  </div>
 
-  <div class="container">
-    {{discourse-banner user=currentUser banner=site.banner}}
-  </div>
+            <div class="wrap">
 
-  <div class="list-controls">
-    <div class="container">
-      {{outlet "navigation-bar"}}
-    </div>
-  </div>
+                <h1 class="intro-title">Community</h1>
 
-  {{conditional-loading-spinner condition=loading}}
+                <h3 class="intro-subtitle">Your forum to ask questions, post new discussions or join in on existing discussions by other NZTE customers.</h3>
 
-  <div class="container list-container {{if loading "hidden"}}">
-    <div class="row">
-      <div class="full-width">
-        <div id="header-list-area">
-          {{outlet "header-list-container"}}
+            </div>
+
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="full-width">
-        <div id="list-area">
-          {{plugin-outlet name="discovery-list-container-top"
-                          args=(hash category=category listLoading=loading)}}
-          {{outlet "list-container"}}
-        </div>
-      </div>
-    </div>
-  </div>
 
-  {{plugin-outlet name="discovery-below"}}
+
+        <div class="container">
+
+          {{discourse-banner user=currentUser banner=site.banner}}
+
+        </div>
+
+
+        <div class="list-controls">
+
+          <div class="container">
+
+            {{outlet "navigation-bar"}}
+
+          </div>
+
+        </div>
+
+
+        {{conditional-loading-spinner condition=loading}}
+
+
+        <div class="container list-container {{if loading "hidden"}}">
+
+          <div class="row">
+
+            <div class="full-width">
+
+              <div id="header-list-area">
+
+                {{outlet "header-list-container"}}
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="full-width">
+
+              <div id="list-area">
+
+                {{plugin-outlet name="discovery-list-container-top"
+
+                                args=(hash category=category listLoading=loading)}}
+
+                {{outlet "list-container"}}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {{plugin-outlet name="discovery-below"}}
+
 </script>
+
 
 <!-- Topic list -->
+
 <!-- remove header -->
+
 <script type="text/x-handlebars" data-template-name="topic-list-header.raw">
+
   {{#if bulkSelectEnabled}}
+
     <th class="bulk-select">
+
       {{#if canBulkSelect}}
+
         {{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
+
       {{/if}}
+
     </th>
+
   {{/if}}
+
   {{raw "topic-list-header-column" order='default' name=listTitle bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
+
   <!-- {{#unless hideCategory}}
+
     {{raw "topic-list-header-column" sortable=sortable order='category' name='category_title'}}
+
   {{/unless}} -->
+
   {{#if showPosters}}
+
     {{raw "topic-list-header-column" order='posters' name='users'}}
+
   {{/if}}
+
   {{raw "topic-list-header-column" sortable=sortable number='true' order='posts' name='replies'}}
+
   {{#if showParticipants}}
+
     {{raw "topic-list-header-column" order='participants' name='users'}}
+
   {{/if}}
+
   {{#if showLikes}}
+
     {{raw "topic-list-header-column" sortable=sortable number='true' order='likes' name='likes'}}
+
   {{/if}}
+
   {{#if showOpLikes}}
+
     {{raw "topic-list-header-column" sortable=sortable number='true' order='op_likes' name='likes'}}
+
   {{/if}}
+
   {{raw "topic-list-header-column" sortable=sortable number='true' order='views' name='views'}}
+
   {{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='activity'}}
+
 </script>
 
+
 <script type="text/javascript">
+
   function isHome() {
+
     console.log("window.location.pathname");
+
     return window.location.pathname === "/";
+
   }
+
 
   function myFunction() {
+
     document.getElementById("myDropdown").classList.toggle("show");
+
   }
+
 
   function navFunction() {
+
     const x = document.getElementById("mobileNav");
+
     if (x.style.display === "block") {
+
       x.style.display = "none";
+
     } else {
+
       x.style.display = "block";
+
     }
+
   }
+
 
   $(document).ready(function () {
+
     const desktopProfile = document.getElementById('desktopProfile');
+
     if (desktopProfile) {
+
       desktopProfile.src = desktopProfile.src.replace(/%7Bsize%7D/g, 60);
+
     }
+
     const mobileProfile = document.getElementById('mobileProfile');
+
     if (mobileProfile) {
+
       mobileProfile.src = mobileProfile.src.replace(/%7Bsize%7D/g, 60);
+
     }
+
   });
 
-  function goBack() {
-    window.history.back();
-  }
+  
 
+  $( document ).ajaxComplete(function() {
+
+var hamburger = document.getElementById('hamburger');
+
+    hamburger.addEventListener('click', navFunction);
+
+
+    var back = document.getElementById('back');
+
+    back.addEventListener('click', goBack);
+
+}); 
+
+
+  function goBack() {
+
+    window.history.back();
+
+  }
 
 
   function logout() {
+
     $.ajax({
-      url: '/session/' + Discourse.User.current().username,
+
+      url: `/session/${Discourse.User.current().username}`,
+
       type: 'DELETE',
+
       success: function (result) {
+
         // Do something with the result
+
         console.log(result);
+
       }
+
     });
+
   }
+
 
   window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  }
 
-  document.onload = window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
+
+}
+
+
+document.onload = window.scrollTo(0, 0);
+
 </script>
+
 
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
+
   <div>
-    <header id="keteHeader">
-      <div class="wrap header-container topnav">
-        {{#if currentUser}}
-          <div class="nav-toggle">
-            <a href="#" class="icon" onclick="navFunction()">
-              <img
-                width="24"
-                height="24"
-                src="{{themeSettings.web_url}}/icon/hamburger.png"
-              />
-            </a>
-          </div>
-        {{/if}}
-        <div class="header-logo">
-          <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
-        </div>
 
-        <div class="nav-container">
-          {{#if currentUser}}
-            <div class="navbar">
-              <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
-              <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
-            </div>
-            <div class="profile-dropdown" onclick="document.getElementById('myDropdown').classList.toggle('show')">
-              <span  class="dropbtn">
-                {{#if currentUser.avatar_template}}
-                  <img
-                      id="desktopProfile"
-                      class="profile-avatar"
-                      src="{{currentUser.avatar_template}}"
-                      height="34px"
-                      width="34px"/>
-                {{else}}
-                  <img
-                      class="profile-avatar"
-                      src="{{themeSettings.web_url}}/blank-avatar.png"
-                      height="34px"
-                      width="34px"/>
-                {{/if}}
+      <header id="keteHeader">
 
-                <span class="profile-name">{{currentUser.name}}</span>
-                <img
-                    class="profile-arrow"
-                    height="24"
-                    width="24"
-                    src="{{themeSettings.web_url}}/icon/expand.png"/>
-              </span>
-              <div id="myDropdown" class="dropdown-content">
-                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
-                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
-                   onclick="logout()">Sign Out</a>
+          <div class="wrap header-container topnav">
+
+              <div class="nav-toggle">
+
+                  <a href="#" class="icon" id="hamburger">
+
+                      <img
+
+                          width="24"
+
+                          height="24"
+
+                          src="{{themeSettings.web_url}}/icon/hamburger.png"
+
+                      />
+
+                  </a>
+
               </div>
-            </div>
-          {{/if}}
-        </div>
-      </div>
-    </header>
-    {{#if currentUser}}
+
+
+              <div class="header-logo">
+
+                  <a href="{{themeSettings.web_url}}"><img src="{{themeSettings.web_url}}/nztelogo.png"/></a>
+
+              </div>
+
+
+              <div class="nav-container">
+
+                {{#if currentUser}}
+
+                <div class="navbar">
+
+                  <a class="nav-item" href="{{themeSettings.web_url}}/learn">Learn</a>
+
+                  <a class="nav-item is-active" href="{{themeSettings.forum_url}}">Forum</a>
+
+                </div>
+
+                <div class="profile-dropdown" onclick="document.getElementById('myDropdown').classList.toggle('show')">
+
+                  <span  class="dropbtn">
+
+                    {{#if currentUser.avatar_template}}
+
+                      <img
+
+                          id="desktopProfile"
+
+                          class="profile-avatar"
+
+                          src="{{currentUser.avatar_template}}"
+
+                          height="34px"
+
+                          width="34px"/>
+
+                    {{else}}
+
+                      <img
+
+                          class="profile-avatar"
+
+                          src="{{themeSettings.web_url}}/blank-avatar.png"
+
+                          height="34px"
+
+                          width="34px"/>
+
+                    {{/if}}
+
+    
+
+                    <span class="profile-name">{{currentUser.name}}</span>
+
+                    <img
+
+                        class="profile-arrow"
+
+                        height="24"
+
+                        width="24"
+
+                        src="{{themeSettings.web_url}}/icon/expand.png"/>
+
+                  </span>
+
+                  <div id="myDropdown" class="dropdown-content">
+
+                    <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+
+                    <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
+
+                    <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+
+                       onclick="logout()">Sign Out</a>
+
+                  </div>
+
+                </div>
+
+              {{/if}}
+
+              </div>
+
+          </div>
+
+      </header>
+
+      {{#if currentUser}}
+
       <div id="mobileNav">
-        <div class="profile-dropdown mobile-nav-profile">
-          <span class="dropbtn">
-            {{#if currentUser.avatar_template}}
-              <img
-                id="mobileProfile"
-                class="profile-avatar"
-                src="{{currentUser.avatar_template}}"
-                height="34px"
-                width="34px"/>
-            {{else}}
-              <img
-                class="profile-avatar"
-                src="{{themeSettings.web_url}}/blank-avatar.png"
-                height="34px"
-                width="34px"/>
-            {{/if}}
-            <span class="profile-name">{{currentUser.name}}</span>
-          </span>
-        </div>
-        <div class="mobile-nav-section">
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
-        </div>
-        <div class="mobile-nav-section">
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
-          <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
-        </div>
-        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
-           onclick="logout()">Sign Out</a>
+
+          <div class="profile-dropdown mobile-nav-profile">
+
+                  <span class="dropbtn">
+
+                  {{#if currentUser.avatar_template}}
+
+                    <img
+
+                            id="mobileProfile"
+
+                            class="profile-avatar"
+
+                            src="{{currentUser.avatar_template}}"
+
+                            height="34px"
+
+                            width="34px"/>
+
+                  {{else}}
+
+                      <img
+
+                              class="profile-avatar"
+
+                              src="{{themeSettings.web_url}}/blank-avatar.png"
+
+                              height="34px"
+
+                              width="34px"/>
+
+                  {{/if}}
+
+                  <span class="profile-name">{{currentUser.name}}</span>
+
+              </span>
+
+          </div>
+
+          <div class="mobile-nav-section">
+
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
+
+          </div>
+
+          <div class="mobile-nav-section">
+
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
+
+              <a class="nav-dropdown-item" href="{{themeSettings.forum_url}}" onclick="navFunction()">Forum</a>
+
+          </div>
+
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
+
+             onclick="logout()">Sign Out</a>
+
       </div>
-    {{/if}}
+
+      {{/if}}
+
   </div>
+
 </script>
 
+
+
 <script type="text/x-handlebars" data-template-name="application">
+
   {{plugin-outlet name="above-site-header"}}
+
   {{site-header canSignUp=canSignUp
+
                 showCreateAccount=(route-action "showCreateAccount")
+
                 showLogin=(route-action "showLogin")
+
                 showKeyboard=(route-action "showKeyboardShortcutsHelp")
+
                 toggleMobileView=(route-action "toggleMobileView")
+
                 toggleAnonymous=(route-action "toggleAnonymous")
+
                 logout=(route-action "logout")}}
+
 
   {{plugin-outlet name="below-site-header" args=(hash currentPath=currentPath)}}
 
+
   <div id="main-outlet" class="wrap">
+
+
     {{outlet}}
+
     {{outlet "user-card"}}
+
   </div>
+
 
   {{plugin-outlet name="above-footer" args=(hash showFooter=showFooter)}}
+
   {{#if showFooter}}
+
     {{custom-html name="footer" triggerAppEvent="true"}}
+
   {{/if}}
+
   {{plugin-outlet name="below-footer" args=(hash showFooter=showFooter)}}
 
+
   {{outlet "modal"}}
+
   {{topic-entrance}}
+
   {{outlet "composer"}}
+
 </script>
 
-<!-- List header -->
-<script type="text/x-handlebars" data-template-name="topic-list-header.raw">
-  <!-- Hide list heater -->
-</script>
 
 <!-- list items -->
+
 <script type="text/x-handlebars" data-template-name="list/topic-list-item.raw">
 
+
   {{#if bulkSelectEnabled}}
+
     <td class="bulk-select">
+
       <input type="checkbox" class="bulk-select">
+
     </td>
+
   {{/if}}
 
-  <td class='avatar-cell'>
-    {{avatar topic.posters.firstObject avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="large"}}
-  </td>
 
   <td class='main-link clearfix' colspan="1">
+
     <span class='link-top-line'>
+
       {{~raw-plugin-outlet name="topic-list-before-status"}}
+
       {{~raw "topic-status" topic=topic}}
+
       {{~topic-link topic class="raw-link raw-topic-link"}}
+
       {{~#if topic.featured_link}}
+
         {{~topic-featured-link topic}}
+
       {{~/if}}
+
       {{~raw-plugin-outlet name="topic-list-after-title"}}
+
       {{~#if showTopicPostBadges}}
+
         {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
+
       {{~/if}}
+
     </span>
-    <span class='age-block'>
-      {{raw "list/activity-column" topic=topic class="num" tagName="div"}}
-    </span>
+
 
     {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
 
-    {{raw "list/topic-excerpt" topic=topic}}
+
+      {{raw "list/topic-excerpt" topic=topic}}
+
 
     {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
+
   </td>
+
 
   <!-- {{#unless hideCategory}}
+
     {{#unless topic.isPinnedUncategorized}}
+
       {{raw "list/category-column" category=topic.category}}
+
     {{/unless}}
+
   {{/unless}} -->
 
-  <!-- Participants avatars block -->
-  <!-- {{#if showPosters}}
-    {{raw "list/posters-column" posters=topic.posters}}
-  {{/if}} -->
 
-  <!-- Replies (comments) count -->
-  <!-- {{raw "list/posts-count-column" topic=topic}} -->
+  {{#if showPosters}}
+
+    {{raw "list/posters-column" posters=topic.posters}}
+
+  {{/if}}
+
+
+  {{raw "list/posts-count-column" topic=topic}}
+
 
   {{#if showParticipants}}
+
     {{raw "list/posters-column" posters=topic.participants}}
+
   {{/if}}
+
 
   {{#if showLikes}}
-    <td class="num likes">
-      {{#if hasLikes}}
-        <a href='{{topic.summaryUrl}}'>
-          {{number topic.like_count}} {{d-icon "heart"}}
-        </td>
-        </a>
-      {{/if}}
+
+  <td class="num likes">
+
+    {{#if hasLikes}}
+
+      <a href='{{topic.summaryUrl}}'>
+
+        {{number topic.like_count}} {{d-icon "heart"}}</td>
+
+      </a>
+
+    {{/if}}
+
   {{/if}}
+
 
   {{#if showOpLikes}}
-    <td class="num likes">
-      {{#if hasOpLikes}}
-        <a href='{{topic.summaryUrl}}'>
-          {{number topic.op_like_count}} {{d-icon "heart"}}
-        </td>
-        </a>
-      {{/if}}
-  {{/if}}
 
-  <!-- Count views -->
-  <!-- <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td> -->
+  <td class="num likes">
 
-  <!-- Last updated time -->
-  <!-- {{raw "list/activity-column" topic=topic class="num" tagName="td"}} -->
+    {{#if hasOpLikes}}
 
-  <td class='participants-cell'>
-    <div class='num posts-map posts {{view.likesHeat}} comments-count-block' title='{{view.title}}'>
-      <!-- <a href class='posts-map badge-posts {{view.likesHeat}}'> -->
-        {{raw-plugin-outlet name="topic-list-before-reply-count"}}
-        <span class='comments-count-line'>
-          <!-- {{fa-icon 'comment' class='comments-count-icon'}} -->
-          <!-- <img width="20px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
-          <img width="20px" src="https://mydev.nzte.govt.nz/icon/comment-DG.png"/>
-          {{number topic.replyCount noTitle="true"}}
-          comments <!-- @TODO  transfer to consts-->
-        </span>
-      <!-- </a> -->
-    </div>
-    <div class='posters'>
-      {{#each topic.posters as |poster|}}
-        <a href="{{poster.user.path}}" data-user-card="{{poster.user.username}}" class="{{poster.extraClasses}}">{{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}</a>
-      {{/each}}
-    </div>
-  </td>
-</script>
+      <a href='{{topic.summaryUrl}}'>
 
-<!-- list items for mobile mode-->
-<script type="text/x-handlebars" data-template-name="mobile/list/topic-list-item.raw">
+        {{number topic.op_like_count}} {{d-icon "heart"}}</td>
 
-  {{#if bulkSelectEnabled}}
-    <td class="bulk-select">
-      <input type="checkbox" class="bulk-select">
-    </td>
-  {{/if}}
+      </a>
 
-  <td class='avatar-cell'>
-    {{avatar topic.posters.firstObject avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="large"}}
-  </td>
-
-  <td class='main-link clearfix' colspan="1">
-    <span class='link-top-line'>
-      {{~raw-plugin-outlet name="topic-list-before-status"}}
-      {{~raw "topic-status" topic=topic}}
-      {{~topic-link topic class="raw-link raw-topic-link"}}
-      {{~#if topic.featured_link}}
-        {{~topic-featured-link topic}}
-      {{~/if}}
-      {{~raw-plugin-outlet name="topic-list-after-title"}}
-      {{~#if showTopicPostBadges}}
-        {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
-      {{~/if}}
-    </span>
-    <span class='age-block'>
-      {{raw "list/activity-column" topic=topic class="num" tagName="div"}}
-    </span>
-
-    {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
-
-    {{raw "list/topic-excerpt" topic=topic}}
-
-    {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
-
-    <span class='participants-cell'>
-      <div class='num posts-map posts {{view.likesHeat}} comments-count-block' title='{{view.title}}'>
-        <!-- <a href class='posts-map badge-posts {{view.likesHeat}}'> -->
-          {{raw-plugin-outlet name="topic-list-before-reply-count"}}
-          <span class='comments-count-line'>
-            <!-- {{fa-icon 'comment' class='comments-count-icon'}} -->
-            <!-- <img width="20px" src="{{themeSettings.web_url}}/icon/comment-DG.png"/> -->
-            <img width="20px" src="https://mydev.nzte.govt.nz/icon/comment-DG.png"/>
-            {{number topic.replyCount noTitle="true"}}
-            comments <!-- @TODO  transfer to consts-->
-          </span>
-        <!-- </a> -->
-      </div>
-      <div class='posters'>
-        {{#each topic.posters as |poster|}}
-          <a href="{{poster.user.path}}" data-user-card="{{poster.user.username}}" class="{{poster.extraClasses}}">{{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}</a>
-        {{/each}}
-      </div>
-    </span>
-  </td>
-</script>
-
-<!-- suggested topic list for mobile mode-->
-<script type="text/x-handlebars" data-template-name="components/suggested-topics">
-  <h3 class="suggested-topics-title">{{{suggestedTitle}}}</h3>
-  <div class="topics">
-    {{#if topic.isPrivateMessage}}
-      <!-- {{basic-topic-list
-        hideCategory="true"
-        showPosters="true"
-        topics=topic.suggestedTopics}} -->
-      {{#conditional-loading-spinner condition=loading}}
-        {{#if hasIncoming}}
-          <div class="show-mores">
-            <div class='alert alert-info clickable' {{action showInserted}}>
-              <a tabindex="0" href="" {{action showInserted}}>
-                {{count-i18n key="topic_count_" suffix="latest" count=incomingCount}}
-              </a>
-            </div>
-          </div>
-        {{/if}}
-
-        {{#if topic.suggestedTopics}}
-          {{topic-list showParticipants=showParticipants
-                       showPosters="true"
-                       hideCategory="true"
-                       topics=topic.suggestedTopics
-                       expandExcerpts=expandExcerpts
-                       bulkSelectEnabled=bulkSelectEnabled
-                       canBulkSelect=canBulkSelect
-                       selected=selected
-                       skipHeader=skipHeader
-                       tagsForUser=tagsForUser
-          }}
-        {{else}}
-          {{#unless loadingMore}}
-            <div class='alert alert-info'>
-              {{i18n 'choose_topic.none_found'}}
-            </div>
-          {{/unless}}
-        {{/if}}
-      {{/conditional-loading-spinner}}
-    {{else}}
-      {{#conditional-loading-spinner condition=loading}}
-        {{#if hasIncoming}}
-          <div class="show-mores">
-            <div class='alert alert-info clickable' {{action showInserted}}>
-              <a tabindex="0" href="" {{action showInserted}}>
-                {{count-i18n key="topic_count_" suffix="latest" count=incomingCount}}
-              </a>
-            </div>
-          </div>
-        {{/if}}
-
-        {{#if topic.suggestedTopics}}
-          {{topic-list showParticipants=showParticipants
-                       showPosters=showPosters
-                       hideCategory=hideCategory
-                       topics=topic.suggestedTopics
-                       expandExcerpts=expandExcerpts
-                       bulkSelectEnabled=bulkSelectEnabled
-                       canBulkSelect=canBulkSelect
-                       selected=selected
-                       skipHeader=skipHeader
-                       tagsForUser=tagsForUser
-          }}
-        {{else}}
-          {{#unless loadingMore}}
-          <div class='alert alert-info'>
-            {{i18n 'choose_topic.none_found'}}
-          </div>
-          {{/unless}}
-        {{/if}}
-      {{/conditional-loading-spinner}}
-
-      <!-- {{basic-topic-list topics=topic.suggestedTopics}} -->
     {{/if}}
-  </div>
 
-  <h3 class="suggested-topics-message">{{{browseMoreMessage}}}</h3>
+  {{/if}}
+
+
+  <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td>
+
+
+  {{raw "list/activity-column" topic=topic class="num" tagName="td"}}
+
 </script>
+
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-footer/custom-footer">
+
   <footer id="keteFooter">
+
         <div class="wrap footer-container">
+
             <div class="footer-nav-container-left">
+
                 <div><a>About</a></div>
+
                 <div><a href="https://www.nzte.govt.nz/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of use</a></div>
+
                 <div><a href="https://www.nzte.govt.nz/linking-policy" target="_blank" rel="noopener noreferrer">Linking policy</a></div>
+
                 <div><a href="https://www.nzte.govt.nz/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a></div>
-                <div><a href="https://{{themeSettings.web_url}}/learn?contactUs=1" target="_blank" rel="noopener noreferrer">Contact Us</a><</div>
+
+                <div><a>Contact</a></div>
+
             </div>
+
             <div class="footer-nav-container-right">
+
                 <div class="footer-subscribe">
+
                     <a>Subscribe to our newsletter</a>
+
                 </div>
+
                 <div class="footer-social-media">
+
                     <div>
+
                         <a href="https://twitter.com/NZTEnews" target="_blank" rel="noopener noreferrer">
+
                             <img width="35" height="35" className="socialIcon" src="{{themeSettings.web_url}}/icon/twitter.png" alt="twitter logo" />
+
                         </a>
+
                     </div>
+
                     <div>
+
                         <a href="https://www.facebook.com/NZtradeandenterprise" target="_blank" rel="noopener noreferrer">
+
                             <img width="35" height="35" className="socialIcon" src="{{themeSettings.web_url}}/icon/facebook.png" alt="facebook logo"/>
+
                         </a>
+
                     </div>
+
                     <div>
+
                         <a href="https://www.linkedin.com/company/new-zealand-trade-and-enterprise" target="_blank" rel="noopener noreferrer">
+
                             <img width="35" height="35" className="socialIcon" src="{{themeSettings.web_url}}/icon/linkedin.png" alt="linkedin logo"/>
+
                         </a>
+
                     </div>
+
                     <div>
+
                         <a href="https://www.youtube.com/nztevideo" target="_blank" rel="noopener noreferrer">
+
                             <img width="35" height="35" className="socialIcon" src="{{themeSettings.web_url}}/icon/youtube.png" alt="youtube logo"/>
+
                         </a>
+
                     </div>
+
                 </div>
+
                 <div class="footer-logo">
+
                     <a className="nzGovtLogo" href="https://www.govt.nz/" target="_blank" rel="noopener noreferrer">
+
                         <img width="168px" src="{{themeSettings.web_url}}/nzgovt.png" alt="NZ Govt logo"/>
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </footer>
+
 </script>
 
+
 <script type="text/x-handlebars" data-template-name="/connectors/topic-above-post-stream/backbtn">
-  <div class="back-arrow-container" onclick="window.history.back();"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
+
+  <div class="back-arrow-container" id="back"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
+
 </script>
+
 
 
 <script type="text/x-handlebars" data-template-name="/connectors/full-page-search-below-search-info/backbtnsearch">
-  <div class="back-arrow-container" onclick="window.history.back();"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
+
+  <div class="back-arrow-container" id="back"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
+
 </script>
 
+
 <script type="text/x-handlebars" data-template-name="full-page-search">
+
   {{#d-section pageClass="search" class="search-container"}}
+
   {{scroll-tracker name="full-page-search" tag=searchTerm class="hidden"}}
 
+
   <div class="search-advanced">
+
     {{#unless site.mobileView}}
+
       <div class="search-bar">
+
         {{search-text-field value=searchTerm class="full-page-search search no-blur search-query" action="search" hasAutofocus=hasAutofocus}}
+
         {{d-button action="search" icon="search" class="btn-primary search-cta" disabled=searching}}
+
       </div>
+
     {{/unless}}
 
+
     <div class="search-notice">
+
       {{#if invalidSearch}}
+
         <div class="fps-invalid">
+
           {{i18n "search.too_short"}}
+
         </div>
+
       {{/if}}
+
     </div>
+
 
     <div class="search-context">
+
       {{#if context}}
+
         <div class='fps-search-context'>
+
           <label>
+
             {{input type="checkbox" name="searchContext" checked=searchContextEnabled}} {{searchContextDescription}}
+
           </label>
+
         </div>
+
       {{/if}}
+
     </div>
 
+
     {{#if hasResults}}
+
       <div class='search-title'>
 
+        
+
+
         {{#if canBulkSelect}}
+
           {{d-button icon="list" class="btn-default bulk-select" title="topics.bulk.toggle" action="toggleBulkSelect"}}
+
           {{bulk-select-button selected=selected action="search"}}
+
         {{/if}}
+
 
         {{#if bulkSelectEnabled}}
+
           <div class='fps-select'>
+
             <a {{action "selectAll"}}>{{i18n "search.select_all"}}</a>
+
             <a {{action "clearAll"}}>{{i18n "search.clear_all"}}</a>
+
           </div>
+
         {{/if}}
+
       </div>
 
+
       <div class='search-info'>
+
         <div class='result-count'>
+
           {{{resultCountLabel}}}
+
         </div>
+
         <div class='sort-by'>
+
           <span class='desc'>
+
             {{i18n "search.sort_by"}}
+
           </span>
+
           {{combo-box value=sortOrder content=sortOrders castInteger=true}}
+
         </div>
+
       </div>
+
     {{/if}}
+
 
    {{plugin-outlet name="full-page-search-below-search-info" args=(hash search=searchTerm)}}
 
+
     <div class="search-results">
+
       {{#load-more selector=".fps-result" action="loadMore"}}
+
         {{#each model.posts as |result|}}
+
           <div class='fps-result'>
+
             <div class='author'>
+
               <a href={{result.userPath}} data-user-card="{{unbound result.username}}">
+
                 {{avatar result imageSize="large"}}
+
               </a>
+
             </div>
+
 
             <div class='fps-topic'>
+
               <div class='topic'>
+
                 {{#if bulkSelectEnabled}}
+
                   {{track-selected selectedList=selected selectedId=result.topic}}
+
                 {{/if}}
+
 
                 <a class='search-link' href='{{unbound result.url}}' {{action "logClick" result.topic_id}}>
+
                   {{topic-status topic=result.topic disableActions=true}}<span class='topic-title'>{{#highlight-text highlight=q}}{{{unbound result.topic.fancyTitle}}}{{/highlight-text}}</span>
+
                 </a>
 
+
                 <div class='search-category'>
+
                   {{#if result.topic.category.parentCategory}}
+
                   {{category-link result.topic.category.parentCategory}}
+
                   {{/if}}
+
                   {{category-link result.topic.category hideParent=true}}
+
                   {{#each result.topic.tags as |tag|}}
+
                     {{discourse-tag tag isPrivateMessage=isPrivateMessage}}
+
                   {{/each}}
+
                   {{plugin-outlet name="full-page-search-category" args=(hash result=result)}}
+
                 </div>
+
               </div>
+
 
               <div class='blurb container'>
+
                 <span class='date'>
+
                   {{format-age result.created_at}}
+
                   {{#if result.blurb}}
+
                   -
+
                   {{/if}}
+
                 </span>
 
+
                 {{#if result.blurb}}
+
                   {{#highlight-text highlight=highlightQuery}}
+
                     {{{unbound result.blurb}}}
+
                   {{/highlight-text}}
+
                 {{/if}}
+
               </div>
 
+
               {{#if showLikeCount}}
+
                 {{#if result.like_count}}
+
                   <span class='like-count'>
+
                     {{result.like_count}} {{d-icon "heart"}}
+
                   </span>
+
                 {{/if}}
+
               {{/if}}
+
             </div>
+
           </div>
+
         {{/each}}
 
+
         {{#conditional-loading-spinner condition=loading }}
+
           {{#unless hasResults}}
+
             {{#if searchActive}}
+
               <h3>{{i18n "search.no_results"}}</h3>
 
+
               {{#if showSuggestion}}
+
                 <div class="no-results-suggestion">
+
                   {{i18n "search.cant_find"}}
+
                 </div>
 
+
                 {{google-search searchTerm=searchTerm}}
+
               {{/if}}
+
             {{/if}}
+
           {{/unless}}
 
+
           {{#if hasResults}}
+
             {{#unless loading}}
+
               <h3 class="search-footer">
+
                 {{#if model.grouped_search_result.more_full_page_results}}
+
                   {{#if isLastPage }}
+
                     {{i18n "search.more_results"}}
+
                   {{/if}}
+
                 {{else}}
+
                   {{i18n "search.no_more_results"}}
+
                 {{/if}}
+
               </h3>
+
             {{/unless}}
+
           {{/if}}
+
         {{/conditional-loading-spinner}}
+
       {{/load-more}}
+
     </div>
+
   </div>
+
 
   <div class="search-advanced-sidebar">
+
     {{#if site.mobileView}}
+
       <div class="search-bar">
+
         {{search-text-field value=searchTerm class="full-page-search search no-blur search-query" action="search" hasAutofocus=hasAutofocus}}
+
         {{d-button action="search" icon="search" class="btn-primary search-cta" disabled=searching}}
+
       </div>
+
     {{/if}}
 
+
     {{#if site.mobileView}}
+
       <button class="search-advanced-title btn" {{action "toggleAdvancedSearch"}}>
+
         {{{searchAdvancedIcon}}} {{i18n "search.advanced.title"}}
+
       </button>
+
     {{else}}
+
       <span class="search-advanced-title">
+
         {{i18n "search.advanced.title"}}
+
       </span>
+
     {{/if}}
 
+
     {{#if site.mobileView}}
+
       {{#if expanded}}
+
         <div class="search-advanced-filters">
+
           {{search-advanced-options searchTerm=searchTerm isExpanded=expanded}}
+
         </div>
+
       {{/if}}
+
     {{else}}
+
       <div class="search-advanced-filters">
+
         {{search-advanced-options searchTerm=searchTerm isExpanded=true}}
 
+
         {{d-button
+
           label="submit"
+
           action="search"
+
           icon="search"
+
           class="btn-primary search-cta"
+
           disabled=searching}}
+
       </div>
+
     {{/if}}
+
   </div>
+
 {{/d-section}}
 
+
 </script>
+
 
 
 <!-- <script type="text/x-handlebars" data-template-name="/flag-action-type/flag">
+
   <div class='controls'>
+
     <label class='radio'>
+
       <input type='radio' id="radio_{{unbound flag.name_key}}" {{action "changePostActionType" flag}} name='post_action_type_index'>
+
       <div class='flag-action-type-details'>
+
         <strong>{{formattedName}}</strong>
+
         {{#if showDescription}}
+
           <div class='description'>{{{description}}}</div>
+
         {{/if}}
+
         {{#if showMessageInput}}
+
           {{textarea name="message" class="flag-message" placeholder=customPlaceholder value=message}}
+
           <div class="custom-message-length {{customMessageLengthClasses}}">{{customMessageLength}}</div>
+
         {{/if}}
+
       </div>
+
     </label>
+
   </div>
+
 </script>
+
 
 <script type="text/x-handlebars" data-template-name="/action-type/flag-footer">
+
   {{#d-modal-body class="flag-modal" title=title}}
+
   <form>
+
     {{#flag-selection nameKey=selected.name_key flags=flagsAvailable as |f|}}
+
       {{flag-action-type flag=f
+
                          message=message
+
                          isWarning=isWarning
+
                          selectedFlag=selected
+
                          username=model.username
+
                          staffFlagsAvailable=staffFlagsAvailable
+
                          changePostActionType="changePostActionType"}}
+
    {{/flag-selection}}
+
   </form>
+
 {{/d-modal-body}}
 
+
 <div class="modal-footer">
+
   {{d-button
+
     class="btn-primary"
+
     action=(action "createFlag")
+
     disabled=submitDisabled
+
     title="flagging.submit_tooltip"
+
     icon=submitIcon
+
     label=submitLabel}}
 
+
   {{#if canSendWarning}}
+
     {{d-button
+
       class="btn-danger"
+
       action=(action "createFlagAsWarning")
+
       disabled=submitDisabled
+
       icon="exclamation-triangle"
+
       label="flagging.official_warning"}}
+
   {{/if}}
+
 
   {{#if showDeleteSpammer}}
+
     {{d-button
+
       class="btn-danger"
+
       action="deleteSpammer"
+
       disabled=submitDisabled
+
       icon="exclamation-triangle"
+
       label="flagging.delete_spammer"}}
+
   {{/if}}
+
 </div> -->
 
-</script>
-
-<script type="text/x-handlebars" data-template-name="topic">
-  {{#discourse-topic multiSelect=multiSelect enteredAt=enteredAt topic=model hasScrolled=hasScrolled}}
-    {{#if model}}
-      {{add-category-class category=model.category}}
-      <div class="container">
-        {{discourse-banner user=currentUser banner=site.banner overlay=hasScrolled hide=model.errorLoading}}
-      </div>
-    {{/if}}
-
-    {{#if showSharedDraftControls}}
-      {{shared-draft-controls topic=model}}
-    {{/if}}
-
-    {{plugin-outlet name="topic-above-post-stream" args=(hash model=model)}}
-
-    {{#if model.postStream.loaded}}
-      {{#if model.postStream.firstPostPresent}}
-        {{#topic-title cancelled=(action "cancelEditingTopic") save=(action "finishedEditingTopic") model=model}}
-          {{#if editingTopic}}
-            <div class="edit-topic-title">
-            {{#if model.isPrivateMessage}}
-              <span class="private-message-glyph">{{d-icon "envelope"}}</span>
-            {{/if}}
-              {{text-field id="edit-title" value=buffered.title maxlength=siteSettings.max_topic_title_length autofocus="true"}}
-              {{#if showCategoryChooser}}
-                {{category-chooser class="small" value=buffered.category_id}}
-              {{/if}}
-
-              {{#if canEditTags}}
-                {{mini-tag-chooser filterable=true tags=buffered.tags categoryId=buffered.category_id}}
-              {{/if}}
-
-              {{plugin-outlet name="edit-topic" args=(hash model=model buffered=buffered)}}
-              <div class="edit-controls">
-                {{d-button action=(action "finishedEditingTopic") class="btn-primary submit-edit" icon="check"}}
-                {{d-button action=(action "cancelEditingTopic") class="btn-default cancel-edit" icon="times"}}
-
-                {{#if canRemoveTopicFeaturedLink}}
-                  <a href {{action "removeFeaturedLink"}} class="remove-featured-link" title="{{i18n "composer.remove_featured_link"}}">
-                    {{d-icon "times-circle"}}
-                    {{featuredLinkDomain}}
-                  </a>
-                {{/if}}
-              </div>
-            </div>
-
-          {{else}}
-            <div class='topic-title-block'>
-              <h1 data-topic-id="{{unbound model.id}}">
-                {{#unless model.is_warning}}
-                  {{#if siteSettings.enable_personal_messages}}
-                    <a href={{pmPath}}>
-                      <span class="private-message-glyph">{{d-icon "envelope"}}</span>
-                    </a>
-                  {{else}}
-                    <span class="private-message-glyph">{{d-icon "envelope"}}</span>
-                  {{/if}}
-                {{/unless}}
-
-                {{#if model.details.loaded}}
-                  {{topic-status topic=model}}
-                  <a href="{{unbound model.url}}" {{action "jumpTop"}} class="fancy-title">
-                    {{{model.fancyTitle}}}
-                  </a>
-                {{/if}}
-
-                {{#if model.details.can_edit}}
-                  <a href {{action "editTopic"}} class="edit-topic" title="{{i18n "edit"}}">{{d-icon "pencil"}}</a>
-                {{/if}}
-              </h1>
-              {{format-age model.created_at}}
-            </div>
-            {{topic-category topic=model class="topic-category"}}
-            <div class='topic-stats'>
-              <div class='topic-like-stat'>
-                <img width="24px" src="{{themeSettings.web_url}}/icon/like-CB.png"/>
-                {{model.like_count}}
-              </div>
-              <div class='topic-comment-stat'>
-                <img width="24px" src="{{themeSettings.web_url}}/icon/comment-CB.png"/>
-                {{model.replyCount}}
-              </div>
-              <div class='topic-share-stat'>
-                <img width="24px" src="{{themeSettings.web_url}}/icon/share-CB.png"/>
-                {{#if model.postStream.posts.firstObject.link_counts}}
-                  {{model.postStream.posts.firstObject.link_counts.length}}
-                {{else}}
-                  0
-                {{/if}}
-              </div>
-            </div>
-
-          {{/if}}
-        {{/topic-title}}
-      {{/if}}
-
-
-      <div class="container posts">
-        <div class='selected-posts {{unless multiSelect 'hidden'}}'>
-          {{partial "selected-posts"}}
-        </div>
-
-        {{#topic-navigation topic=model jumpToDate=(action "jumpToDate") jumpToIndex=(action "jumpToIndex") as |info|}}
-          {{#if info.renderTimeline}}
-            {{#if info.renderAdminMenuButton}}
-              {{topic-admin-menu-button
-                topic=model
-                fixed="true"
-                toggleMultiSelect=(action "toggleMultiSelect")
-                hideMultiSelect=(action "hideMultiSelect")
-                deleteTopic=(action "deleteTopic")
-                recoverTopic=(action "recoverTopic")
-                toggleClosed=(action "toggleClosed")
-                toggleArchived=(action "toggleArchived")
-                toggleVisibility=(action "toggleVisibility")
-                showTopicStatusUpdate=(route-action "showTopicStatusUpdate")
-                showFeatureTopic=(route-action "showFeatureTopic")
-                showChangeTimestamp=(route-action "showChangeTimestamp")
-                resetBumpDate=(action "resetBumpDate")
-                convertToPublicTopic=(action "convertToPublicTopic")
-                convertToPrivateMessage=(action "convertToPrivateMessage")}}
-            {{/if}}
-
-            {{topic-timeline
-              topic=model
-              notificationLevel=model.details.notification_level
-              prevEvent=info.prevEvent
-              fullscreen=info.topicProgressExpanded
-              enteredIndex=enteredIndex
-              loading=model.postStream.loading
-              jumpToPost=(action "jumpToPost")
-              jumpTop=(action "jumpTop")
-              jumpBottom=(action "jumpBottom")
-              jumpToPostPrompt=(action "jumpToPostPrompt")
-              jumpToIndex=(action "jumpToIndex")
-              replyToPost=(action "replyToPost")
-              toggleMultiSelect=(action "toggleMultiSelect")
-              hideMultiSelect=(action "hideMultiSelect")
-              deleteTopic=(action "deleteTopic")
-              recoverTopic=(action "recoverTopic")
-              toggleClosed=(action "toggleClosed")
-              toggleArchived=(action "toggleArchived")
-              toggleVisibility=(action "toggleVisibility")
-              showTopicStatusUpdate=(route-action "showTopicStatusUpdate")
-              showFeatureTopic=(route-action "showFeatureTopic")
-              showChangeTimestamp=(route-action "showChangeTimestamp")
-              resetBumpDate=(action "resetBumpDate")
-              convertToPublicTopic=(action "convertToPublicTopic")
-              convertToPrivateMessage=(action "convertToPrivateMessage")}}
-          {{else}}
-            {{#topic-progress
-              prevEvent=info.prevEvent
-              topic=model
-              expanded=info.topicProgressExpanded
-              jumpToPost=(action "jumpToPost")}}
-              {{#if info.renderAdminMenuButton}}
-                {{topic-admin-menu-button
-                  topic=model
-                  openUpwards="true"
-                  rightSide="true"
-                  toggleMultiSelect=(action "toggleMultiSelect")
-                  hideMultiSelect=(action "hideMultiSelect")
-                  deleteTopic=(action "deleteTopic")
-                  recoverTopic=(action "recoverTopic")
-                  toggleClosed=(action "toggleClosed")
-                  toggleArchived=(action "toggleArchived")
-                  toggleVisibility=(action "toggleVisibility")
-                  showTopicStatusUpdate=(route-action "showTopicStatusUpdate")
-                  showFeatureTopic=(route-action "showFeatureTopic")
-                  showChangeTimestamp=(route-action "showChangeTimestamp")
-                  resetBumpDate=(action "resetBumpDate")
-                  convertToPublicTopic=(action "convertToPublicTopic")
-                  convertToPrivateMessage=(action "convertToPrivateMessage")}}
-              {{/if}}
-            {{/topic-progress}}
-          {{/if}}
-        {{/topic-navigation}}
-
-        <div class="row">
-          <section class="topic-area" id="topic" data-topic-id="{{unbound model.id}}">
-
-            <div class="posts-wrapper">
-              {{conditional-loading-spinner condition=model.postStream.loadingAbove}}
-
-              {{plugin-outlet name="topic-above-posts" args=(hash model=model)}}
-
-              {{#unless model.postStream.loadingFilter}}
-                {{scrolling-post-stream
-                  posts=postsToRender
-                  canCreatePost=model.details.can_create_post
-                  multiSelect=multiSelect
-                  selectedPostsCount=selectedPostsCount
-                  selectedQuery=selectedQuery
-                  gaps=model.postStream.gaps
-                  showFlags=(action "showPostFlags")
-                  editPost=(action "editPost")
-                  showHistory=(route-action "showHistory")
-                  showLogin=(route-action "showLogin")
-                  showRawEmail=(route-action "showRawEmail")
-                  deletePost=(action "deletePost")
-                  recoverPost=(action "recoverPost")
-                  expandHidden=(action "expandHidden")
-                  newTopicAction=(action "replyAsNewTopic")
-                  toggleBookmark=(action "toggleBookmark")
-                  togglePostType=(action "togglePostType")
-                  rebakePost=(action "rebakePost")
-                  changePostOwner=(action "changePostOwner")
-                  grantBadge=(action "grantBadge")
-                  lockPost=(action "lockPost")
-                  unlockPost=(action "unlockPost")
-                  unhidePost=(action "unhidePost")
-                  replyToPost=(action "replyToPost")
-                  toggleWiki=(action "toggleWiki")
-                  toggleSummary=(action "toggleSummary")
-                  removeAllowedUser=(action "removeAllowedUser")
-                  removeAllowedGroup=(action "removeAllowedGroup")
-                  showInvite=(route-action "showInvite")
-                  topVisibleChanged=(action "topVisibleChanged")
-                  currentPostChanged=(action "currentPostChanged")
-                  currentPostScrolled=(action "currentPostScrolled")
-                  bottomVisibleChanged=(action "bottomVisibleChanged")
-                  togglePostSelection=(action "togglePostSelection")
-                  selectReplies=(action "selectReplies")
-                  selectBelow=(action "selectBelow")
-                  fillGapBefore=(action "fillGapBefore")
-                  fillGapAfter=(action "fillGapAfter")}}
-              {{/unless}}
-
-              {{conditional-loading-spinner condition=model.postStream.loadingBelow}}
-            </div>
-            <div id="topic-bottom"></div>
-
-            {{#conditional-loading-spinner condition=model.postStream.loadingFilter}}
-              {{#if loadedAllPosts}}
-
-                {{#if model.pending_posts_count}}
-                  <div class="has-pending-posts">
-                    {{{i18n "queue.has_pending_posts" count=model.pending_posts_count}}}
-
-                    {{#if currentUser.show_queued_posts}}
-                      {{#link-to "queued-posts"}}
-                        {{d-icon "check"}}
-                        {{i18n "queue.view_pending"}}
-                      {{/link-to}}
-                    {{/if}}
-                  </div>
-                {{/if}}
-
-                {{#if model.private_topic_timer.execute_at}}
-                  {{topic-timer-info
-                      topicClosed=model.closed
-                      statusType=model.private_topic_timer.status_type
-                      executeAt=model.private_topic_timer.execute_at
-                      duration=model.private_topic_timer.duration}}
-                {{/if}}
-
-                {{topic-timer-info
-                    topicClosed=model.closed
-                    statusType=model.topic_timer.status_type
-                    executeAt=model.topic_timer.execute_at
-                    basedOnLastPost=model.topic_timer.based_on_last_post
-                    duration=model.topic_timer.duration
-                    categoryId=model.topic_timer.category_id}}
-
-                {{#if session.showSignupCta}}
-                  {{! replace "Log In to Reply" with the infobox }}
-                  {{signup-cta}}
-                {{else}}
-                  {{#if currentUser}}
-                    {{plugin-outlet name="topic-above-footer-buttons" args=(hash model=model)}}
-
-                    {{topic-footer-buttons
-                      topic=model
-                      toggleMultiSelect=(action "toggleMultiSelect")
-                      hideMultiSelect=(action "hideMultiSelect")
-                      deleteTopic=(action "deleteTopic")
-                      recoverTopic=(action "recoverTopic")
-                      toggleClosed=(action "toggleClosed")
-                      toggleArchived=(action "toggleArchived")
-                      toggleVisibility=(action "toggleVisibility")
-                      showTopicStatusUpdate=(route-action "showTopicStatusUpdate")
-                      showFeatureTopic=(route-action "showFeatureTopic")
-                      showChangeTimestamp=(route-action "showChangeTimestamp")
-                      resetBumpDate=(action "resetBumpDate")
-                      convertToPublicTopic=(action "convertToPublicTopic")
-                      convertToPrivateMessage=(action "convertToPrivateMessage")
-                      toggleBookmark=(action "toggleBookmark")
-                      showFlagTopic=(route-action "showFlagTopic")
-                      showInvite=(route-action "showInvite")
-                      toggleArchiveMessage=(action "toggleArchiveMessage")
-                      editFirstPost=(action "editFirstPost")
-                      replyToPost=(action "replyToPost")
-                      }}
-                  {{else}}
-                    <div id="topic-footer-buttons">
-                      {{d-button icon="reply" class="btn-primary pull-right" action=(route-action "showLogin") label="topic.reply.title"}}
-                    </div>
-                  {{/if}}
-                {{/if}}
-
-                {{#if showSelectedPostsAtBottom}}
-                  <div class='selected-posts {{unless multiSelect 'hidden'}}'>
-                    {{partial "selected-posts"}}
-                  </div>
-                {{/if}}
-
-                {{plugin-outlet name="topic-above-suggested" args=(hash model=model)}}
-                <div class="{{if model.relatedMessages.length 'related-messages-wrapper'}} {{if model.suggestedTopics.length 'suggested-topics-wrapper'}}">
-                  {{#if model.relatedMessages.length}}
-                    {{related-messages topic=model}}
-                  {{/if}}
-                  {{#if model.suggestedTopics.length}}
-                    {{suggested-topics topic=model}}
-                  {{/if}}
-                </div>
-              {{/if}}
-            {{/conditional-loading-spinner}}
-
-          </section>
-        </div>
-
-      </div>
-    {{else}}
-      <div class="container">
-        {{#conditional-loading-spinner condition=noErrorYet}}
-          {{#if model.notFoundHtml}}
-            <div class="not-found">{{{model.notFoundHtml}}}</div>
-          {{else}}
-            <div class="topic-error">
-              <div>{{model.message}}</div>
-              {{#if model.noRetry}}
-                {{#unless currentUser}}
-                  {{d-button action=(route-action "showLogin") class="btn-primary topic-retry" icon="user" label="log_in"}}
-                {{/unless}}
-              {{else}}
-                {{d-button action=(action "retryLoading") class="btn-primary topic-retry" icon="refresh" label="errors.buttons.again"}}
-              {{/if}}
-            </div>
-            {{conditional-loading-spinner condition=retrying}}
-          {{/if}}
-        {{/conditional-loading-spinner}}
-      </div>
-    {{/if}}
-
-    {{share-popup topic=model replyAsNewTopic=(action "replyAsNewTopic")}}
-
-    {{#if embedQuoteButton}}
-      {{quote-button quoteState=quoteState selectText=(action "selectText")}}
-    {{/if}}
-  {{/discourse-topic}}
 
 </script>
