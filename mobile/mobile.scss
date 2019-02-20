@@ -10,6 +10,8 @@
   // padding: 20px;
   border-radius: 2px;
   width: 100%;
+  min-width: 84%; // @HACK Fix horizontal offset for last comment
+  max-width: 100%;
 }
 
 //more space for avatars
@@ -159,4 +161,38 @@ aside.quote {
 
 #headerBanner {
   margin-bottom: 0px !important;
+}
+
+.comments-count-block {
+  justify-content: flex-start !important;
+  margin-top: 8px;
+}
+
+.posters {
+  justify-content: flex-start !important;
+  margin-bottom: 8px;
+}
+
+.topic-list td {
+  padding: 8px 0;
+}
+
+.posters {
+  margin-bottom: 0px;
+}
+
+.topic-list td:first-of-type {
+  padding-right: 8px;
+}
+
+.main-link {
+  padding-right: 8px !important;
+}
+
+#navigation-bar .navigation-toggle {
+  min-width: 130px;
+}
+.list-controls .nav-pills .navigation-toggle {
+  border: 1px solid #919191;
+  background: #ffffff !important;
 }

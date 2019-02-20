@@ -50,7 +50,7 @@
 .topic-body {
   @include boxShadow;
   background-color: lighten($secondary, 10%);
-  margin-top: 14px;
+  // margin-top: 14px;
   border-radius: 2px;
   // padding: 12px 20px 0 20px;
   width: 100%;
@@ -307,6 +307,56 @@
   top: -50px !important;
 }
 
-.topic-list-item {
-  height: 150px;
+.list-controls .nav-pills {
+  display: flex;
+  flex: 1 1 auto;
+  position: relative;
+}
+.nav-pills, .nav-stacked {
+  list-style: none;
+}
+#navigation-bar .navigation-toggle {
+  border-radius: 3px;
+  box-shadow: none !important;
+  min-width: 130px;
+}
+#navigation-bar li {
+  color: #324164;
+}
+.list-controls .nav-pills .navigation-toggle {
+  font-size: .8706em;
+  border: 1px solid #919191;
+  border-radius: 3px;
+}
+.nav-pills>li {
+  float: left;
+}
+.navigation-toggle {
+  width: 100% !important;
+  margin: 0 !important;
+}
+.list-controls .nav-pills .drop {
+  border: 1px solid #e9e9e9;
+  position: absolute;
+  z-index: 299;
+  background-color: #fff;
+  padding: 0 10px 10px 10px;
+  width: 150px;
+  top: 100%;
+  margin: 0;
+  left: 0;
+}
+#navigation-bar ul {
+  padding: 0 !important;
+  width: 100% !important;
+}
+.list-controls .nav-pills .drop li {
+  list-style-type: none;
+}
+
+.topic-list td {
+  padding: 6px 5px;
+}
+.edit-topic {
+  margin-right: 32px;
 }
