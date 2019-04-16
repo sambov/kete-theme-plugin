@@ -3,33 +3,45 @@
   I18n.translations.en.js.topic.create_long = "Start new discussion";
   I18n.translations.en.js.topic.reply.title = "Comment";
   I18n.translations.en.js.composer.reply = "Post";
-  I18n.translations.en.js.composer.create_topic = I18n.translations.en.js.composer.reply;
-  I18n.translations.en.js.composer.composer_actions.reply = I18n.translations.en.js.composer.reply;
-  I18n.translations.en.js.composer.title_or_link_placeholder = "Enter your subject (mandatory)";
-  I18n.translations.en.js.composer.reply_placeholder = "Add comment, discussion point, question (mandatory)";
-  I18n.translations.en.js.composer.error.title_missing = "You must enter a subject or headline";
-  I18n.translations.en.js.composer.error.post_missing = "You must enter a blurb, question or discussion point";
+  I18n.translations.en.js.composer.create_topic =
+    I18n.translations.en.js.composer.reply;
+  I18n.translations.en.js.composer.composer_actions.reply =
+    I18n.translations.en.js.composer.reply;
+  I18n.translations.en.js.composer.title_or_link_placeholder =
+    "Enter your subject (mandatory)";
+  I18n.translations.en.js.composer.reply_placeholder =
+    "Add comment, discussion point, question (mandatory)";
+  I18n.translations.en.js.composer.error.title_missing =
+    "You must enter a subject or headline";
+  I18n.translations.en.js.composer.error.post_missing =
+    "You must enter a blurb, question or discussion point";
 
   I18n.translations.en.js.bookmarked.title = "Save to favourites";
   I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
-  I18n.translations.en.js.bookmarked.help.bookmark = "Click to save to favourites";
-  I18n.translations.en.js.bookmarked.help.unbookmark = "Click to remove from favourites";
+  I18n.translations.en.js.bookmarked.help.bookmark =
+    "Click to save to favourites";
+  I18n.translations.en.js.bookmarked.help.unbookmark =
+    "Click to remove from favourites";
 
-  I18n.translations.en.js.bookmarks.created = "you've saved this post to your favourites";
-  I18n.translations.en.js.bookmarks.not_bookmarked = "Save this post to your favourites";
-  I18n.translations.en.js.bookmarks.remove = I18n.translations.en.js.bookmarked.clear_bookmarks;
-  I18n.translations.en.js.bookmarks.confirm_clear = "Are you sure you wish to clear all your favourites from this topic?";
+  I18n.translations.en.js.bookmarks.created =
+    "you've saved this post to your favourites";
+  I18n.translations.en.js.bookmarks.not_bookmarked =
+    "Save this post to your favourites";
+  I18n.translations.en.js.bookmarks.remove =
+    I18n.translations.en.js.bookmarked.clear_bookmarks;
+  I18n.translations.en.js.bookmarks.confirm_clear =
+    "Are you sure you wish to clear all your favourites from this topic?";
 
   I18n.translations.en.js.search.title = "Search NZTE Community";
-  I18n.translations.en.js.search.full_page_title = I18n.translations.en.js.search.title;
+  I18n.translations.en.js.search.full_page_title =
+    I18n.translations.en.js.search.title;
 
   I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
 
   I18n.translations.en.js.filters.latest.title = "Latest first";
   I18n.translations.en.js.filters.top.title = "Popular";
 
-  I18n.translations.en.js.composer.save_edit = "Update"
-
+  I18n.translations.en.js.composer.save_edit = "Update";
 </script>
 
 <script type="text/discourse-plugin" version="0.8">
@@ -318,58 +330,57 @@
     }
   }
 
-  $(document).ready(function () {
-    const desktopProfile = document.getElementById('desktopProfile');
+  $(document).ready(function() {
+    const desktopProfile = document.getElementById("desktopProfile");
     if (desktopProfile) {
       desktopProfile.src = desktopProfile.src.replace(/%7Bsize%7D/g, 60);
     }
-    const mobileProfile = document.getElementById('mobileProfile');
+    const mobileProfile = document.getElementById("mobileProfile");
     if (mobileProfile) {
       mobileProfile.src = mobileProfile.src.replace(/%7Bsize%7D/g, 60);
     }
-        $("#profDropdown").click(function(){
-        $('#myDropdown').toggle('show');
-    })
-        $("#bButton").click(function(){
-         window.history.back();
-    })
+    $("#profDropdown").click(function() {
+      $("#myDropdown").toggle("show");
+    });
+    $("#bButton").click(function() {
+      window.history.back();
+    });
   });
-  
-  $( document ).ajaxComplete(function() {
-var hamburger = document.getElementById('hamburger');
-    hamburger.addEventListener('click', navFunction);
 
-    var back = document.getElementById('back');
-    back.addEventListener('click', goBack);
-}); 
+  $(document).ajaxComplete(function() {
+    var hamburger = document.getElementById("hamburger");
+    hamburger.addEventListener("click", navFunction);
 
+    var back = document.getElementById("back");
+    back.addEventListener("click", goBack);
+  });
 
   function goBack() {
     window.history.back();
   }
 
-
-
   function logout() {
     $.ajax({
-      url: '/session/' + Discourse.User.current().username,
-      type: 'DELETE',
-      success: function (result) {
+      url: "/session/" + Discourse.User.current().username,
+      type: "DELETE",
+      success: function(result) {
         // Do something with the result
         console.log(result);
       }
     });
   }
 
-  window.onbeforeunload = function () {
+  window.onbeforeunload = function() {
     window.scrollTo(0, 0);
-  }
+  };
 
   document.onload = window.scrollTo(0, 0);
 </script>
 
-
-<script type="text/x-handlebars" data-template-name="/connectors/below-site-header/foobar">
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/below-site-header/foobar"
+>
   <div>
     <header id="keteHeader">
       <div class="wrap header-container topnav">
@@ -451,7 +462,7 @@ var hamburger = document.getElementById('hamburger');
           </span>
         </div>
         <div class="mobile-nav-section">
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">My Profile</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/settings">Settings</a>
           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
         </div>
         <div class="mobile-nav-section">
@@ -593,14 +604,17 @@ var hamburger = document.getElementById('hamburger');
       <!-- </a> -->
     </div>
     <div class='posters'>
-      
+
 
     </div>
   </td>
 </script>
 
 <!-- list items for mobile mode-->
-<script type="text/x-handlebars" data-template-name="mobile/list/topic-list-item.raw">
+<script
+  type="text/x-handlebars"
+  data-template-name="mobile/list/topic-list-item.raw"
+>
 
   {{#if bulkSelectEnabled}}
     <td class="bulk-select">
@@ -648,14 +662,17 @@ var hamburger = document.getElementById('hamburger');
         <!-- </a> -->
       </div>
       <div class='posters'>
-        
+
       </div>
     </span>
   </td>
 </script>
 
 <!-- suggested topic list for mobile mode-->
-<script type="text/x-handlebars" data-template-name="components/suggested-topics">
+<script
+  type="text/x-handlebars"
+  data-template-name="components/suggested-topics"
+>
   <h3 class="suggested-topics-title">{{{suggestedTitle}}}</h3>
   <div class="topics">
     {{#if topic.isPrivateMessage}}
@@ -734,7 +751,10 @@ var hamburger = document.getElementById('hamburger');
   <h3 class="suggested-topics-message">{{{browseMoreMessage}}}</h3>
 </script>
 
-<script type="text/x-handlebars" data-template-name="/connectors/below-footer/custom-footer">
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/below-footer/custom-footer"
+>
   <footer id="keteFooter">
         <div class="wrap footer-container">
             <div class="footer-nav-container-left">
@@ -780,209 +800,211 @@ var hamburger = document.getElementById('hamburger');
     </footer>
 </script>
 
-<script type="text/x-handlebars" data-template-name="/connectors/topic-above-post-stream/backbtn">
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/topic-above-post-stream/backbtn"
+>
   <div class="back-arrow-container" id="back"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
 </script>
 
-
-<script type="text/x-handlebars" data-template-name="/connectors/full-page-search-below-search-info/backbtnsearch">
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/full-page-search-below-search-info/backbtnsearch"
+>
   <div class="back-arrow-container" id="back"><img width="24px" src="{{themeSettings.web_url}}/icon/back.png" alt="NZ Govt logo"/>Back</div>
 </script>
 
 <script type="text/x-handlebars" data-template-name="full-page-search">
-  {{#d-section pageClass="search" class="search-container"}}
-  {{scroll-tracker name="full-page-search" tag=searchTerm class="hidden"}}
+    {{#d-section pageClass="search" class="search-container"}}
+    {{scroll-tracker name="full-page-search" tag=searchTerm class="hidden"}}
 
-  <div class="search-advanced">
-    {{#unless site.mobileView}}
-      <div class="search-bar">
-        {{search-text-field value=searchTerm class="full-page-search search no-blur search-query" action="search" hasAutofocus=hasAutofocus}}
-        {{d-button action="search" icon="search" class="btn-primary search-cta" disabled=searching}}
-      </div>
-    {{/unless}}
-
-    <div class="search-notice">
-      {{#if invalidSearch}}
-        <div class="fps-invalid">
-          {{i18n "search.too_short"}}
+    <div class="search-advanced">
+      {{#unless site.mobileView}}
+        <div class="search-bar">
+          {{search-text-field value=searchTerm class="full-page-search search no-blur search-query" action="search" hasAutofocus=hasAutofocus}}
+          {{d-button action="search" icon="search" class="btn-primary search-cta" disabled=searching}}
         </div>
-      {{/if}}
-    </div>
+      {{/unless}}
 
-    <div class="search-context">
-      {{#if context}}
-        <div class='fps-search-context'>
-          <label>
-            {{input type="checkbox" name="searchContext" checked=searchContextEnabled}} {{searchContextDescription}}
-          </label>
-        </div>
-      {{/if}}
-    </div>
-
-    {{#if hasResults}}
-      <div class='search-title'>
-
-        {{#if canBulkSelect}}
-          {{d-button icon="list" class="btn-default bulk-select" title="topics.bulk.toggle" action="toggleBulkSelect"}}
-          {{bulk-select-button selected=selected action="search"}}
-        {{/if}}
-
-        {{#if bulkSelectEnabled}}
-          <div class='fps-select'>
-            <a {{action "selectAll"}}>{{i18n "search.select_all"}}</a>
-            <a {{action "clearAll"}}>{{i18n "search.clear_all"}}</a>
+      <div class="search-notice">
+        {{#if invalidSearch}}
+          <div class="fps-invalid">
+            {{i18n "search.too_short"}}
           </div>
         {{/if}}
       </div>
 
-      <div class='search-info'>
-        <div class='result-count'>
-          {{{resultCountLabel}}}
-        </div>
-        <div class='sort-by'>
-          <span class='desc'>
-            {{i18n "search.sort_by"}}
-          </span>
-          {{combo-box value=sortOrder content=sortOrders castInteger=true}}
-        </div>
-      </div>
-    {{/if}}
-
-   {{plugin-outlet name="full-page-search-below-search-info" args=(hash search=searchTerm)}}
-
-    <div class="search-results">
-      {{#load-more selector=".fps-result" action="loadMore"}}
-        {{#each model.posts as |result|}}
-          <div class='fps-result'>
-            <div class='author'>
-              <a href={{result.userPath}} data-user-card="{{unbound result.username}}">
-                {{avatar result imageSize="large"}}
-              </a>
-            </div>
-
-            <div class='fps-topic'>
-              <div class='topic'>
-                {{#if bulkSelectEnabled}}
-                  {{track-selected selectedList=selected selectedId=result.topic}}
-                {{/if}}
-
-                <a class='search-link' href='{{unbound result.url}}' {{action "logClick" result.topic_id}}>
-                  {{topic-status topic=result.topic disableActions=true}}<span class='topic-title'>{{#highlight-text highlight=q}}{{{unbound result.topic.fancyTitle}}}{{/highlight-text}}</span>
-                </a>
-
-                <div class='search-category'>
-                  {{#if result.topic.category.parentCategory}}
-                  {{category-link result.topic.category.parentCategory}}
-                  {{/if}}
-                  {{category-link result.topic.category hideParent=true}}
-                  {{#each result.topic.tags as |tag|}}
-                    {{discourse-tag tag isPrivateMessage=isPrivateMessage}}
-                  {{/each}}
-                  {{plugin-outlet name="full-page-search-category" args=(hash result=result)}}
-                </div>
-              </div>
-
-              <div class='blurb container'>
-                <span class='date'>
-                  {{format-age result.created_at}}
-                  {{#if result.blurb}}
-                  -
-                  {{/if}}
-                </span>
-
-                {{#if result.blurb}}
-                  {{#highlight-text highlight=highlightQuery}}
-                    {{{unbound result.blurb}}}
-                  {{/highlight-text}}
-                {{/if}}
-              </div>
-
-              {{#if showLikeCount}}
-                {{#if result.like_count}}
-                  <span class='like-count'>
-                    {{result.like_count}} {{d-icon "heart"}}
-                  </span>
-                {{/if}}
-              {{/if}}
-            </div>
+      <div class="search-context">
+        {{#if context}}
+          <div class='fps-search-context'>
+            <label>
+              {{input type="checkbox" name="searchContext" checked=searchContextEnabled}} {{searchContextDescription}}
+            </label>
           </div>
-        {{/each}}
+        {{/if}}
+      </div>
 
-        {{#conditional-loading-spinner condition=loading }}
-          {{#unless hasResults}}
-            {{#if searchActive}}
-              <h3>{{i18n "search.no_results"}}</h3>
+      {{#if hasResults}}
+        <div class='search-title'>
 
-              {{#if showSuggestion}}
-                <div class="no-results-suggestion">
-                  {{i18n "search.cant_find"}}
-                </div>
-
-                {{google-search searchTerm=searchTerm}}
-              {{/if}}
-            {{/if}}
-          {{/unless}}
-
-          {{#if hasResults}}
-            {{#unless loading}}
-              <h3 class="search-footer">
-                {{#if model.grouped_search_result.more_full_page_results}}
-                  {{#if isLastPage }}
-                    {{i18n "search.more_results"}}
-                  {{/if}}
-                {{else}}
-                  {{i18n "search.no_more_results"}}
-                {{/if}}
-              </h3>
-            {{/unless}}
+          {{#if canBulkSelect}}
+            {{d-button icon="list" class="btn-default bulk-select" title="topics.bulk.toggle" action="toggleBulkSelect"}}
+            {{bulk-select-button selected=selected action="search"}}
           {{/if}}
-        {{/conditional-loading-spinner}}
-      {{/load-more}}
-    </div>
-  </div>
 
-  <div class="search-advanced-sidebar">
-    {{#if site.mobileView}}
-      <div class="search-bar">
-        {{search-text-field value=searchTerm class="full-page-search search no-blur search-query" action="search" hasAutofocus=hasAutofocus}}
-        {{d-button action="search" icon="search" class="btn-primary search-cta" disabled=searching}}
-      </div>
-    {{/if}}
+          {{#if bulkSelectEnabled}}
+            <div class='fps-select'>
+              <a {{action "selectAll"}}>{{i18n "search.select_all"}}</a>
+              <a {{action "clearAll"}}>{{i18n "search.clear_all"}}</a>
+            </div>
+          {{/if}}
+        </div>
 
-    {{#if site.mobileView}}
-      <button class="search-advanced-title btn" {{action "toggleAdvancedSearch"}}>
-        {{{searchAdvancedIcon}}} {{i18n "search.advanced.title"}}
-      </button>
-    {{else}}
-      <span class="search-advanced-title">
-        {{i18n "search.advanced.title"}}
-      </span>
-    {{/if}}
-
-    {{#if site.mobileView}}
-      {{#if expanded}}
-        <div class="search-advanced-filters">
-          {{search-advanced-options searchTerm=searchTerm isExpanded=expanded}}
+        <div class='search-info'>
+          <div class='result-count'>
+            {{{resultCountLabel}}}
+          </div>
+          <div class='sort-by'>
+            <span class='desc'>
+              {{i18n "search.sort_by"}}
+            </span>
+            {{combo-box value=sortOrder content=sortOrders castInteger=true}}
+          </div>
         </div>
       {{/if}}
-    {{else}}
-      <div class="search-advanced-filters">
-        {{search-advanced-options searchTerm=searchTerm isExpanded=true}}
 
-        {{d-button
-          label="submit"
-          action="search"
-          icon="search"
-          class="btn-primary search-cta"
-          disabled=searching}}
+     {{plugin-outlet name="full-page-search-below-search-info" args=(hash search=searchTerm)}}
+
+      <div class="search-results">
+        {{#load-more selector=".fps-result" action="loadMore"}}
+          {{#each model.posts as |result|}}
+            <div class='fps-result'>
+              <div class='author'>
+                <a href={{result.userPath}} data-user-card="{{unbound result.username}}">
+                  {{avatar result imageSize="large"}}
+                </a>
+              </div>
+
+              <div class='fps-topic'>
+                <div class='topic'>
+                  {{#if bulkSelectEnabled}}
+                    {{track-selected selectedList=selected selectedId=result.topic}}
+                  {{/if}}
+
+                  <a class='search-link' href='{{unbound result.url}}' {{action "logClick" result.topic_id}}>
+                    {{topic-status topic=result.topic disableActions=true}}<span class='topic-title'>{{#highlight-text highlight=q}}{{{unbound result.topic.fancyTitle}}}{{/highlight-text}}</span>
+                  </a>
+
+                  <div class='search-category'>
+                    {{#if result.topic.category.parentCategory}}
+                    {{category-link result.topic.category.parentCategory}}
+                    {{/if}}
+                    {{category-link result.topic.category hideParent=true}}
+                    {{#each result.topic.tags as |tag|}}
+                      {{discourse-tag tag isPrivateMessage=isPrivateMessage}}
+                    {{/each}}
+                    {{plugin-outlet name="full-page-search-category" args=(hash result=result)}}
+                  </div>
+                </div>
+
+                <div class='blurb container'>
+                  <span class='date'>
+                    {{format-age result.created_at}}
+                    {{#if result.blurb}}
+                    -
+                    {{/if}}
+                  </span>
+
+                  {{#if result.blurb}}
+                    {{#highlight-text highlight=highlightQuery}}
+                      {{{unbound result.blurb}}}
+                    {{/highlight-text}}
+                  {{/if}}
+                </div>
+
+                {{#if showLikeCount}}
+                  {{#if result.like_count}}
+                    <span class='like-count'>
+                      {{result.like_count}} {{d-icon "heart"}}
+                    </span>
+                  {{/if}}
+                {{/if}}
+              </div>
+            </div>
+          {{/each}}
+
+          {{#conditional-loading-spinner condition=loading }}
+            {{#unless hasResults}}
+              {{#if searchActive}}
+                <h3>{{i18n "search.no_results"}}</h3>
+
+                {{#if showSuggestion}}
+                  <div class="no-results-suggestion">
+                    {{i18n "search.cant_find"}}
+                  </div>
+
+                  {{google-search searchTerm=searchTerm}}
+                {{/if}}
+              {{/if}}
+            {{/unless}}
+
+            {{#if hasResults}}
+              {{#unless loading}}
+                <h3 class="search-footer">
+                  {{#if model.grouped_search_result.more_full_page_results}}
+                    {{#if isLastPage }}
+                      {{i18n "search.more_results"}}
+                    {{/if}}
+                  {{else}}
+                    {{i18n "search.no_more_results"}}
+                  {{/if}}
+                </h3>
+              {{/unless}}
+            {{/if}}
+          {{/conditional-loading-spinner}}
+        {{/load-more}}
       </div>
-    {{/if}}
-  </div>
-{{/d-section}}
+    </div>
 
+    <div class="search-advanced-sidebar">
+      {{#if site.mobileView}}
+        <div class="search-bar">
+          {{search-text-field value=searchTerm class="full-page-search search no-blur search-query" action="search" hasAutofocus=hasAutofocus}}
+          {{d-button action="search" icon="search" class="btn-primary search-cta" disabled=searching}}
+        </div>
+      {{/if}}
+
+      {{#if site.mobileView}}
+        <button class="search-advanced-title btn" {{action "toggleAdvancedSearch"}}>
+          {{{searchAdvancedIcon}}} {{i18n "search.advanced.title"}}
+        </button>
+      {{else}}
+        <span class="search-advanced-title">
+          {{i18n "search.advanced.title"}}
+        </span>
+      {{/if}}
+
+      {{#if site.mobileView}}
+        {{#if expanded}}
+          <div class="search-advanced-filters">
+            {{search-advanced-options searchTerm=searchTerm isExpanded=expanded}}
+          </div>
+        {{/if}}
+      {{else}}
+        <div class="search-advanced-filters">
+          {{search-advanced-options searchTerm=searchTerm isExpanded=true}}
+
+          {{d-button
+            label="submit"
+            action="search"
+            icon="search"
+            class="btn-primary search-cta"
+            disabled=searching}}
+        </div>
+      {{/if}}
+    </div>
+  {{/d-section}}
 </script>
-
-
 
 <script type="text/x-handlebars" data-template-name="topic">
   {{#discourse-topic multiSelect=multiSelect enteredAt=enteredAt topic=model hasScrolled=hasScrolled}}
@@ -1334,5 +1356,4 @@ var hamburger = document.getElementById('hamburger');
       {{quote-button quoteState=quoteState selectText=(action "selectText")}}
     {{/if}}
   {{/discourse-topic}}
-
 </script>
