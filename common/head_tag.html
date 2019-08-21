@@ -1,47 +1,47 @@
 <script>
-  I18n.translations.en.js.topic.create = "Start new discussion";
-  I18n.translations.en.js.topic.create_long = "Start new discussion";
-  I18n.translations.en.js.topic.reply.title = "Comment";
-  I18n.translations.en.js.composer.reply = "Post";
+  I18n.translations.en.js.topic.create = 'Start new discussion';
+  I18n.translations.en.js.topic.create_long = 'Start new discussion';
+  I18n.translations.en.js.topic.reply.title = 'Comment';
+  I18n.translations.en.js.composer.reply = 'Post';
   I18n.translations.en.js.composer.create_topic =
     I18n.translations.en.js.composer.reply;
   I18n.translations.en.js.composer.composer_actions.reply =
     I18n.translations.en.js.composer.reply;
   I18n.translations.en.js.composer.title_or_link_placeholder =
-    "Enter your subject (mandatory)";
+    'Enter your subject (mandatory)';
   I18n.translations.en.js.composer.reply_placeholder =
-    "Add comment, discussion point, question (mandatory)";
+    'Add comment, discussion point, question (mandatory)';
   I18n.translations.en.js.composer.error.title_missing =
-    "You must enter a subject or headline";
+    'You must enter a subject or headline';
   I18n.translations.en.js.composer.error.post_missing =
-    "You must enter a blurb, question or discussion point";
+    'You must enter a blurb, question or discussion point';
 
-  I18n.translations.en.js.bookmarked.title = "Save to favourites";
-  I18n.translations.en.js.bookmarked.clear_bookmarks = "Remove from favourites";
+  I18n.translations.en.js.bookmarked.title = 'Save to favourites';
+  I18n.translations.en.js.bookmarked.clear_bookmarks = 'Remove from favourites';
   I18n.translations.en.js.bookmarked.help.bookmark =
-    "Click to save to favourites";
+    'Click to save to favourites';
   I18n.translations.en.js.bookmarked.help.unbookmark =
-    "Click to remove from favourites";
+    'Click to remove from favourites';
 
   I18n.translations.en.js.bookmarks.created =
     "you've saved this post to your favourites";
   I18n.translations.en.js.bookmarks.not_bookmarked =
-    "Save this post to your favourites";
+    'Save this post to your favourites';
   I18n.translations.en.js.bookmarks.remove =
     I18n.translations.en.js.bookmarked.clear_bookmarks;
   I18n.translations.en.js.bookmarks.confirm_clear =
-    "Are you sure you wish to clear all your favourites from this topic?";
+    'Are you sure you wish to clear all your favourites from this topic?';
 
-  I18n.translations.en.js.search.title = "Search NZTE Community";
+  I18n.translations.en.js.search.title = 'Search NZTE Community';
   I18n.translations.en.js.search.full_page_title =
     I18n.translations.en.js.search.title;
 
-  I18n.translations.en.js.suggested_topics.title = "Suggested discussions";
+  I18n.translations.en.js.suggested_topics.title = 'Suggested discussions';
 
-  I18n.translations.en.js.filters.latest.title = "Latest first";
-  I18n.translations.en.js.filters.top.title = "Popular";
+  I18n.translations.en.js.filters.latest.title = 'Latest first';
+  I18n.translations.en.js.filters.top.title = 'Popular';
 
-  I18n.translations.en.js.composer.save_edit = "Update";
+  I18n.translations.en.js.composer.save_edit = 'Update';
 </script>
 
 <script type="text/discourse-plugin" version="0.8">
@@ -313,46 +313,46 @@
 
 <script type="text/javascript">
   function isHome() {
-    console.log("window.location.pathname");
-    return window.location.pathname === "/";
+    console.log('window.location.pathname');
+    return window.location.pathname === '/';
   }
 
   function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById('myDropdown').classList.toggle('show');
   }
 
   function navFunction() {
-    const x = document.getElementById("mobileNav");
-    if (x.style.display === "block") {
-      x.style.display = "none";
+    const x = document.getElementById('mobileNav');
+    if (x.style.display === 'block') {
+      x.style.display = 'none';
     } else {
-      x.style.display = "block";
+      x.style.display = 'block';
     }
   }
 
   $(document).ready(function() {
-    const desktopProfile = document.getElementById("desktopProfile");
+    const desktopProfile = document.getElementById('desktopProfile');
     if (desktopProfile) {
       desktopProfile.src = desktopProfile.src.replace(/%7Bsize%7D/g, 60);
     }
-    const mobileProfile = document.getElementById("mobileProfile");
+    const mobileProfile = document.getElementById('mobileProfile');
     if (mobileProfile) {
       mobileProfile.src = mobileProfile.src.replace(/%7Bsize%7D/g, 60);
     }
-    $("#profDropdown").click(function() {
-      $("#myDropdown").toggle("show");
+    $('#profDropdown').click(function() {
+      $('#myDropdown').toggle('show');
     });
-    $("#bButton").click(function() {
+    $('#bButton').click(function() {
       window.history.back();
     });
   });
 
   $(document).ajaxComplete(function() {
-    var hamburger = document.getElementById("hamburger");
-    hamburger.addEventListener("click", navFunction);
+    var hamburger = document.getElementById('hamburger');
+    hamburger.addEventListener('click', navFunction);
 
-    var back = document.getElementById("back");
-    back.addEventListener("click", goBack);
+    var back = document.getElementById('back');
+    back.addEventListener('click', goBack);
   });
 
   function goBack() {
@@ -361,8 +361,8 @@
 
   function logout() {
     $.ajax({
-      url: "/session/" + Discourse.User.current().username,
-      type: "DELETE",
+      url: '/session/' + Discourse.User.current().username,
+      type: 'DELETE',
       success: function(result) {
         // Do something with the result
         console.log(result);
@@ -430,8 +430,8 @@
                     src="{{themeSettings.web_url}}/icon/expand.png"/>
               </span>
               <div id="myDropdown" class="dropdown-content">
-              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/settings#company">My Company</a>
-                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/settings">Settings</a>
+              <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
+                <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">Settings</a>
                 <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/?loggedOut=true&fId={{currentUser.id}}"
                    onclick="logout()">Sign Out</a>
               </div>
@@ -462,8 +462,8 @@
           </span>
         </div>
         <div class="mobile-nav-section">
-        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/settings#company">My Company</a>
-          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/settings">Settings</a>
+        <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/company">My Company</a>
+          <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/profile">Settings</a>
         </div>
         <div class="mobile-nav-section">
           <a class="nav-dropdown-item" href="{{themeSettings.web_url}}/learn">Learn</a>
